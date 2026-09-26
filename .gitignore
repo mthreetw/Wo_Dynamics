@@ -1,0 +1,22 @@
+# 1. 忽略特定輸入包檔案
+形式化輸入包.md
+稽核輸入包.md
+
+# 2. 忽略所有 XML 檔案
+*.xml
+
+# 3. 忽略 Java 編譯出的產物與 class 檔
+target/
+*.class
+
+# 4. 忽略 Eclipse IDE 產生的專案設定檔與暫存檔
+.classpath
+.project
+.settings/
+
+# 5. 忽略其他編輯器與作業系統暫存檔
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
