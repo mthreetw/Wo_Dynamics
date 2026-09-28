@@ -18,13 +18,12 @@ import java.util.stream.*;
  *   0. stamp      更新 Git 暫存區中檔案的時間戳（只改時間戳那一行）
  *   1. validate   格式與連結檢查（稽核總表中檢查者為「工具」或「工具＋AI」的條目）
  *   2. bundle     在論文資料夾中產出「形式化輸入包.md」與「稽核輸入包.md」
- *   3. collect    彙整所有 formalization.md 到 formalizations/
- *   4. tree       產出 PaperTree.html（引用關係圖）
- *   5. starmap    產出 starmap.html（概念關係星圖）
- *   6. concepts   產出 exports/concepts.jsonl（依工具規格第四節抽取並分類關係）
- *   7. papers     產出 exports/papers.jsonl
- *   8. checkPapers  檢查 papers.jsonl 結構
- *   9. checkHf    遠端檢查 HF dataset 狀態（需要網路；未設定 HF_DATASET 時略過）
+ *   3. tree       產出 PaperTree.html（引用關係圖）
+ *   4. starmap    產出 starmap.html（概念關係星圖）
+ *   5. concepts   產出 exports/concepts.jsonl（依工具規格第四節抽取並分類關係）
+ *   6. papers     產出 exports/papers.jsonl
+ *   7. checkPapers  檢查 papers.jsonl 結構
+ *   8. checkHf    遠端檢查 HF dataset 狀態（需要網路；未設定 HF_DATASET 時略過）
  *
  * validate 有「不通過」時停止，不執行後續步驟；「警告」不阻擋。
  * Issue 代碼即稽核總表的約束編號（論、譯、概、存、形、跨）。
@@ -38,7 +37,7 @@ public class ToolRunner {
 
     static final String SRC_DIR    = "src/main/java";
     static final String EXPORTS    = "exports";
-    /** HF 資料集名稱（例如「帳號/資料集」）。尚未發布時留空，第 9 步會略過。 */
+    /** HF 資料集名稱（例如「帳號/資料集」）。尚未發布時留空，第 8 步會略過。 */
     static final String HF_DATASET = "";
     /** 規範文件所在目錄（相對於專案根目錄） */
     static final String DOCS_DIR   = "src/main/resources";
@@ -220,25 +219,22 @@ public class ToolRunner {
         section("2. bundle");
         bundle(root, papers, warnings);
 
-        section("3. collect");
-        collect(root, papers);
-
-        section("4. tree");
+        section("3. tree");
         tree(root, papers);
 
-        section("5. starmap");
+        section("4. starmap");
         starmap(root, papers);
 
-        section("6. concepts.jsonl");
+        section("5. concepts.jsonl");
         exportConcepts(root, papers);
 
-        section("7. papers.jsonl");
+        section("6. papers.jsonl");
         exportPapers(root, papers);
 
-        section("8. checkPapers");
+        section("7. checkPapers");
         checkPapers(root);
 
-        section("9. checkHf");
+        section("8. checkHf");
         if (HF_DATASET.isBlank()) System.out.println("尚未設定 HF 資料集，略過");
         else try {
             checkHf(HF_DATASET);
@@ -1390,25 +1386,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 3. collect
-    // ════════════════════════════════════════════════════════════
-
-    static void collect(Path root, List<Paper> papers) throws IOException {
-        Path outDir = root.resolve("formalizations");
-        Files.createDirectories(outDir);
-        int n = 0;
-        for (Paper p : papers) {
-            if (p.formalizationFile == null) continue;
-            String name = p.title != null ? p.title : p.folder;
-            Files.copy(p.formalizationFile, outDir.resolve("formalization_" + name + ".md"),
-                StandardCopyOption.REPLACE_EXISTING);
-            n++;
-        }
-        System.out.println("彙整 " + n + " 份到 " + outDir.getFileName());
-    }
-
-    // ════════════════════════════════════════════════════════════
-    // 4. tree
+    // 3. tree
     // ════════════════════════════════════════════════════════════
 
     static void tree(Path root, List<Paper> papers) throws IOException {
@@ -1461,7 +1439,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 5. starmap
+    // 4. starmap
     // ════════════════════════════════════════════════════════════
 
     static void starmap(Path root, List<Paper> papers) throws IOException {
@@ -1543,7 +1521,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 6. concepts.jsonl
+    // 5. concepts.jsonl
     // ════════════════════════════════════════════════════════════
 
     static void exportConcepts(Path root, List<Paper> papers) throws IOException {
@@ -1596,7 +1574,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 7. papers.jsonl
+    // 6. papers.jsonl
     // ════════════════════════════════════════════════════════════
 
     static void exportPapers(Path root, List<Paper> papers) throws IOException {
@@ -1629,7 +1607,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 8. checkPapers
+    // 7. checkPapers
     // ════════════════════════════════════════════════════════════
 
     static void checkPapers(Path root) throws IOException {
@@ -1678,7 +1656,7 @@ public class ToolRunner {
     }
 
     // ════════════════════════════════════════════════════════════
-    // 9. checkHf
+    // 8. checkHf
     // ════════════════════════════════════════════════════════════
 
     static void checkHf(String dataset) throws IOException, InterruptedException {
