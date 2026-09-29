@@ -12,9 +12,10 @@ last-modified: 2026-09-28T23:27:12
 <a id="c02"></a>
 ## public 不被保證 / Not Guaranteed
 
-- 定義：不被保證是禁止的一種形式：它不說某件事[不會發生](concepts.md#c01)，而是說框架推不出它必然發生；具體情形中是否另有約束使它成立，框架不斷言。它限制的是預測能有多少信心。
-- Definition: Not Guaranteed is one form of prohibition: it does not state that something [never occurs](concepts.md#c01), but that the framework cannot derive that it necessarily happens; whether other constraints make it hold in a particular case, the framework does not assert. What it limits is how much confidence a prediction can have.
+- 定義：不被保證是禁止的一種形式：它不說某件事[不會發生](concepts.md#c01)，而是說框架不斷言它必然發生。具體情形中是否另有約束使它成立，框架也不斷言；要主張它必然發生，必須另外寫明所依賴的約束。它限制的是預測能有多少信心。
+- Definition: Not Guaranteed is one form of prohibition: it does not state that something [never occurs](concepts.md#c01), but that the framework does not assert that it necessarily happens. Whether other constraints make it hold in a particular case, the framework does not assert either; to claim that it necessarily happens, one must state the constraints relied on. What it limits is how much confidence a prediction can have.
 - 裁決：2026-09-28 作者裁決：稽核指出「沒有任何東西保證」過強；改為「框架推不出它必然發生」。
+- 裁決：2026-09-29 作者裁決：稽核指出「框架推不出」是關於整個框架可推導性的後設命題，只看單一定義不足以證成；改為「框架不斷言它必然發生」，只談框架說了什麼，對照前提與定義即可核對。名稱不變，保留 ID。
 
 <a id="c03"></a>
 ## private 宇宙 / Universe
@@ -89,9 +90,10 @@ last-modified: 2026-09-28T23:27:12
 <a id="c13"></a>
 ## private 到達 / Arrival
 
-- 定義：一次[寫入](concepts.md#c09)落到一個[呈現](concepts.md#c04)上，就是到達它。一次[坍塌](concepts.md#c07)[涉及](concepts.md#c14)一個[呈現](concepts.md#c04)時，它的結果就到達這個[呈現](concepts.md#c04)；結果沒有落在它身上時，「這次沒有發生在它身上」也是到達它的一件事。[宇宙初態](concepts.md#c11)到達一切[呈現](concepts.md#c04)。
-- Definition: A [Writing](concepts.md#c09) arrives at a [Presentation](concepts.md#c04) when it falls on that [presentation](concepts.md#c04). When a [Collapse](concepts.md#c07) [involves](concepts.md#c14) a [presentation](concepts.md#c04), its outcome arrives at that [presentation](concepts.md#c04); if the outcome does not fall on it, the fact that "this time it did not happen to it" is also something that arrives at it. The [Initial State of the Universe](concepts.md#c11) arrives at every [presentation](concepts.md#c04).
-- 裁決：2026-09-28 判定與上游《渦動力學》的到達（c10）不是同一概念：上游為 private，本篇在自己的前提下重新定義；本篇不引入刺激。
+- 定義：一個[呈現](concepts.md#c04)收到的[刺激](concepts.md#c53)、[涉及](concepts.md#c14)它而實際結果沒有落在它身上的[坍塌](concepts.md#c07)，以及[宇宙初態](concepts.md#c11)，都成為它[歷史](concepts.md#c10)的一部分，這就是到達。也就是說，一個[呈現](concepts.md#c04)所處的物理條件，不論有沒有改變，都成為它的[歷史](concepts.md#c10)；一件可能發生在它身上、結果沒有發生的事，也算在內。
+- Definition: The [Stimuli](concepts.md#c53) a [Presentation](concepts.md#c04) receives, the [Collapses](concepts.md#c07) that [involve](concepts.md#c14) it but whose actual outcome does not fall on it, and the [Initial State of the Universe](concepts.md#c11) all become part of its [History](concepts.md#c10); this is arrival. In other words, the physical conditions a [presentation](concepts.md#c04) is in, whether or not they change, all become its [history](concepts.md#c10); something that could have happened to it but did not also counts.
+- 裁決：2026-09-28 判定與上游《渦動力學》的到達（c10）不是同一概念：上游為 private，本篇在自己的前提下重新定義。
+- 裁決：2026-09-29 改以刺激（c53）表述；上游渦的定義用到刺激，本篇依自己的前提重新定義。
 
 <a id="c14"></a>
 ## private 涉及 / Involvement
@@ -239,8 +241,9 @@ last-modified: 2026-09-28T23:27:12
 <a id="c36"></a>
 ## public 耦合 / Coupling
 
-- 定義：耦合是這樣的情形：兩個或多個[呈現](concepts.md#c04)的[自己的那一段](concepts.md#c16)，在一個講明的[到達](concepts.md#c13)上重疊。參與耦合的可以是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，也可以是由許多[呈現](concepts.md#c04)構成的[迴路](concepts.md#c31)。重疊有兩種方式：同一個[輸出](concepts.md#c28)[到達](concepts.md#c13)它們；或者它們的[輸出](concepts.md#c28)互相[到達](concepts.md#c13)。耦合總是相對於一個講明的[到達](concepts.md#c13)而言。
-- Definition: Coupling is the situation in which the [Own Segments](concepts.md#c16) of two or more [Presentations](concepts.md#c04) overlap in a stated [Arrival](concepts.md#c13). What takes part in coupling may be [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), or [Loops](concepts.md#c31) made of many [presentations](concepts.md#c04). The overlap takes one of two forms: the same [Output](concepts.md#c28) [arrives](concepts.md#c13) at all of them, or their [outputs](concepts.md#c28) [arrive](concepts.md#c13) at one another. Coupling is always relative to a stated [arrival](concepts.md#c13).
+- 定義：耦合是這樣的情形：兩個或多個[呈現](concepts.md#c04)的[自己的那一段](concepts.md#c16)，在一個講明的[到達](concepts.md#c13)上重疊。參與耦合的可以是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，也可以是由許多[呈現](concepts.md#c04)構成的[迴路](concepts.md#c31)。重疊有兩種方式：同一件事[到達](concepts.md#c13)它們，例如同一個[輸出](concepts.md#c28)，或[宇宙初態](concepts.md#c11)；或者它們的[輸出](concepts.md#c28)互相[到達](concepts.md#c13)。耦合總是相對於一個講明的[到達](concepts.md#c13)而言。
+- Definition: Coupling is the situation in which the [Own Segments](concepts.md#c16) of two or more [Presentations](concepts.md#c04) overlap in a stated [Arrival](concepts.md#c13). What takes part in coupling may be [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), or [Loops](concepts.md#c31) made of many [presentations](concepts.md#c04). The overlap takes one of two forms: the same thing [arrives](concepts.md#c13) at all of them, such as the same [Output](concepts.md#c28) or the [Initial State of the Universe](concepts.md#c11), or their [outputs](concepts.md#c28) [arrive](concepts.md#c13) at one another. Coupling is always relative to a stated [arrival](concepts.md#c13).
+- 裁決：2026-09-29 稽核指出宇宙初態不是輸出，與「任何兩個渦都在宇宙初態上耦合」衝突；第一種方式由「同一個輸出」放寬為「同一件事」，兩種方式仍窮盡。定稿前修改，保留 ID。
 
 <a id="c37"></a>
 ## public 趨同 / Convergence
@@ -333,12 +336,27 @@ last-modified: 2026-09-28T23:27:12
 
 - 定義：經驗禁止是從案例中提煉出的必要條件：缺少某個條件時，某個結局[不會發生](concepts.md#c01)。它不是由框架推出，而是由跨案例的校準得來，必須標明，並可以被新的案例修改。它只寫必要條件，不寫充分條件：條件都滿足時，也只能說那個結局的[權重](concepts.md#c06)變重。
 - Definition: An empirical prohibition is a necessary condition distilled from cases: without a certain condition, a certain outcome [Never Occurs](concepts.md#c01). It is not derived from the framework but obtained by calibration across cases, so it must be marked as such and may be revised by new cases. It states only necessary conditions, never sufficient ones: even when all the conditions are met, one can only say that the [Weight](concepts.md#c06) of that outcome has become heavier.
+
 <a id="c52"></a>
 ## public 持平 / Stasis
 
 - 定義：持平是[耦合](concepts.md#c36)之下的一種走向：在一個講明的維度上，參與者[輸出](concepts.md#c28)的模式之間的距離不變。
 - Definition: Stasis is one direction of development under [Coupling](concepts.md#c36): along a stated dimension, the distance between the patterns of the participants' [Outputs](concepts.md#c28) stays the same.
 - 裁決：2026-09-28 作者裁決新增，使耦合之下的走向窮盡。
+
+<a id="c53"></a>
+## private 刺激 / Stimulus
+
+- 定義：一次[寫入](concepts.md#c09)中落在一個[呈現](concepts.md#c04)身上的部分，以及落在它身上的[坍塌](concepts.md#c07)結果，都是它收到的刺激。也就是說，刺激是這個[呈現](concepts.md#c04)所處的物理條件的改變，不論來自外界還是它自己；自己或別人作出的[分別](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c18)，落在它身上時，也算在內。
+- Definition: The part of a [Writing](concepts.md#c09) that falls on a [Presentation](concepts.md#c04), and the outcome of a [Collapse](concepts.md#c07) that falls on it, are both stimuli it receives. In other words, a stimulus is a change in the physical conditions the [presentation](concepts.md#c04) is in, whether it comes from outside or from the presentation itself; [distinctions](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c18) made by itself or by others are included when they fall on it.
+- 裁決：2026-09-29 判定與上游《渦動力學》的刺激（c30）不是同一概念：上游為 private，本篇在自己的前提下重新定義。
+
+<a id="c54"></a>
+## private 復原 / Restoration
+
+- 定義：復原是讓一個[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)[自己的那一段](concepts.md#c16)，整段再發生一次。也就是說，它的一切物理狀態，時間逆流，回到過去的某一個[時刻](concepts.md#c08)。
+- Definition: Restoration is making the whole of a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)'s [Own Segment](concepts.md#c16) happen once again. In other words, all of its physical states flow back in time to some past [Moment](concepts.md#c08).
+- 裁決：2026-09-29 判定與上游《渦動力學》的復原（c27）不是同一概念：上游為 private，本篇在自己的前提下重新定義。
 
 ## 不登記
 
