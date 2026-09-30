@@ -682,6 +682,8 @@ public class ToolRunner {
                     t = t.replace(n, "■");
                 }
             }
+            // 概-12（工具部分）、概-34：定義中的連結
+            checkDefinitionLinks(is, p, byFolder);
             // 概-08：條目之間不得有其他二級標題
             checkTailHeadings(is, p);
 
@@ -833,6 +835,42 @@ public class ToolRunner {
 
     static final LinkCodes ZH_CODES = new LinkCodes("中文", "論-07", "論-08", "論-09", "論-10", "論-11", "論-12", "論-13");
     static final LinkCodes EN_CODES = new LinkCodes("英文", "譯-03", "譯-03", "譯-03", "譯-05", "譯-04", "譯-03", "譯-03");
+
+    /** 概-12（工具部分）、概-34：定義中的連結有效；public 定義只連 public */
+    static void checkDefinitionLinks(List<Issue> is, Paper p, Map<String, Paper> byFolder) {
+        for (Concept c : p.concepts) {
+            if (c.deprecated || c.zh == null) continue;
+            String at = p.folder + " #" + c.id;
+            Set<String> seen = new HashSet<>();          // 同一條目連到同一目標只報一次
+            for (String line : c.raw.split("\n")) {
+                String t = line.trim();
+                if (!t.startsWith("- 定義：") && !t.startsWith("- Definition:")) continue;
+                var m = MD_LINK_RE.matcher(t);
+                while (m.find()) {
+                    String target = m.group(2).trim();
+                    if (!seen.add(target)) continue;
+                    var loc = LOCAL_TARGET_RE.matcher(target);
+                    var ext = EXT_TARGET_RE.matcher(target);
+                    var up  = UP_TARGET_RE.matcher(target);
+                    String dir = null, id;
+                    if (loc.matches())      id = loc.group(1);
+                    else if (ext.matches()) { dir = ext.group(1); id = ext.group(2); }
+                    else if (up.matches())  { dir = up.group(1);  id = up.group(2); }
+                    else { is.add(new Issue("概-34", at, "定義中的連結格式不合法：" + target)); continue; }
+                    Paper tp = dir == null ? p : byFolder.get(dir);
+                    Concept tc = tp == null ? null : tp.byId(id);
+                    if (tc == null)
+                        is.add(new Issue("概-34", at, "定義連到不存在的條目：" + target));
+                    else if (tc.deprecated)
+                        is.add(new Issue("概-34", at, "定義連到已廢棄的條目：" + target));
+                    else if (dir != null && !"public".equals(tc.mod))
+                        is.add(new Issue("概-34", at, "定義連到他篇的非 public 條目：" + target));
+                    else if (dir == null && "public".equals(c.mod) && !"public".equals(tc.mod))
+                        is.add(new Issue("概-12", at, "public 條目的定義連到 private 條目：" + tc.zh + "（" + id + "）"));
+                }
+            }
+        }
+    }
 
     static void checkTailHeadings(List<Issue> is, Paper p) {
         String[] lines = p.conceptsText.split("\r?\n");
@@ -1288,8 +1326,7 @@ public class ToolRunner {
                 StringBuilder sb = new StringBuilder();
                 sb.append("# 形式化輸入包\n\n")
                   .append("本檔案包含形式化任務所需的全部材料。任何不在此列的上游概念都視為缺失，\n")
-                  .append("發現時應回報，不得自行推測其定義。標為 private 的上游概念只作為理解定義的脈絡，\n")
-                  .append("不得在本篇中引用。\n\n---\n\n");
+                  .append("發現時應回報，不得自行推測其定義。\n\n---\n\n");
                 sb.append("# 形式化手冊\n\n").append(manual)
                   .append("\n\n---\n\n").append(upstream);
                 sb.append("---\n\n# 本篇概念表\n\n").append(p.conceptsText)
@@ -1344,7 +1381,7 @@ public class ToolRunner {
         return Files.exists(f) ? Files.readString(f, StandardCharsets.UTF_8) : "";
     }
 
-    /** 本篇引用到的上游概念，遞移擷取（定義所連結的概念一併帶入，private 條目作為脈絡） */
+    /** 本篇引用到的上游概念，遞移擷取（定義所連結的概念一併帶入；依概-12，帶入的都是 public 條目） */
     static String upstreamSection(Paper p, Map<String, Paper> byFolder, int[] count) {
         Map<String, Set<String>> need = new LinkedHashMap<>();
         Deque<String[]> queue = new ArrayDeque<>();

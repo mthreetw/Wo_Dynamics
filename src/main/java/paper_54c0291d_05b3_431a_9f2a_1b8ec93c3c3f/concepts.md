@@ -193,8 +193,9 @@ last-modified: 2026-09-27T01:51:21
 <a id="c27"></a>
 ## public 刺激束 / Stimulus Bundle
 
-- 定義：刺激束是某個[時刻](concepts.md#c04)所有[出現](concepts.md#c08)的[刺激](concepts.md#c07)組成的集合。刺激束可以是空集，此時為[空刺激束](concepts.md#c23)。
-- Definition: A stimulus bundle is the set of all [Stimuli](concepts.md#c07) that [occur](concepts.md#c08) at a given [Moment](concepts.md#c04). A stimulus bundle may be the empty set, in which case it is the [Empty Stimulus Bundle](concepts.md#c23).
+- 定義：刺激束是某個[時刻](concepts.md#c04)所有[出現](concepts.md#c08)的[刺激](concepts.md#c07)組成的集合。刺激束可以是空集。
+- Definition: A stimulus bundle is the set of all [Stimuli](concepts.md#c07) that [occur](concepts.md#c08) at a given [Moment](concepts.md#c04). A stimulus bundle may be the empty set.
+- 裁決：2026-09-30 刪除「此時為空刺激束」：public 定義只連 public；只刪命名，意義不變。
 
 <a id="c28"></a>
 ## private 空記錄 / Empty Record
@@ -228,9 +229,10 @@ last-modified: 2026-09-27T01:51:21
 <a id="c32"></a>
 ## public 選出 / Selection
 
-- 定義：選出是指把某個[時刻](concepts.md#c04)的態送到下一個[時刻](concepts.md#c04)之態的映射，不是等距映射的情形。[信](concepts.md#c26)在[記錄基底](concepts.md#c18)下呈對角、看起來像經典的機率分布，本身不構成選出。
-- Definition: Selection is the situation in which the map sending the state at one [Moment](concepts.md#c04) to the state at the next [moment](concepts.md#c04) is not an isometry. [Belief](concepts.md#c26) being diagonal in the [Record Basis](concepts.md#c18), and so looking like a classical probability distribution, does not by itself constitute selection.
+- 定義：選出是指把某個[時刻](concepts.md#c04)的態送到下一個[時刻](concepts.md#c04)之態的映射，不是等距映射的情形。[信](concepts.md#c26)在某個基底下呈對角、看起來像經典的機率分布，本身不構成選出。
+- Definition: Selection is the situation in which the map sending the state at one [Moment](concepts.md#c04) to the state at the next [moment](concepts.md#c04) is not an isometry. [Belief](concepts.md#c26) being diagonal in some basis, and so looking like a classical probability distribution, does not by itself constitute selection.
 - 裁決：2026-09-23 改為通用定義，不綁定本篇的演化規則：任何演化都可代入檢查是否構成選出。
+- 裁決：2026-09-30 「在記錄基底下」改為「在某個基底下」：public 定義只連 public；改的是擋誤讀的句子，選出本身的意義不變。
 
 <a id="c33"></a>
 ## private 非坍縮 / Non-Collapse
