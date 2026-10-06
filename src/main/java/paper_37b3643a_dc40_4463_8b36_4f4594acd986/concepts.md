@@ -157,8 +157,9 @@ last-modified: 2026-09-29T12:00:00
 <a id="c22"></a>
 ## private 接上 / Connection
 
-- 定義：接上是[我](concepts.md#c19)與[觀察者](concepts.md#c07)之間的聯繫；接上不在[宇宙](concepts.md#c02)之中。接上的[我](concepts.md#c19)，是[坍塌](concepts.md#c08)所經由的[我](concepts.md#c19)。一個[我](concepts.md#c19)是否接上，不由它的自我定義決定。
-- Definition: Connection is the link between a [Self](concepts.md#c19) and the [Observer](concepts.md#c07). Connection is not in the [Universe](concepts.md#c02). A connected [self](concepts.md#c19) is a [self](concepts.md#c19) through which [Collapse](concepts.md#c08) takes place. Whether a [self](concepts.md#c19) is connected is not decided by its self-definition.
+- 定義：接上是[我](concepts.md#c19)與[觀察者](concepts.md#c07)之間的聯繫；接上不在[宇宙](concepts.md#c02)之中。接上的[我](concepts.md#c19)，是[坍塌](concepts.md#c08)所經由的[我](concepts.md#c19)。一個[我](concepts.md#c19)是否接上，不由它的任何[分別](concepts.md#c18)決定，包括自我定義。
+- Definition: Connection is the link between a [Self](concepts.md#c19) and the [Observer](concepts.md#c07). Connection is not in the [Universe](concepts.md#c02). A connected [self](concepts.md#c19) is a [self](concepts.md#c19) through which [Collapse](concepts.md#c08) takes place. Whether a [self](concepts.md#c19) is connected is not decided by any of its [distinctions](concepts.md#c18), including its self-definition.
+- 裁決：2026-10-05 稽核指出定義寫「不由自我定義決定」，論文第四節形式段寫「不由任何分別內容決定」，範圍不一致。接上不在宇宙之中，宇宙中的任何東西都不決定它；定義與正文改為「不由它的任何分別決定，包括自我定義」，與形式段一致。private 條目，保留 ID。
 
 <a id="c23"></a>
 ## private 死亡 / Death
@@ -270,7 +271,7 @@ last-modified: 2026-09-29T12:00:00
 - 四條律：2026-09-26 流變律、黑箱律、損耗律、不可復原律的總稱，各律已分別登記。
 - 第一問與第二問：2026-09-26 判斷是否為渦的兩個提問的內部編號，不是概念。
 - 具名推論：2026-09-26 渦存在、形式層沒有時刻、互動、接上無差別、沒有全知的渦、無我、死亡是分別、歷史不失去任何東西，皆為章節標題，不是概念。
-- 形式段名稱：2026-09-26 寫入規則、寫入後歷史、結果投影、刺激投影、推前、時刻集合、歷史全參與、有參與且不鎖死之時、分別內容、分別規則、經由之我、替換、坍塌前已定之量、應用的假定，只出現在形式段，屬形式化階段的記號。
+- 形式段名稱：2026-09-26 寫入規則、寫入後歷史、結果投影、刺激投影、推前、時刻集合、歷史全參與、其後有不鎖死之時、分別內容、分別規則、經由之我、替換、坍塌前已定之量、應用的假定，只出現在形式段，屬形式化階段的記號。2026-10-05 有參與且不鎖死之時 改名為 其後有不鎖死之時。
 - 導致：2026-09-26 論文聲明不談導致，未加定義。
 
 ## 待決項

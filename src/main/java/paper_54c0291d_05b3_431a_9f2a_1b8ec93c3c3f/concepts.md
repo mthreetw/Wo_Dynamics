@@ -15,7 +15,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 形式層 / Formal Layer
 
 - 定義：形式層是這樣一個宇宙：[時刻](concepts.md#c04)已經開始，[刺激](concepts.md#c07)已經[出現](concepts.md#c08)，[信](concepts.md#c26)已經[累積](concepts.md#c30)，而其中沒有觀察者。形式層中只有明列的[給定](concepts.md#c03)，以及由[給定](concepts.md#c03)推出的東西。
-- Definition: The formal layer is a universe in which [Moments](concepts.md#c04) have begun, [Stimuli](concepts.md#c07) have [occurred](concepts.md#c08), and [Belief](concepts.md#c26) has [accumulated](concepts.md#c30), but in which there is no observer. The formal layer contains nothing but the explicitly listed [Givens](concepts.md#c03) and what is derived from them.
+- Definition: The formal layer is a universe in which [Moments](concepts.md#c04) have begun, [Stimuli](concepts.md#c07) have [occurred](concepts.md#c08), and [Xin](concepts.md#c26) has [accumulated](concepts.md#c30), but in which there is no observer. The formal layer contains nothing but the explicitly listed [Givens](concepts.md#c03) and what is derived from them.
 - 裁決：2026-09-23 判定登記為概念。
 - 裁決：2026-09-23 加入封閉原則：形式層中只有明列的給定，以及由給定推出的東西。範圍限定於形式層，觀察者出現後不再適用。
 
@@ -61,39 +61,41 @@ last-modified: 2026-09-27T01:51:21
 - Definition: Occurrence is the relation between [Stimuli](concepts.md#c07) and [Moments](concepts.md#c04): a stimulus and a moment stand in the occurrence relation when that stimulus appears at that moment. Occurrence is a subset of the Cartesian product of stimuli and moments, and is [given](concepts.md#c03) together with the stimuli.
 
 <a id="c09"></a>
-## private 初始信 / Initial Belief
+## private 初始信 / Initial Xin
 
 - 定義：初始信是[初始時刻](concepts.md#c05)的[全域態](concepts.md#c25)，為[記錄空間](concepts.md#c15)中的一個單位向量。它是[給定](concepts.md#c03)的，不經[寫入](concepts.md#c21)而得，來自[奇點](concepts.md#c01)。
-- Definition: The initial belief is the [Global State](concepts.md#c25) at the [Initial Moment](concepts.md#c05), a unit vector in the [Record Space](concepts.md#c15). It is [given](concepts.md#c03), not obtained through [Writing](concepts.md#c21), and comes from the [Singularity](concepts.md#c01).
+- Definition: The initial Xin is the [Global State](concepts.md#c25) at the [Initial Moment](concepts.md#c05), a unit vector in the [Record Space](concepts.md#c15). It is [given](concepts.md#c03), not obtained through [Writing](concepts.md#c21), and comes from the [Singularity](concepts.md#c01).
 - 裁決：2026-09-23 判定與信分別登記。
 - 裁決：2026-09-26 改為 private：定義綁定本篇的全域態與記錄空間。
+- 裁決：2026-10-03 英文名由 Initial Belief 改為 Initial Xin：隨信的英文名改為 Xin。
 
 <a id="c10"></a>
 ## public 切分 / Partition
 
 - 定義：切分是把宇宙劃為兩部分的界線：保留的部分是[信](concepts.md#c26)，被積掉的其餘部分是[環境](concepts.md#c11)。切分只劃線，不決定任何結果，因此切分不是觀察。
-- Definition: The partition is the line that divides the universe into two parts: the retained part is [Belief](concepts.md#c26), and the traced-out remainder is the [Environment](concepts.md#c11). The partition only draws a line and decides no outcome; therefore the partition is not an observation.
+- Definition: The partition is the line that divides the universe into two parts: the retained part is [Xin](concepts.md#c26), and the traced-out remainder is the [Environment](concepts.md#c11). The partition only draws a line and decides no outcome; therefore the partition is not an observation.
 
 <a id="c11"></a>
 ## public 環境 / Environment
 
 - 定義：環境是[切分](concepts.md#c10)之下宇宙中[信](concepts.md#c26)以外、被積掉的其餘部分。
-- Definition: The environment is the remainder of the universe, apart from [Belief](concepts.md#c26), that is traced out under the [Partition](concepts.md#c10).
+- Definition: The environment is the remainder of the universe, apart from [Xin](concepts.md#c26), that is traced out under the [Partition](concepts.md#c10).
 - 裁決：2026-09-26 刪除環境隨時刻增長、初始時刻沒有環境、所在空間為環境總空間等描述：屬本篇公設二的構造，使下游可在自己的前提下使用。
 
 <a id="c12"></a>
 ## private 宇宙空間 / Universe Space
 
 - 定義：宇宙空間是宇宙在某個[時刻](concepts.md#c04)所處的空間，等於該[時刻](concepts.md#c04)的[信空間](concepts.md#c13)與[環境總空間](concepts.md#c14)的張量積。
-- Definition: The universe space is the space in which the universe lies at a given [Moment](concepts.md#c04); it equals the tensor product of the [Belief Space](concepts.md#c13) and the [Total Environment Space](concepts.md#c14) at that moment.
+- Definition: The universe space is the space in which the universe lies at a given [Moment](concepts.md#c04); it equals the tensor product of the [Xin Space](concepts.md#c13) and the [Total Environment Space](concepts.md#c14) at that moment.
 - 裁決：2026-09-23 判定登記，名稱由作者確認。
 
 <a id="c13"></a>
-## private 信空間 / Belief Space
+## private 信空間 / Xin Space
 
 - 定義：信空間是[信](concepts.md#c26)所在的空間。在[初始時刻](concepts.md#c05)，信空間是一份[記錄空間](concepts.md#c15)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，信空間再接上一份[記錄空間](concepts.md#c15)。
-- Definition: The belief space is the space in which [Belief](concepts.md#c26) lives. At the [Initial Moment](concepts.md#c05) the belief space is one copy of the [Record Space](concepts.md#c15); at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the record space is appended to it.
+- Definition: The Xin space is the space in which [Xin](concepts.md#c26) lives. At the [Initial Moment](concepts.md#c05) the Xin space is one copy of the [Record Space](concepts.md#c15); at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the record space is appended to it.
 - 裁決：2026-09-23 判定登記，名稱由作者確認。
+- 裁決：2026-10-03 英文名由 Belief Space 改為 Xin Space：隨信的英文名改為 Xin。
 
 <a id="c14"></a>
 ## private 環境總空間 / Total Environment Space
@@ -121,7 +123,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 記錄 / Record
 
 - 定義：記錄是[信](concepts.md#c26)的組成單位。每個[時刻](concepts.md#c04)對應一筆記錄：[初始時刻](concepts.md#c05)的記錄是[給定](concepts.md#c03)的，每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)則經[寫入](concepts.md#c21)新增一筆。[信](concepts.md#c26)由這些記錄依[時刻](concepts.md#c04)順序排成。
-- Definition: A record is the constituent unit of [Belief](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). Belief consists of these records arranged in the order of moments.
+- Definition: A record is the constituent unit of [Xin](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). Xin consists of these records arranged in the order of moments.
 - 裁決：2026-09-23 判定記錄、記錄空間、記錄基底分別登記。
 - 裁決：2026-09-26 定義不綁定本篇的初始信與記錄空間，使下游可在自己的前提下使用。
 
@@ -179,16 +181,17 @@ last-modified: 2026-09-27T01:51:21
 ## private 全域態 / Global State
 
 - 定義：全域態是宇宙在某個[時刻](concepts.md#c04)的態，住在該[時刻](concepts.md#c04)的[宇宙空間](concepts.md#c12)中。[初始時刻](concepts.md#c05)的全域態是[初始信](concepts.md#c09)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的全域態，是前一[時刻](concepts.md#c04)的全域態接上[寫入映射](concepts.md#c22)作用於該[時刻](concepts.md#c04)[刺激束](concepts.md#c27)之[編碼](concepts.md#c19)所得的向量。全域態只經歷[寫入](concepts.md#c21)：舊的部分不動，新的接在後面。
-- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that moment. The global state at the [Initial Moment](concepts.md#c05) is the [Initial Belief](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous global state with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that moment's [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
+- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that moment. The global state at the [Initial Moment](concepts.md#c05) is the [Initial Xin](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous global state with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that moment's [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
 
 <a id="c26"></a>
-## public 信 / Belief
+## public 信 / Xin
 
 - 定義：信是宇宙在某個[時刻](concepts.md#c04)的態，在[切分](concepts.md#c10)之下的約化態，即對全部[環境](concepts.md#c11)取偏跡所得的密度算子。信沒有主體，不是誰的信；信是[累積](concepts.md#c30)本身。
-- Definition: Belief is the reduced state, under the [Partition](concepts.md#c10), of the state of the universe at a given [Moment](concepts.md#c04), that is, the density operator obtained by taking the partial trace over the entire [Environment](concepts.md#c11). Belief has no subject and is not anyone's belief; belief is [Accumulation](concepts.md#c30) itself.
+- Definition: Xin is the reduced state, under the [Partition](concepts.md#c10), of the state of the universe at a given [Moment](concepts.md#c04), that is, the density operator obtained by taking the partial trace over the entire [Environment](concepts.md#c11). Xin has no subject and is not anyone's Xin; Xin is [Accumulation](concepts.md#c30) itself.
 - 裁決：2026-09-23 判定與初始信分別登記。
 - 裁決：2026-09-23 定義不綁定本篇的全域態，改指宇宙在某時刻的態，使下游可在自己的前提下使用。
 - 裁決：2026-09-26 刪除「住在信空間上」：定義不綁定本篇的信空間。
+- 裁決：2026-10-03 英文名由 Belief 改為 Xin：belief 一詞預設主體，與定義「信沒有主體」衝突。
 
 <a id="c27"></a>
 ## public 刺激束 / Stimulus Bundle
@@ -209,7 +212,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 最新記錄 / Latest Record
 
 - 定義：最新記錄是某個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的[信](concepts.md#c26)中最後[寫入](concepts.md#c21)的那一筆[記錄](concepts.md#c17)，也就是該[時刻](concepts.md#c04)本身對應的[記錄](concepts.md#c17)。
-- Definition: The latest record is the [Record](concepts.md#c17) last [written](concepts.md#c21) in the [Belief](concepts.md#c26) of a given [Successor](concepts.md#c06) [moment](concepts.md#c04), that is, the record that corresponds to that moment itself.
+- Definition: The latest record is the [Record](concepts.md#c17) last [written](concepts.md#c21) in the [Xin](concepts.md#c26) of a given [Successor](concepts.md#c06) [moment](concepts.md#c04), that is, the record that corresponds to that moment itself.
 - 裁決：2026-09-23 判定與記錄分別登記。
 - 裁決：2026-09-26 限定為後繼時刻：初始時刻的記錄不經寫入。
 
@@ -217,7 +220,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 累積 / Accumulation
 
 - 定義：累積是[信](concepts.md#c26)隨[時刻](concepts.md#c04)增長的方式：每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，[信](concepts.md#c26)多一筆[記錄](concepts.md#c17)，而對[最新記錄](concepts.md#c29)取跡後所得的正是前一[時刻](concepts.md#c04)的[信](concepts.md#c26)；過去的[記錄](concepts.md#c17)不被改寫。[信](concepts.md#c26)的改變不是覆蓋，而是增長。
-- Definition: Accumulation is the way [Belief](concepts.md#c26) grows with [Moments](concepts.md#c04): at each [Successor](concepts.md#c06) [moment](concepts.md#c04) belief gains one more [Record](concepts.md#c17), and taking the trace over the [Latest Record](concepts.md#c29) yields exactly the belief of the previous moment; past records are never rewritten. The change of belief is not overwriting but growth.
+- Definition: Accumulation is the way [Xin](concepts.md#c26) grows with [Moments](concepts.md#c04): at each [Successor](concepts.md#c06) [moment](concepts.md#c04) Xin gains one more [Record](concepts.md#c17), and taking the trace over the [Latest Record](concepts.md#c29) yields exactly the Xin of the previous moment; past records are never rewritten. The change of Xin is not overwriting but growth.
 - 裁決：2026-09-23 判定論文中作為一般詞使用的「累積」與具名結論的累積為同一概念。
 
 <a id="c31"></a>
@@ -230,7 +233,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 選出 / Selection
 
 - 定義：選出是指把某個[時刻](concepts.md#c04)的態送到下一個[時刻](concepts.md#c04)之態的映射，不是等距映射的情形。[信](concepts.md#c26)在某個基底下呈對角、看起來像經典的機率分布，本身不構成選出。
-- Definition: Selection is the situation in which the map sending the state at one [Moment](concepts.md#c04) to the state at the next [moment](concepts.md#c04) is not an isometry. [Belief](concepts.md#c26) being diagonal in some basis, and so looking like a classical probability distribution, does not by itself constitute selection.
+- Definition: Selection is the situation in which the map sending the state at one [Moment](concepts.md#c04) to the state at the next [moment](concepts.md#c04) is not an isometry. [Xin](concepts.md#c26) being diagonal in some basis, and so looking like a classical probability distribution, does not by itself constitute selection.
 - 裁決：2026-09-23 改為通用定義，不綁定本篇的演化規則：任何演化都可代入檢查是否構成選出。
 - 裁決：2026-09-30 「在記錄基底下」改為「在某個基底下」：public 定義只連 public；改的是擋誤讀的句子，選出本身的意義不變。
 
@@ -238,14 +241,14 @@ last-modified: 2026-09-27T01:51:21
 ## private 非坍縮 / Non-Collapse
 
 - 定義：非坍縮是指在每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，[形式層](concepts.md#c02)中的[全域態](concepts.md#c25)都未經歷[選出](concepts.md#c32)。非坍縮不否認[信](concepts.md#c26)可以在[記錄基底](concepts.md#c18)下呈對角、看起來像經典的機率分布；它否認的是[選出](concepts.md#c32)。
-- Definition: Non-collapse is the condition that at every [Successor](concepts.md#c06) [moment](concepts.md#c04) the [Global State](concepts.md#c25) in the [Formal Layer](concepts.md#c02) undergoes no [Selection](concepts.md#c32). Non-collapse does not deny that [Belief](concepts.md#c26) may be diagonal in the [Record Basis](concepts.md#c18) and look like a classical probability distribution; what it denies is selection.
+- Definition: Non-collapse is the condition that at every [Successor](concepts.md#c06) [moment](concepts.md#c04) the [Global State](concepts.md#c25) in the [Formal Layer](concepts.md#c02) undergoes no [Selection](concepts.md#c32). Non-collapse does not deny that [Xin](concepts.md#c26) may be diagonal in the [Record Basis](concepts.md#c18) and look like a classical probability distribution; what it denies is selection.
 - 裁決：2026-09-26 改為 private：定義綁定本篇的全域態。
 
 <a id="c34"></a>
 ## private 非退化模型 / Non-Degenerate Model
 
 - 定義：非退化模型是一個具體的例子，含兩個[刺激](concepts.md#c07)，即[刺激甲](concepts.md#c35)與[刺激乙](concepts.md#c36)；[記錄空間](concepts.md#c15)與[環境空間](concepts.md#c16)皆為二維，基底標為零與一；[刺激空間](concepts.md#c20)為三維，基底為[真空態](concepts.md#c24)、甲、乙。[初始信](concepts.md#c09)為[記錄](concepts.md#c17)零。[刺激乙](concepts.md#c36)在[第二時刻](concepts.md#c37)[出現](concepts.md#c08)，[刺激甲](concepts.md#c35)在[第三時刻](concepts.md#c38)[出現](concepts.md#c08)，前三個[時刻](concepts.md#c04)內其餘的[出現](concepts.md#c08)皆為假。[寫入映射](concepts.md#c22)把[真空態](concepts.md#c24)送到[記錄](concepts.md#c17)零與[環境](concepts.md#c11)一，把甲送到「[記錄](concepts.md#c17)零、[環境](concepts.md#c11)零」與「[記錄](concepts.md#c17)一、[環境](concepts.md#c11)一」的等權疊加，把乙送到[記錄](concepts.md#c17)一與[環境](concepts.md#c11)零。
-- Definition: The non-degenerate model is a concrete example with two [Stimuli](concepts.md#c07), namely [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36). The [Record Space](concepts.md#c15) and the [Environment Space](concepts.md#c16) are both two-dimensional, with basis vectors labelled zero and one; the [Stimulus Space](concepts.md#c20) is three-dimensional, with basis the [Vacuum State](concepts.md#c24), A, and B. The [Initial Belief](concepts.md#c09) is record zero. Stimulus B [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37) and Stimulus A at the [Third Moment](concepts.md#c38); all other occurrences within the first three [moments](concepts.md#c04) are false. The [Writing Map](concepts.md#c22) sends the vacuum state to [record](concepts.md#c17) zero with [environment](concepts.md#c11) one, sends A to the equal-weight superposition of "record zero, environment zero" and "record one, environment one", and sends B to record one with environment zero.
+- Definition: The non-degenerate model is a concrete example with two [Stimuli](concepts.md#c07), namely [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36). The [Record Space](concepts.md#c15) and the [Environment Space](concepts.md#c16) are both two-dimensional, with basis vectors labelled zero and one; the [Stimulus Space](concepts.md#c20) is three-dimensional, with basis the [Vacuum State](concepts.md#c24), A, and B. The [Initial Xin](concepts.md#c09) is record zero. Stimulus B [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37) and Stimulus A at the [Third Moment](concepts.md#c38); all other occurrences within the first three [moments](concepts.md#c04) are false. The [Writing Map](concepts.md#c22) sends the vacuum state to [record](concepts.md#c17) zero with [environment](concepts.md#c11) one, sends A to the equal-weight superposition of "record zero, environment zero" and "record one, environment one", and sends B to record one with environment zero.
 
 <a id="c35"></a>
 ## private 刺激甲 / Stimulus A

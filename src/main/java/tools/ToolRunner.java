@@ -16,7 +16,8 @@ import java.util.stream.*;
  *
  * 依序執行：
  *   0. stamp      更新 Git 暫存區中檔案的時間戳（只改時間戳那一行）
- *   1. validate   格式與連結檢查（稽核總表中檢查者為「工具」或「工具＋AI」的條目）
+ *   1. validate   格式與連結檢查（稽核總表中檢查者以「工具」開頭的條目；
+ *                 含與最後一次 commit 的版本比對）
  *   2. bundle     在論文資料夾中產出「形式化輸入包.md」與「稽核輸入包.md」
  *   3. tree       產出 PaperTree.html（引用關係圖）
  *   4. starmap    產出 starmap.html（概念關係星圖）
@@ -85,6 +86,10 @@ public class ToolRunner {
         Map<String, String> conceptsYaml = new LinkedHashMap<>();
         Map<String, String> paperYaml = new LinkedHashMap<>();
         String conceptsText = "", zhText = "", enText = "", formText = "";
+        /** 刪除注釋後的論文全文（整段刪除）：輸入包與資料集使用。zhText、enText 則以空行取代注釋，保留行號 */
+        String zhClean = "", enClean = "";
+        /** 注釋格式問題（論-17、譯-06） */
+        List<String> zhNoteProblems = new ArrayList<>(), enNoteProblems = new ArrayList<>();
         List<Rel> rels = new ArrayList<>();
 
         Concept byId(String id) {
@@ -410,14 +415,18 @@ public class ToolRunner {
                        .sorted().collect(Collectors.toList());
             }
             for (Path md : mds) {
-                String text = Files.readString(md, StandardCharsets.UTF_8);
+                // 注釋在一切檢查與輸出之前刪除（工具規格 3.8）
+                Notes notes = stripNotes(Files.readString(md, StandardCharsets.UTF_8));
+                String text = notes.blanked;
                 String name = md.getFileName().toString();
                 String base = name.substring(0, name.length() - 3);
                 if (isMostlyAscii(base)) {
                     p.enPaper = md; p.enText = text; p.titleEn = base;
+                    p.enClean = notes.removed; p.enNoteProblems = notes.problems;
                     p.linksEn = scanLinks(text, name);
                 } else {
                     p.zhPaper = md; p.zhText = text;
+                    p.zhClean = notes.removed; p.zhNoteProblems = notes.problems;
                     if (p.title == null) p.title = base;
                     p.paperYaml = parseYaml(text);
                     if (p.uuid == null) p.uuid = p.paperYaml.get("uuid");
@@ -501,6 +510,61 @@ public class ToolRunner {
             i = j - 1;
         }
         return out;
+    }
+
+    // ── 注釋（工具規格 3.8；論-17、譯-06） ──
+
+    static final String NOTE_OPEN = "<note>", NOTE_CLOSE = "</note>";
+    /** 刪除注釋後仍殘留的標籤，含大小寫、全形、自我封閉等寫錯的變體 */
+    static final Pattern NOTE_RESIDUE = Pattern.compile("(?i)[<＜]\\s*/?\\s*note\\s*/?\\s*[>＞]");
+
+    /** blanked：注釋以空行取代，保留行號；removed：注釋整段刪除，連同結尾後的一個空行；problems：格式問題 */
+    record Notes(String blanked, String removed, List<String> problems) {}
+
+    static Notes stripNotes(String text) {
+        String[] orig = text.split("\r?\n", -1);
+        String[] blanked = orig.clone();
+        boolean[] drop = new boolean[orig.length];
+        List<String> problems = new ArrayList<>();
+        boolean inCode = false, inNote = false;
+        int open = -1;
+        for (int i = 0; i < orig.length; i++) {
+            String t = orig[i].stripTrailing();
+            boolean isOpen = t.equals(NOTE_OPEN), isClose = t.equals(NOTE_CLOSE);
+            if (!inNote && t.trim().startsWith("```")) { inCode = !inCode; continue; }
+            if (inCode) {
+                if (isOpen || isClose)
+                    problems.add("第 " + (i + 1) + " 行：注釋標籤不得在程式碼區塊內");
+                else if (NOTE_RESIDUE.matcher(t).find())
+                    problems.add("第 " + (i + 1) + " 行：疑似寫錯的注釋標籤：" + t.trim());
+                continue;
+            }
+            if (isOpen || isClose) {
+                if (isOpen && inNote) problems.add("第 " + (i + 1) + " 行：注釋不得巢狀（前一個開頭在第 " + (open + 1) + " 行）");
+                if (isClose && !inNote) problems.add("第 " + (i + 1) + " 行：結尾標籤沒有對應的開頭");
+                if (i > 0 && !orig[i - 1].isBlank())
+                    problems.add("第 " + (i + 1) + " 行：" + t + " 的前一行須為空行");
+                if (i + 1 < orig.length && !orig[i + 1].isBlank())
+                    problems.add("第 " + (i + 1) + " 行：" + t + " 的後一行須為空行");
+                if (isOpen && !inNote) { inNote = true; open = i; }
+                else if (isClose && inNote) {
+                    inNote = false;
+                    for (int k = open; k <= i; k++) { blanked[k] = ""; drop[k] = true; }
+                    if (i + 1 < orig.length && orig[i + 1].isBlank()) drop[i + 1] = true;
+                }
+                continue;
+            }
+            if (!inNote && NOTE_RESIDUE.matcher(t).find())
+                problems.add("第 " + (i + 1) + " 行：疑似寫錯的注釋標籤：" + t.trim());
+        }
+        if (inNote) problems.add("第 " + (open + 1) + " 行：注釋沒有結尾標籤");
+        StringBuilder removed = new StringBuilder();
+        for (int i = 0; i < orig.length; i++) {
+            if (drop[i]) continue;
+            if (removed.length() > 0) removed.append('\n');
+            removed.append(orig[i]);
+        }
+        return new Notes(String.join("\n", blanked), removed.toString(), problems);
     }
 
     /** 程式碼區塊內的行以空行取代，保留行號 */
@@ -744,6 +808,8 @@ public class ToolRunner {
             if (!zhBase.equals(h1))
                 is.add(new Issue("論-05", w, "中文論文的一級標題「" + (h1 == null ? "（沒有）" : h1)
                     + "」與中文檔名「" + zhBase + "」不一致"));
+            // 論-17：注釋格式
+            for (String np : p.zhNoteProblems) is.add(new Issue("論-17", w, np));
 
             // ── 英文翻譯：檔名與標題（譯-01、譯-02）。尚未開始翻譯時，譯組與跨-19 暫不檢查 ──
             boolean en = p.enStarted();
@@ -754,6 +820,8 @@ public class ToolRunner {
                 if (!enBase.equals(eh1))
                     is.add(new Issue("譯-02", w, "英文翻譯的一級標題「" + (eh1 == null ? "（沒有）" : eh1)
                         + "」與英文檔名「" + enBase + "」不一致"));
+                // 譯-06：注釋格式
+                for (String np : p.enNoteProblems) is.add(new Issue("譯-06", w, np));
             }
 
             // ── 正文連結（論-07～論-13、譯-03～譯-05、跨-22） ──
@@ -823,7 +891,83 @@ public class ToolRunner {
             if (cycle != null)
                 is.add(new Issue("跨-20", p.folder, "循環引用：" + String.join(" → ", cycle)));
         }
+
+        // ── 版本比對（概-13、概-19、概-20、概-21、跨-21；工具規格 3.9） ──
+        checkHistory(root, papers, byFolder, is);
         return is;
+    }
+
+    // ── 版本比對（工具規格 3.9） ──
+
+    /** 版本比對略過的原因；null 表示已比對 */
+    static String historySkipped = null;
+
+    /**
+     * commit 即定稿：最後一次 commit（HEAD）中的概念表就是定稿版。
+     * 拿工作中的概念表與它比對：舊 ID 消失（概-19，涵蓋概-21）、public 改為 private（概-13）、
+     * 已廢棄的條目恢復使用（概-20 的工具部分）。被引用的上游必須已在 HEAD 中（跨-21）。
+     * 新論文不在 HEAD 中，自動略過。只讀不寫。
+     */
+    static void checkHistory(Path root, List<Paper> papers, Map<String, Paper> byFolder, List<Issue> is) {
+        historySkipped = null;
+        Path repo;
+        try {
+            String top = git(root, "rev-parse", "--show-toplevel");
+            if (top == null) { historySkipped = "找不到 git，或專案不是 Git 倉庫"; return; }
+            if (git(root, "rev-parse", "--verify", "-q", "HEAD") == null) {
+                historySkipped = "倉庫還沒有任何 commit"; return;
+            }
+            repo = Paths.get(top.trim()).toRealPath();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            historySkipped = "git 執行被中斷"; return;
+        } catch (IOException e) {
+            historySkipped = "無法解析倉庫路徑：" + e.getMessage(); return;
+        }
+
+        // 取出 HEAD 中的概念表；不在 HEAD 中者（新論文、新存根）不放進 committed
+        Map<String, List<Concept>> committed = new HashMap<>();
+        for (Paper p : papers) {
+            if (p.conceptsFile == null) continue;
+            try {
+                String rel = repo.relativize(p.conceptsFile.toRealPath()).toString().replace('\\', '/');
+                String old = git(root, "show", "HEAD:" + rel);
+                if (old != null) committed.put(p.folder, parseConceptTable(old));
+            } catch (IOException e) {
+                // 路徑無法解析時略過此篇
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                historySkipped = "git 執行被中斷"; return;
+            }
+        }
+
+        for (Paper p : papers) {
+            List<Concept> old = committed.get(p.folder);
+            if (old == null) continue;
+            for (Concept o : old) {
+                String at = p.folder + " #" + o.id;
+                Concept c = p.byId(o.id);
+                if (c == null) {
+                    is.add(new Issue("概-19", at, "最後一次 commit 中的 ID 已消失；定稿後 ID 不得修改、條目不得刪除"
+                        + (o.zh == null ? "" : "（原為「" + o.zh + "」）")));
+                    continue;
+                }
+                if ("public".equals(o.mod) && "private".equals(c.mod))
+                    is.add(new Issue("概-13", at, "定稿的 public 條目改為 private：" + c.zh));
+                if (o.deprecated && !c.deprecated)
+                    is.add(new Issue("概-20", at, "已廢棄的條目恢復使用：" + c.zh));
+            }
+        }
+
+        // 跨-21：被引用的論文或存根必須已 commit（已定稿）
+        for (Paper p : papers) {
+            if (p.external) continue;
+            for (String r : p.refs) {
+                if (byFolder.get(r) == null) continue;      // 找不到資料夾者由跨-22 回報
+                if (!committed.containsKey(r))
+                    is.add(new Issue("跨-21", p.folder, "引用了尚未 commit（未定稿）的論文或存根：" + r));
+            }
+        }
     }
 
     /** 概念表定義中不得出現的固定字眼（概-14 的工具部分） */
@@ -1135,6 +1279,8 @@ public class ToolRunner {
             .filter(p -> !p.external && p.zhPaper != null && !p.enStarted()).map(p -> p.folder).toList();
         if (!enPending.isEmpty())
             System.out.println("\n（英文翻譯尚未開始，譯組與跨-19 暫不檢查：" + String.join("、", enPending) + "）");
+        if (historySkipped != null)
+            System.out.println("\n△ 版本比對略過（" + historySkipped + "）：概-13、概-19、概-20、概-21、跨-21 本次未檢查");
 
         Map<String, String> table = loadAuditTable(root);
         if (table.isEmpty()) {
@@ -1166,10 +1312,14 @@ public class ToolRunner {
                 }
             if (!ai.isEmpty()) sb.append("  ").append(pf).append("　").append(String.join("、", ai)).append('\n');
         }
-        List<String> author = table.entrySet().stream()
-            .filter(e -> e.getValue().startsWith("作者")).map(Map.Entry::getKey).toList();
+        List<String> author = new ArrayList<>();
+        for (var e : table.entrySet()) {
+            if (e.getValue().startsWith("作者")) author.add(e.getKey());
+            else if (e.getValue().startsWith("工具＋作者")) author.add(e.getKey() + "*");
+        }
         if (!author.isEmpty())
-            sb.append("作者把關（工具不追蹤定稿狀態與版本歷史）：").append(String.join("、", author)).append('\n');
+            sb.append("作者把關（標 * 者為「工具＋作者」，工具已查機械的部分）：")
+              .append(String.join("、", author)).append('\n');
         return sb.toString();
     }
 
@@ -1202,7 +1352,8 @@ public class ToolRunner {
             if (raw.isEmpty() || raw.startsWith("#") || sec == null
                 || sec.equals("記號約定") || sec.equals("待決項")) continue;
             String line = raw.startsWith("- ") ? raw.substring(2).trim() : raw;
-            if (line.startsWith("來源：") || line.startsWith("[作者裁決]") || line.startsWith("附註：")) continue;
+            if (line.startsWith("來源：") || line.startsWith("[作者裁決]") || line.startsWith("附註：")
+                || line.startsWith("效準：")) continue;   // 效準是經驗給定，不是框架的關係（稽核總表 8.6）
 
             var dm = DERIVE_RE.matcher(line);
             List<String> derived = new ArrayList<>();
@@ -1330,7 +1481,7 @@ public class ToolRunner {
                 sb.append("# 形式化手冊\n\n").append(manual)
                   .append("\n\n---\n\n").append(upstream);
                 sb.append("---\n\n# 本篇概念表\n\n").append(p.conceptsText)
-                  .append("\n\n---\n\n# 本篇論文\n\n").append(p.zhText).append('\n');
+                  .append("\n\n---\n\n# 本篇論文\n\n").append(p.zhClean).append('\n');
                 Files.writeString(p.dir.resolve(FORM_BUNDLE), sb.toString(), StandardCharsets.UTF_8);
                 System.out.println("  [ok] " + p.folder + "/" + FORM_BUNDLE + "（上游概念 " + count[0] + " 條）");
                 nf++;
@@ -1361,10 +1512,14 @@ public class ToolRunner {
             if (!table.isEmpty()) ab.append("```text\n").append(auditScope(table)).append("```\n\n");
             ab.append("---\n\n").append(upstream);
             ab.append("---\n\n# 本篇檔案\n\n");
-            for (Path f : new Path[]{p.zhPaper, p.enPaper, p.conceptsFile, p.formalizationFile}) {
-                ab.append("## 檔案：").append(f.getFileName()).append("\n\n")
-                  .append(Files.readString(f, StandardCharsets.UTF_8)).append("\n\n");
-            }
+            // 論文與英文翻譯一律放刪除注釋後的版本（稽核總表 0.2）
+            String[][] files = {
+                {p.zhPaper.getFileName().toString(), p.zhClean},
+                {p.enPaper.getFileName().toString(), p.enClean},
+                {p.conceptsFile.getFileName().toString(), p.conceptsText},
+                {p.formalizationFile.getFileName().toString(), p.formText}};
+            for (String[] f : files)
+                ab.append("## 檔案：").append(f[0]).append("\n\n").append(f[1]).append("\n\n");
             Files.writeString(p.dir.resolve(AUDIT_BUNDLE), ab.toString(), StandardCharsets.UTF_8);
             System.out.println("  [ok] " + p.folder + "/" + AUDIT_BUNDLE);
             na++;
@@ -1629,7 +1784,8 @@ public class ToolRunner {
                 sb.append("\"formalization_md\":").append(json(p.formText)).append(",");
                 sb.append("\"paper_files\":[");
                 boolean first = true;
-                for (Object[] f : new Object[][]{{p.zhPaper, p.zhText}, {p.enPaper, p.enText}}) {
+                // 資料集只收刪除注釋後的論文（工具規格第六節）
+                for (Object[] f : new Object[][]{{p.zhPaper, p.zhClean}, {p.enPaper, p.enClean}}) {
                     if (f[0] == null) continue;
                     if (!first) sb.append(",");
                     first = false;

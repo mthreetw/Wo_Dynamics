@@ -232,14 +232,15 @@ do(i = v): replace position i of hₜ⁺ by v; later writings are recomputed by 
            later outcomes are reselected by G
 L(·): distribution
 Time convention: the t in wo(x, t) means after the t-th collapse and before the (t+1)-th.
-  The judgment uses hₜ⁺ and pₜ₊₁ = G(hₜ⁺), i.e. the weights of the next moment.
+  The judgment uses hₜ⁺ and pₜ₊₁ = G(hₜ⁺), i.e. the weights of the next moment;
+  V2 additionally looks at moment t+1 and later.
   Note the one-step index offset from pₜ = G(hₜ₋₁⁺) in Section 3.
   For t = 0 the judgment uses h₀⁺ = (s₀, w₁) and p₁; both are fixed before the
-  first collapse, so wo(x, 0) is defined.
+  first collapse; wo(x, 0) is additionally judged on the actual history after them.
 seg(x, t) = { i : ∃ v, L(pₜ₊₁ˣ | do(i = v)) ≠ L(pₜ₊₁ˣ | do(i = actual value)) }
                                    the own segment of x at t; influence passes down history
 V1(x, t) ⇔ arrived(x, t) ⊆ seg(x, t)             everything that arrived takes part
-V2(x, t) ⇔ ∃ t' ≤ t: V1(x, t') ∧ t'+1 ∈ T(x) ∧ ¬lockedin(x, t'+1)
+V2(x, t) ⇔ ∃ t' ≥ t: t'+1 ∈ T(x) ∧ ¬lockedin(x, t'+1)
 wo(x, t) ⇔ V1(x, t) ∧ V2(x, t)
 Hence: { position of the i-th collapse outcome : i ∈ T(x), i ≤ t } ⊆ arrived(x, t) ⊆ seg(x, t)
        i.e. the choices made by collapses involving x all belong to the segment of x
@@ -268,7 +269,7 @@ The content of distinctions (individual, past, identity, death, causation) is no
 - A [self](concepts.md#c19) is a [wo](concepts.md#c16) that defines itself by [distinction](concepts.md#c18). Who is a [self](concepts.md#c19) is defined by that [wo](concepts.md#c16) itself; uttering the sound "I" does not count; only self-definition counts.
 - An [individual](concepts.md#c20) is a [presentation](concepts.md#c04) marked off by some [self](concepts.md#c19) through [distinction](concepts.md#c18). The same stretch of the [universe](concepts.md#c02) may be [distinguished](concepts.md#c18) as one [individual](concepts.md#c20) or as billions of [individuals](concepts.md#c20); both hold.
 - [Identity](concepts.md#c21) is a kind of [distinction](concepts.md#c18): whether a [wo](concepts.md#c16) at one [moment](concepts.md#c09) and a [wo](concepts.md#c16) at another [moment](concepts.md#c09) are the same one is decided by the [self](concepts.md#c19) that makes the [distinction](concepts.md#c18). Whether something is a [wo](concepts.md#c16) is not a [distinction](concepts.md#c18); whether it is the same one is a question of [identity](concepts.md#c21), and that is a [distinction](concepts.md#c18).
-- [Connection](concepts.md#c22) is the link between a [self](concepts.md#c19) and the [observer](concepts.md#c07); [connection](concepts.md#c22) is not in the [universe](concepts.md#c02). Whether a [self](concepts.md#c19) is [connected](concepts.md#c22) is not decided by self-definition.
+- [Connection](concepts.md#c22) is the link between a [self](concepts.md#c19) and the [observer](concepts.md#c07); [connection](concepts.md#c22) is not in the [universe](concepts.md#c02). Whether a [self](concepts.md#c19) is [connected](concepts.md#c22) is not decided by any of its [distinctions](concepts.md#c18), including self-definition.
 - [Death](concepts.md#c23) is a mark that some [self](concepts.md#c19) places on a [wo](concepts.md#c16).
 
 ```text
@@ -325,7 +326,7 @@ Language model: if πₓ#G(hₜ⁺) is a point mass for all t ∈ T(x), then loc
 The judgment asks only two things:
 
 - First question: if anything that [arrived](concepts.md#c10) at it had been different at the time, would its [weights](concepts.md#c06) for the next [moment](concepts.md#c09) differ accordingly?
-- Second question: at least at some [moments](concepts.md#c09), does it have more than one possible outcome at the next instant?
+- Second question: from this instant on, does it still have at least one [moment](concepts.md#c09) at which it has more than one possible outcome at the next instant?
 
 Only if both answers are yes is it a [wo](concepts.md#c16). If only one is yes, it is not:
 
@@ -342,8 +343,8 @@ Four points in judging:
 ```text
 Formal:
 First question = V1(x, t)
-Second question = ∃ t' ≤ t: t'+1 ∈ T(x) ∧ ¬lockedin(x, t'+1)
-wo(x, t) ⇔ V1(x, t) ∧ V2(x, t); V2 additionally requires V1 at the instant not locked in
+Second question = ∃ t' ≥ t: t'+1 ∈ T(x) ∧ ¬lockedin(x, t'+1)
+wo(x, t) ⇔ First question ∧ Second question; the second question is V2(x, t)
 V1 ∧ locked in at every step: stones, abacuses, thermostats, crystals, river channels
 ¬V1 ∧ sometimes not locked in: radioactive atoms, dice
 The object judged is (πₓ, σₓ); cutting differently means changing x
@@ -370,15 +371,16 @@ The following cases serve only for calibration, not as proof.
 
 By definition, the [universe](concepts.md#c02) has [collapse](concepts.md#c08); by Given 6, [collapse](concepts.md#c08) takes place through a [self](concepts.md#c19) [connected](concepts.md#c22) to the [observer](concepts.md#c07). Hence there is at least one [self](concepts.md#c19) in the [universe](concepts.md#c02). By definition, a [self](concepts.md#c19) is a [wo](concepts.md#c16). Hence there is at least one [wo](concepts.md#c16) in the [universe](concepts.md#c02).
 
-The [self](concepts.md#c19) through which the first [collapse](concepts.md#c08) takes place is already a [self](concepts.md#c19) before the first [collapse](concepts.md#c08), and whether it is one depends only on the [initial state of the universe](concepts.md#c14) (the [generating function](concepts.md#c15) and the rule of [writing](concepts.md#c29) are fixed): before the first [collapse](concepts.md#c08), there is only the [initial state of the universe](concepts.md#c14) and the first [writing](concepts.md#c29), which the [initial state of the universe](concepts.md#c14) determines. So no separate given is needed.
+The [self](concepts.md#c19) through which the first [collapse](concepts.md#c08) takes place is already a [self](concepts.md#c19) before the first [collapse](concepts.md#c08). Whether it is one is decided, as for any [wo](concepts.md#c16), by the actual [history](concepts.md#c13) (the [generating function](concepts.md#c15) and the rule of [writing](concepts.md#c29) are fixed): the [initial state of the universe](concepts.md#c14), the first [writing](concepts.md#c29), which the [initial state of the universe](concepts.md#c14) determines, and the [history](concepts.md#c13) after them, all of which lie within the [universe](concepts.md#c02). So no separate given is needed.
 
 Conversely, without [wos](concepts.md#c16) there is no [collapse](concepts.md#c08).
 
 ```text
 Formal:
 The 1st collapse exists ⇒ e(1) exists ∧ self(e(1), 0) ⇒ wo(e(1), 0).
-self(e(1), 0) can hold only on the basis of h₀⁺ = (s₀, w₁), and w₁ = ω(s₀); hence it is
-  determined by s₀. ∎
+self(e(1), 0) is judged on h₀⁺ = (s₀, w₁) and the actual history after it
+  (V2 looks at moment 1 and later), with w₁ = ω(s₀); all of these lie within history,
+  so no separate given is needed. ∎
 Converse: no wo ⇒ no self ⇒ e has no value ⇒ no collapse. ∎
 ```
 
@@ -617,6 +619,8 @@ V1 check:
   e.g. if b₁ = Left, then d_A,1 = "my segment is Left, Left",
     p₂ = (5/6, 1/6) ≠ (1/2, 1/2)
 T(A) = {1, 2}; ¬lockedin at both moments
+Hence V2(A, 0) and V2(A, 1) hold;
+  the example has no moment after the second collapse, so wo(A, 2) does not hold
 e(1) = e(2) = A
 ```
 
@@ -625,7 +629,7 @@ e(1) = e(2) = A
 - A is a [wo](concepts.md#c16): the [initial state of the universe](concepts.md#c14), the two [distinctions](concepts.md#c18), and the first outcome that [arrived](concepts.md#c10) at A would each, if different, make the [weights](concepts.md#c06) different; the first [distinction](concepts.md#c18) passes its influence to the second [moment](concepts.md#c09) through the probability of the first outcome ✓; both [moments](concepts.md#c09) have two [branches](concepts.md#c05) of non-zero [weight](concepts.md#c06), so A is not [locked in](concepts.md#c12) ✓
 - Given 4: before every [collapse](concepts.md#c08) there is a [writing](concepts.md#c29), whose content is determined by the [history](concepts.md#c13) up to that point ✓; every [distinction](concepts.md#c18) of A lists all outcomes so far by the rule of this example, so it is defined on [histories](concepts.md#c13) other than the actual one as well ✓
 - Given 7: A's [distinction](concepts.md#c18) is [written](concepts.md#c29) before its next [moment](concepts.md#c09) ✓
-- Corollary 1: before the first [collapse](concepts.md#c08), A has already [distinguished](concepts.md#c18) itself; it is a [connected](concepts.md#c22) [self](concepts.md#c19), so a [wo](concepts.md#c16) exists; whether it is one depends only on the [initial state of the universe](concepts.md#c14) ✓
+- Corollary 1: before the first [collapse](concepts.md#c08), A has already [distinguished](concepts.md#c18) itself; it is a [connected](concepts.md#c22) [self](concepts.md#c19), so a [wo](concepts.md#c16) exists; A is not [locked in](concepts.md#c12) at its first [moment](concepts.md#c09), so whether it is a [self](concepts.md#c19) before the first [collapse](concepts.md#c08) depends only on the [initial state of the universe](concepts.md#c14) ✓
 - [Law of Flux](concepts.md#c24): at every [moment](concepts.md#c09), [history](concepts.md#c13) gains the outcome of one more [collapse](concepts.md#c08) ✓
 - [Law of the Black Box](concepts.md#c25): at the first [moment](concepts.md#c09) the [weight](concepts.md#c06) of Left is 3/4, yet [collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) Right. [History](concepts.md#c13) determined the [weights](concepts.md#c06), not the outcome ✓
 - [Law of Attrition](concepts.md#c26): the material of A's [distinction](concepts.md#c18) after the first [collapse](concepts.md#c08) does not include that [distinction](concepts.md#c18) itself; it enters [history](concepts.md#c13) only at the second [moment](concepts.md#c09), and takes part in the second [moment](concepts.md#c09)'s [weights](concepts.md#c06) ✓

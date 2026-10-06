@@ -1,6 +1,6 @@
 ---
 uuid: b9df3b68-23ee-4839-965b-ed0e6b283ee6
-last-modified: 2026-09-28T23:27:12
+last-modified: 2026-10-05T18:39:00
 ---
 
 <a id="c01"></a>
@@ -175,9 +175,10 @@ last-modified: 2026-09-28T23:27:12
 <a id="c20"></a>
 ## private 粒度 / Granularity
 
-- 定義：粒度是這個結論：把同一段[宇宙](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02)描述成一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)或許多個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，所有[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)都從同一份[宇宙](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02)的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)分出，所以結果必然一致。
-- Definition: Granularity is the conclusion that whether the same stretch of the [Universe](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02) is described as one [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) or as many, the [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) of all these [presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) are divided out of the one [weight](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) of the [universe](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02), so the results necessarily agree.
+- 定義：粒度是這個條件結論：若把同一段[宇宙](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02)描述成較粗與較細的[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，且較粗[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的結果投影可由較細[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的結果投影經某映射取得，則較粗[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)分布等於較細[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)分布經該映射推前所得。粒度只主張這種結果投影相容的描述之間一致，不主張任意兩個結果投影必然相容。
+- Definition: Granularity is the conditional conclusion that, when the same stretch of the [Universe](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02) is described by a coarser and a finer [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), and the outcome projection of the coarser [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) can be obtained from the outcome projection of the finer [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) by a mapping, the [Weight](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) distribution of the coarser [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) equals the pushforward, by that mapping, of the [weight](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) distribution of the finer [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04). Granularity asserts consistency only between descriptions whose outcome projections are compatible in this sense; it does not assert that arbitrary outcome projections must be compatible.
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 稽核指出原定義省略論文形式式中的「結果投影相容」前件，將條件命題擴大為無條件結論；本次收窄回形式式，不新增「所有重切皆投影相容」的公設，保留 ID。
 
 <a id="c21"></a>
 ## public 時鐘時間 / Clock Time
@@ -190,10 +191,15 @@ last-modified: 2026-09-28T23:27:12
 <a id="c22"></a>
 ## public 重切 / Recutting
 
-- 定義：重切是改變[切法](concepts.md#c23)：把一個部分切成許多部分，或把許多部分合成一個。除了[印象](concepts.md#c45)以外，分析的結論必須經得起重切：重切之下，[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)與推論不變；描述[迴路](concepts.md#c31)之間關係的工具，例如[耦合](concepts.md#c36)、[太極](concepts.md#c39)、[印象](concepts.md#c45)，在合併時轉為內部結構，不再以關係的形式出現。
-- Definition: Recutting is changing the [Cut](concepts.md#c23): cutting one part into many, or merging many parts into one. Apart from [Impression](concepts.md#c45), the conclusions of an analysis must survive recutting: under recutting, [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) and inferences do not change; tools that describe relations between [Loops](concepts.md#c31), such as [Coupling](concepts.md#c36), [Taiji](concepts.md#c39) and [Impression](concepts.md#c45), turn into internal structure when parts are merged and no longer appear as relations.
+- 定義：重切是改變[切法](concepts.md#c23)：把一個部分切成許多部分，或把許多部分合成一個。「結論經得起重切」只適用於結果投影相容的重切：同一段[宇宙](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02)被描述成較粗與較細的[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)時，較粗[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的結果投影可由較細[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的結果投影經某映射取得。[迴路](concepts.md#c31)、[知見障](concepts.md#c35)、[耦合](concepts.md#c36)、[太極](concepts.md#c39)與[更新](concepts.md#c42)所得的結論，在這些結果投影相容的重切下都必須不變；[印象](concepts.md#c45)不受此要求。在這些相容重切之下，[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)與推論不變；[耦合](concepts.md#c36)、[太極](concepts.md#c39)與[印象](concepts.md#c45)在描述[迴路](concepts.md#c31)之間的關係時，若相關部分被合併，這些關係轉為內部結構，不再以關係的形式出現。任意兩個[切法](concepts.md#c23)之間是否滿足這項結果投影相容條件，不由此定義保證。
+- Definition: Recutting is changing the [Cut](concepts.md#c23): cutting one part into many, or merging many parts into one. Saying that a conclusion survives recutting applies only to outcome-projection-compatible recuttings: when the same stretch of the [Universe](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c02) is described by a coarser and a finer [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), the outcome projection of the coarser [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) can be obtained from the outcome projection of the finer [presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) by a mapping. Conclusions derived from [Loop](concepts.md#c31), [Cognitive Obscuration](concepts.md#c35), [Coupling](concepts.md#c36), [Taiji](concepts.md#c39), and [Renewal](concepts.md#c42) must remain unchanged under such outcome-projection-compatible recuttings; [Impression](concepts.md#c45) is exempt from this requirement. Under such compatible recuttings, [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) and inferences do not change; when [Coupling](concepts.md#c36), [Taiji](concepts.md#c39), and [Impression](concepts.md#c45) describe relations between [Loops](concepts.md#c31), merging the relevant parts turns those relations into internal structure, so they no longer appear as relations. This definition does not guarantee that arbitrary pairs of [Cuts](concepts.md#c23) satisfy this outcome-projection compatibility condition.
 - 裁決：2026-09-28 稽核指出定義漏了論文正文的例外；補上「除了印象以外」。
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 稽核指出「分析的結論」範圍大於正文的「每個工具的結論」；定義收窄回正文範圍，中英文同步修改。
+- 裁決：2026-10-05 稽核指出「每個工具」的量化範圍必須回到正文才能判定，違反定義可獨立理解；改為直接列出[迴路](concepts.md#c31)、[知見障](concepts.md#c35)、[耦合](concepts.md#c36)、[更新](concepts.md#c42)，並明列[印象](concepts.md#c45)為例外；同時移除「描述迴路關係的工具」這個未定義集合用語。意義不變，中英文同步修改。
+- 裁決：2026-10-05 稽核指出正文「每個工具的結論」亦包含[太極](concepts.md#c39)；補入[太極](concepts.md#c39)，與正文範圍同步，中英文定義一併修改。
+- 裁決：2026-10-05 配合前述結果投影相容條件的裁決，重切下「權重與推論不變」只對結果投影相容的重切成立；不新增任意切法皆相容的公設。
+- 裁決：2026-10-06 稽核指出定義中的「本篇所說／本篇不主張」構成論文語境指示；改為直接陳述「結論經得起重切」的適用條件，並以「此定義不保證」表達任意切法未必相容。適用範圍與結論不變，中英文同步修改。
 
 <a id="c23"></a>
 ## public 切法 / Cut
@@ -218,18 +224,22 @@ last-modified: 2026-09-28T23:27:12
 <a id="c26"></a>
 ## public 信號容器 / Signal Container
 
-- 定義：信號容器是這樣的[節點](concepts.md#c25)：它不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，每一步都被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)。它通常持續存在，在許多[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)向[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)[輸出](concepts.md#c28)，但這不是條件。它的內容可以由[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)寫下，例如書、法條；也可以來自其他[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，例如望遠鏡帶來的觀測。[知見障](concepts.md#c35)對它沒有內容；它也不能成為[印象](concepts.md#c45)的對象。
-- Definition: A signal container is a [Node](concepts.md#c25) that is not a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) and is [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12) at every step. It usually persists and [outputs](concepts.md#c28) to [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at many [Moments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09), but this is not a condition. Its content may be written by [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), as with books or statutes, or may come from other [Presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), as with observations brought by a telescope. [Cognitive Obscuration](concepts.md#c35) has no content for it; nor can it be the object of an [Impression](concepts.md#c45).
+- 定義：信號容器是這樣的[節點](concepts.md#c25)：它不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，從這一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)起每一步都被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)。它通常持續存在，在許多[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)向[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)[輸出](concepts.md#c28)，但這不是條件。它的內容可以由[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)寫下，例如書、法條；也可以來自其他[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，例如望遠鏡帶來的觀測。[知見障](concepts.md#c35)對它沒有內容；它也不能成為[印象](concepts.md#c45)的對象。
+- Definition: A signal container is a [Node](concepts.md#c25) that is not a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) and, from this [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) on, is [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12) at every step. It usually persists and [outputs](concepts.md#c28) to [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at many [Moments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09), but this is not a condition. Its content may be written by [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), as with books or statutes, or may come from other [Presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), as with observations brought by a telescope. [Cognitive Obscuration](concepts.md#c35) has no content for it; nor can it be the object of an [Impression](concepts.md#c45).
 - 裁決：2026-09-28 作者裁決放寬定義：持續存在、向渦輸出不再是條件，使節點的分類窮盡。
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 上游《渦動力學》勘誤後，渦的第二個條件改為往後看；本條隨之改為從這一刻起往後看，否則從某刻起永遠被鎖死、而歷史仍全部參與的節點，三類都不屬於。定稿前修改，保留 ID。
+- 裁決：2026-10-05 稽核指出定義中的「這一刻」指涉上游的時刻而未連結，補上連結。意義不變，保留 ID。
 
 <a id="c27"></a>
 ## public 隨機源 / Random Source
 
-- 定義：隨機源是這樣的[節點](concepts.md#c25)：它不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，也不是每一步都被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)；至少有些[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)，但[到達](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c10)它的[歷史](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13)並不都參與它的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)。例如擲出的骰子、放射性衰變的原子。它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)時，只能談[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)；它也不能成為[印象](concepts.md#c45)的對象。
-- Definition: A random source is a [Node](concepts.md#c25) that is neither a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) nor [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12) at every step: at least at some [Moments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) it is not [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12), yet not all the [History](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13) that has [arrived](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c10) at it takes part in its [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06). Examples are a thrown die and a radioactively decaying atom. When it is not [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12), only its [weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) can be discussed; nor can it be the object of an [Impression](concepts.md#c45).
+- 定義：隨機源是這樣的[節點](concepts.md#c25)：它不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，但這一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)或之後至少還有一個[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)。例如擲出的骰子、放射性衰變的原子。它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)時，只能談[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)；它也不能成為[印象](concepts.md#c45)的對象。
+- Definition: A random source is a [Node](concepts.md#c25) that is not a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), but at this [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) or later there is still at least one [Moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) at which it is not [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12). Examples are a thrown die and a radioactively decaying atom. When it is not [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12), only its [weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06) can be discussed; nor can it be the object of an [Impression](concepts.md#c45).
 - 裁決：2026-09-28 作者裁決新增，使節點的分類窮盡。
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 隨上游勘誤改為往後看，與信號容器一起使節點的分類仍然窮盡。「歷史並不都參與它的權重」是由渦的定義推出的後果，從定義移到論文正文（步驟十四）。定稿前修改，保留 ID。
+- 裁決：2026-10-05 稽核指出定義中的「這一刻」指涉上游的時刻而未連結，補上連結。意義不變，保留 ID。
 
 <a id="c28"></a>
 ## public 輸出 / Output
@@ -254,8 +264,8 @@ last-modified: 2026-09-28T23:27:12
 <a id="c31"></a>
 ## public 迴路 / Loop
 
-- 定義：迴路是這樣的結構：一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的[輸出](concepts.md#c28)，經由自己或其他[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，又參與它自己的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)。迴路一律指在講明的[切法](concepts.md#c23)下的迴路，不保證跨[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)持續存在。
-- Definition: A loop is a structure in which the [Output](concepts.md#c28) of a [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), through itself or through other [presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), takes part again in its own [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06). A loop is always a loop under a stated [Cut](concepts.md#c23), and is not guaranteed to persist across [Moments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09).
+- 定義：迴路是這樣的結構：一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的[輸出](concepts.md#c28)，經由自己或其他[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)，又參與它自己的[權重](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06)。迴路一律指在講明的[切法](concepts.md#c23)下的迴路；跨[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)持續存在是[不被保證](concepts.md#c02)的。
+- Definition: A loop is a structure in which the [Output](concepts.md#c28) of a [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), through itself or through other [presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04), takes part again in its own [Weights](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c06). A loop is always a loop under a stated [Cut](concepts.md#c23); persistence across [Moments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) is [Not Guaranteed](concepts.md#c02).
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
 
 <a id="c32"></a>
@@ -328,25 +338,32 @@ last-modified: 2026-09-28T23:27:12
 <a id="c42"></a>
 ## public 更新 / Renewal
 
-- 定義：更新是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的進出：有些[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)不再是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，即[退場](concepts.md#c43)；有些[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)開始成為[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，即[進場](concepts.md#c44)。新[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的[自己的那一段](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17)和舊[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的重疊，但不可能完全相同。
-- Definition: Renewal is the going and coming of [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16): some [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) cease to be [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), which is [Exit](concepts.md#c43), and some [Presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) begin to be [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), which is [Entry](concepts.md#c44). The [Own Segments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17) of the new [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) overlap with those of the old ones, but can never be exactly the same.
+- 定義：更新是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的進出：有些[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)[退場](concepts.md#c43)，有些[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)[進場](concepts.md#c44)。
+- Definition: Renewal is the going and coming of [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16): some [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) [exit](concepts.md#c43) and some [Presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) [enter](concepts.md#c44).
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 退場、進場改為只連結引用，不在本條重述其定義。意義不變，保留 ID。
+- 裁決：2026-10-05 刪去「新渦的自己的那一段和舊渦的重疊，但不可能完全相同」：重疊由任何兩個渦都在宇宙初態上重疊推出，不完全相同由不可復原律推出，兩者都是後果，不是定義，留在論文正文。定稿前修改，保留 ID。
+- 裁決：2026-10-05 更正前一裁決：「不可復原律」不能推出進場者與舊渦的[自己的那一段](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17)必然不完全相同。不同[個體](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c20)可以共享共同前史，分開後可依新的[到達](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c10)與[寫入](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c29)而分岔，之後也可以合併；是否為[同一](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c21)屬於[分別](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c18)，不由更新或歷史重疊本身決定。正文與形式化同步刪除「不可能完全相同」。定稿前修改，保留 ID。
 
 <a id="c43"></a>
 ## public 退場 / Exit
 
-- 定義：退場是一些[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的參與消失，不再是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)。它們的[自己的那一段](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17)仍在[歷史](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13)裡；它們留下的[輸出](concepts.md#c28)，例如文本、制度、建築，仍然可以透過[信號容器](concepts.md#c26)[到達](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c10)後來的[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)。
-- Definition: Exit is the fading away of the participation of some [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), so that they are no longer [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16). Their [Own Segments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17) remain in [History](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13); the [Outputs](concepts.md#c28) they left behind, such as texts, institutions and buildings, can still [arrive](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c10) at later [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) through [Signal Containers](concepts.md#c26).
+- 定義：退場是一個[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)不再是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)：它在某一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，在它的下一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)。
+- Definition: Exit is a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) ceasing to be a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16): it is a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at one [Moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) and is not a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at its next [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09).
 - 裁決：2026-09-28 名稱由「出」改為「退場」。
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 退場就是渦不再是渦：刪去多加的條件「參與消失」；刪去「自己的那一段仍在歷史裡」「留下的輸出仍可透過信號容器到達後來的渦」兩句，它們是後果，不是定義，留在論文正文。定稿前修改，保留 ID。
+- 裁決：2026-10-05 補上以它自己相鄰的兩個時刻比較：若凍結期間沒有坍塌涉及它，凍結期間就沒有它的時刻，解凍後若仍是渦，就不算退場。
 
 <a id="c44"></a>
 ## public 進場 / Entry
 
-- 定義：進場是一些[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)開始成為[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)。它們的[自己的那一段](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17)和舊[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)的重疊，例如由父母、師長、文本而來的部分。
-- Definition: Entry is some [Presentations](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) beginning to be [Wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16). Their [Own Segments](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c17) overlap with those of the old [wos](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16), for example in the parts that come from parents, teachers and texts.
+- 定義：進場是一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)開始成為[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)：它在某一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)不是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)，在它的下一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)；或者在它的第一個[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)就是[渦](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16)。
+- Definition: Entry is a [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) beginning to be a [Wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16): it is not a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at one [Moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) and is a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at its next [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09), or it is already a [wo](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c16) at its first [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09).
 - 裁決：2026-09-28 名稱由「入」改為「進場」。
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 比照退場：進場就是一個呈現開始成為渦；「自己的那一段和舊渦的重疊」屬於更新的內容，從本條刪去，留在論文正文。定稿前修改，保留 ID。
+- 裁決：2026-10-05 比照退場，以它自己相鄰的兩個時刻比較；第一個時刻就是渦，也算進場。
 
 <a id="c45"></a>
 ## public 印象 / Impression
@@ -385,9 +402,10 @@ last-modified: 2026-09-28T23:27:12
 <a id="c50"></a>
 ## public 應用假定 / Application Assumption
 
-- 定義：應用假定是這個假定：在生物學與社會科學的層次上，一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的下一刻若不能由那個層次可得的[歷史](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13)唯一推出，就假定它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)。它不是定理。
-- Definition: The application assumption is the assumption that, at the levels of biology and the social sciences, if the next moment of a [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) cannot be uniquely derived from the [History](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13) available at that level, it is assumed not to be [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12). It is not a theorem.
+- 定義：應用假定是這個假定：在生物學與社會科學的層次上，一個[呈現](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04)的下一[時刻](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09)若不能由那個層次可得的[歷史](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13)唯一推出，就假定它不被[鎖死](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12)。它不是定理。
+- Definition: The application assumption is the assumption that, at the levels of biology and the social sciences, if the next [moment](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c09) of a [Presentation](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c04) cannot be uniquely derived from the [History](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c13) available at that level, it is assumed not to be [locked in](../paper_37b3643a_dc40_4463_8b36_4f4594acd986/concepts.md#c12). It is not a theorem.
 - 裁決：2026-09-30 定義中的底層詞改連《渦動力學》的公開條目，意義不變，保留 ID。
+- 裁決：2026-10-05 稽核指出定義中的「下一刻」指涉上游的時刻而未連結，補上連結。意義不變，保留 ID。
 
 <a id="c51"></a>
 ## public 經驗禁止 / Empirical Prohibition
@@ -433,7 +451,7 @@ last-modified: 2026-09-28T23:27:12
 - 範例中的條件：2026-09-28 容器、持續的高歧異到達、舊一方缺少對等的到達、更新（條件四），皆為經驗禁止的實例，是命題，不是概念。
 - 目的：2026-09-28 作者裁決不登記：明文第 6 條描述的是目的的特質，不是定義；目的不供引用。
 - 一般用語：2026-09-28 經驗假定、史實、校準、高維、嵌套、維度、模式，正文未作為術語定義。
-- 形式段名稱：2026-09-28 次序、分支集合、寫入規則、寫入後歷史、坍塌結果、歷史唯一、結果投影、未落在其上、推前、位置、替換、替換值、分布、實際值、時刻集合、分別內容、相互耦合，只出現在形式段，屬形式化階段的記號。
+- 形式段名稱：2026-09-28 次序、分支集合、寫入規則、寫入後歷史、坍塌結果、歷史唯一、結果投影、未落在其上、推前、位置、替換、替換值、分布、實際值、時刻集合、分別內容、相互耦合、前一時刻，只出現在形式段，屬形式化階段的記號。
 
 ## 待決項
 
