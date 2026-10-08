@@ -1,6 +1,8 @@
 ---
 uuid: b9df3b68-23ee-4839-965b-ed0e6b283ee6
 last-modified: 2026-10-05T18:39:00
+author: 黃正宇 / Cheng Yu Huang
+contact: mthree.tw@gmail.com
 ---
 
 # Tools and Examples Related to the Four Laws

@@ -1,6 +1,8 @@
 ---
 uuid: 37b3643a-dc40-4463-8b36-4f4594acd986
 last-modified: 2026-09-29T12:00:00
+author: 黃正宇 / Cheng Yu Huang
+contact: mthree.tw@gmail.com
 ---
 
 # Wo Dynamics
@@ -24,7 +26,7 @@ Everything else: wₜ₊₁ = ω(hₜ) (Given 4); pₜ₊₁ = G(hₜ⁺) (Given
 Intervention: not formalized
 ```
 
-This paper sets out to answer a question about an epistemic limit: why I cannot truly understand you, and cannot truly understand even myself. The reasons given by common sense and by most social-scientific theories are contingent: not enough information, different languages, different backgrounds, different experiences. All of these reasons imply that with enough information and good enough communication, understanding is possible in principle. This paper claims that the limit is structural, not a shortfall: even with complete information, it cannot be done. It has three layers. Your next choice is not yet settled before it is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32), and not even you know it (the [Law of the Black Box](concepts.md#c25)). Your knowledge of yourself always lags one step behind, and you have no complete self in hand to give over (the [Law of Attrition](concepts.md#c26)). I can understand you only through the you that has [arrived](concepts.md#c10) at me: what [arrives](concepts.md#c10) is always how you have already been, and your next instant is still a black box; and my act of understanding you, once it [arrives](concepts.md#c10) at you, may itself change you (Corollary 12). The argument for the [Law of Attrition](concepts.md#c26) uses only "understanding is an act, and it enters [history](concepts.md#c13) only once it has happened"; it does not use [collapse](concepts.md#c08). Common sense cannot tell contingent limits from structural ones; hence this paper derives backward.
+This paper sets out to answer a question about an epistemic limit: why a [self](concepts.md#c19) cannot truly understand you, and cannot truly understand even itself. The reasons given by common sense and by most social-scientific theories are contingent: not enough information, different languages, different backgrounds, different experiences. All of these reasons imply that with enough information and good enough communication, understanding is possible in principle. This paper claims that the limit is structural, not a shortfall: even with complete information, it cannot be done. It has three layers. Your next choice is not yet settled before it is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32), and not even you know it (the [Law of the Black Box](concepts.md#c25)). Your knowledge of yourself always lags one step behind, and you have no complete self in hand to give over (the [Law of Attrition](concepts.md#c26)). I can understand you only through the you that has [arrived](concepts.md#c10) at me: what [arrives](concepts.md#c10) is always how you have already been, and your next instant is still a black box; and my act of understanding you, once it [arrives](concepts.md#c10) at you, may itself change you (Corollary 12). The argument for the [Law of Attrition](concepts.md#c26) uses only "understanding is an act, and it enters [history](concepts.md#c13) only once it has happened"; it does not use [collapse](concepts.md#c08). Common sense cannot tell contingent limits from structural ones; hence this paper derives backward.
 
 This paper does not solve the measurement problem of quantum mechanics. Its method is backward derivation: the four laws, the [Law of Flux](concepts.md#c24), the [Law of the Black Box](concepts.md#c25), the [Law of Attrition](concepts.md#c26), and the [Law of Non-Restoration](concepts.md#c28), are the iron laws this paper acknowledges; what it asks is what the world must at least be like if these four laws are true. The conditions derived backward are listed as givens, each marked with the law that requires it; the givens are then used to derive the four laws forward again, as a check. The fewer the required givens, the better. Whatever no law requires, and is not kept in order to fit known observations, but this paper nevertheless keeps, is listed as a [framework commitment](concepts.md#c03), separately from the givens.
 
@@ -36,14 +38,14 @@ The following four are the starting point of this paper and are acknowledged as 
 
 - [Law of Flux](concepts.md#c24): the [history](concepts.md#c13) of a [wo](concepts.md#c16) is never exactly the same. You cannot step into the same river twice.
 - [Law of the Black Box](concepts.md#c25): you will never be certain of a person's next choice; before the choice, not even they know it.
-- [Law of Attrition](concepts.md#c26): I will never truly and completely know myself.
+- [Law of Attrition](concepts.md#c26): a [self](concepts.md#c19) will never truly and completely know itself.
 - [Law of Non-Restoration](concepts.md#c28): after death, there is no coming back to life.
 
 These four speak of "never". Experience can only give "no exception so far"; what backward derivation seeks is the kind of world in which "never" holds.
 
 In this paper, [death](concepts.md#c23) is a mark; the content of the [Law of Non-Restoration](concepts.md#c28) is: that stretch of [history](concepts.md#c13) will not happen again.
 
-"I cannot truly understand you" is answered jointly by the [Law of the Black Box](concepts.md#c25), the [Law of Attrition](concepts.md#c26), and Corollary 12. Corollary 12 and the [Law of Attrition](concepts.md#c26) share one structure, one directed at oneself, the other at another; hence it is not listed as a separate law.
+Why a [self](concepts.md#c19) cannot truly understand you is answered jointly by the [Law of the Black Box](concepts.md#c25), the [Law of Attrition](concepts.md#c26), and Corollary 12. Corollary 12 and the [Law of Attrition](concepts.md#c26) share one structure, one directed at oneself, the other at another; hence it is not listed as a separate law.
 
 ### The World the Four Laws Require
 
@@ -51,7 +53,7 @@ In this paper, [death](concepts.md#c23) is a mark; the content of the [Law of No
 - The [Law of the Black Box](concepts.md#c25) requires: there is [selection](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) not determined by [history](concepts.md#c13) (Given 2); and [weights](concepts.md#c06) are determined by [history](concepts.md#c13) (Given 5), because the second half of this law is "what can be derived is the weights".
 - The [Law of Attrition](concepts.md#c26) requires: [distinction](concepts.md#c18) is an act, and it is written into [history](concepts.md#c13) only once it has happened (Given 4, Given 7). Its argument does not use [collapse](concepts.md#c08); it touches Given 2 only indirectly, because what it speaks of is the [self](concepts.md#c19), and a [self](concepts.md#c19) is a [wo](concepts.md#c16).
 - The [Law of Non-Restoration](concepts.md#c28) requires: in its first layer, that [history](concepts.md#c13) is unique; in its second layer, through the [Law of the Black Box](concepts.md#c25), Given 2; the derivation of the second layer additionally uses Given 4.
-- The four laws jointly require: a total order, without which "the [history](concepts.md#c13) up to that point" is undefined ("only one collapse at a time" in Given 1); and a starting point of [history](concepts.md#c13) (Given 3).
+- The four laws additionally use the total order in the definition of [moment](concepts.md#c09) and the starting point in the definition of [history](concepts.md#c13): without a total order, "the [history](concepts.md#c13) up to that point" is undefined; without a starting point, [history](concepts.md#c13) cannot begin. These two conditions are written into the definitions and are not separately listed as required givens.
 
 Here "requires" means: in this paper's derivation, the law uses the condition; remove it, and the law can no longer be derived in this paper. Whether the condition is necessary in every possible world, this paper does not assert.
 
@@ -69,10 +71,10 @@ There is one further condition that the four laws do not require either; it is k
 ```text
 Formal: backward table ("⇐": used in the derivation; necessity not proved)
 Law of Flux              ⇐ history unique and append-only
-Law of the Black Box     ⇐ G2a, Given 5 (G takes only history), total order
-Law of Attrition         ⇐ Given 4, Given 7, total order; scope touches G2a via "self"
+Law of the Black Box     ⇐ G2a, Given 5 (G takes only history)
+Law of Attrition         ⇐ Given 4, Given 7; scope touches G2a via "self"
 Law of Non-Restoration   ⇐ history unique (layer 1); G2a, G2b, Given 4 (layer 2)
-Jointly                  ⇐ total order (one collapse at a time), h₀
+The four laws also use   ⇐ the total order and starting point in the definitions of moment and history (not listed as givens)
 Commitments              = { O outside the universe carries the total order and collapse;
                              Given 6; s₀ carries formal-layer records; intervention }
 Kept to fit observation  = { no-signaling }
@@ -109,7 +111,7 @@ f#p                  pushforward of p by f: (f#p)(y) = Σ_{b : f(b)=y} p(b)
 
 ## 2. Givens: Observer and Collapse
 
-The following cannot be derived. Each is marked with the law from which it is derived backward, or as a framework commitment (see Section 0).
+The following cannot be derived. Each is marked with the law from which it is derived backward, or as a [framework commitment](concepts.md#c03) (see Section 0).
 
 ### Given 1: The Observer
 
@@ -117,7 +119,7 @@ The [observer](concepts.md#c07) is an identifier with no content: it does not co
 
 There is only one [observer](concepts.md#c07). Its sole function is [collapse](concepts.md#c08). The [observer](concepts.md#c07) collapses only once at a time. This paper does not discuss its nature.
 
-Backward: the total order given by "only one collapse at a time" is required jointly by the four laws. That an identifier outside the [universe](concepts.md#c02) carries this total order and [collapse](concepts.md#c08) is a [framework commitment](concepts.md#c03).
+Backward: the total order given by "only one collapse at a time" is already written into the definition of [moment](concepts.md#c09); what the four laws use is the definition, not this Given. That the [observer](concepts.md#c07), as an identifier outside the [universe](concepts.md#c02), carries this total order and [collapse](concepts.md#c08) is a [framework commitment](concepts.md#c03).
 
 ```text
 Formal:
@@ -129,7 +131,7 @@ Collapses occur one at a time: the order of moments = {1,2,3,…}, total, no two
 
 [Collapse](concepts.md#c08), in some fixed basis, [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) one [branch](concepts.md#c05) according to the [weights](concepts.md#c06). [Branches](concepts.md#c05) not [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) do not remain in the [universe](concepts.md#c02).
 
-[Collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) only among [branches](concepts.md#c05) of non-zero [weight](concepts.md#c06). If the next moment of a [presentation](concepts.md#c04) has only one outcome of non-zero [weight](concepts.md#c06), its outcome comes from constraint, not from [collapse](concepts.md#c08).
+[Collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) only among [branches](concepts.md#c05) of non-zero [weight](concepts.md#c06). If the next [moment](concepts.md#c09) of a [presentation](concepts.md#c04) has only one outcome of non-zero [weight](concepts.md#c06), its outcome comes from constraint, not from [collapse](concepts.md#c08).
 
 Given the [history](concepts.md#c13) up to that point, the outcome of a [collapse](concepts.md#c08) is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) according to the [weights](concepts.md#c06); nothing in [history](concepts.md#c13) can say anything more than the [weights](concepts.md#c06). Everything in the [universe](concepts.md#c02) is in [history](concepts.md#c13), so before a [collapse](concepts.md#c08), nothing in the [universe](concepts.md#c02) determines its outcome.
 
@@ -180,7 +182,7 @@ Note: if pₜˣ(⊥) = 1, the weight of x is always the point mass on ⊥ and de
 
 The [initial state of the universe](concepts.md#c14) is everything already there before the first [collapse](concepts.md#c08); it carries the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) [accumulated](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c30) in the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02).
 
-Backward: a starting point of [history](concepts.md#c13) is required jointly by the four laws. That the [initial state of the universe](concepts.md#c14) carries the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) of the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) is a [framework commitment](concepts.md#c03).
+Backward: the starting point of [history](concepts.md#c13) is already written into the definition of [history](concepts.md#c13); what the four laws use is the definition, not this Given. That the [initial state of the universe](concepts.md#c14) carries the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) of the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) is a [framework commitment](concepts.md#c03).
 
 ```text
 Formal: h₀ = (s₀); the content of s₀ is not analyzed
@@ -455,7 +457,7 @@ The first layer is position. By the definition of [moment](concepts.md#c09), eac
 
 The second layer is content. By the definition of [universe](concepts.md#c02), there is [collapse](concepts.md#c08) in the [universe](concepts.md#c02). By the [Law of the Black Box](concepts.md#c25), which one a [collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) when not [locked in](concepts.md#c12) cannot be uniquely derived. Hence for any stretch of [history](concepts.md#c13) that contains choices made by [collapse](concepts.md#c08), no [wo](concepts.md#c16) can guarantee that, under the same absence of [lock-in](concepts.md#c12), the same choices will be made again. Copying the outcomes of that time can yield an exactly identical sequence of outcomes; but every step of the copying is [locked in](concepts.md#c12): that is copying, not doing it over. A stretch determined entirely by constraint falls outside the second layer.
 
-By the definition of [wo](concepts.md#c16), among the [moments](concepts.md#c09) at which it is a [wo](concepts.md#c16), at least some are not [locked in](concepts.md#c12), and every choice made by a [collapse](concepts.md#c08) that [involves](concepts.md#c11) it belongs to its [own segment](concepts.md#c17). So once a [wo](concepts.md#c16) has gone through a [moment](concepts.md#c09) at which it is not [locked in](concepts.md#c12), its segment contains such a choice, and the second layer applies; for one that has not yet, such as a [wo](concepts.md#c16) before the first [collapse](concepts.md#c08), the first layer suffices. Hence within the [universe](concepts.md#c02), no [wo](concepts.md#c16) can [restore](concepts.md#c27) a [wo](concepts.md#c16), including itself.
+By the definition of [wo](concepts.md#c16), a [wo](concepts.md#c16) has at least some [moments](concepts.md#c09) at which it is not [locked in](concepts.md#c12), and every choice made by a [collapse](concepts.md#c08) that [involves](concepts.md#c11) it belongs to its [own segment](concepts.md#c17). So once a [wo](concepts.md#c16) has gone through a [moment](concepts.md#c09) at which it is not [locked in](concepts.md#c12), its segment contains such a choice, and the second layer applies; for one that has not yet, such as a [wo](concepts.md#c16) before the first [collapse](concepts.md#c08), the first layer suffices. Hence within the [universe](concepts.md#c02), no [wo](concepts.md#c16) can [restore](concepts.md#c27) a [wo](concepts.md#c16), including itself.
 
 The [identity](concepts.md#c21) of some later [wo](concepts.md#c16) with the original one is a [distinction](concepts.md#c18). Freezing, resuscitation, saving and reloading, splitting, and merging are all the one [history](concepts.md#c13) continuing onward, not [restoration](concepts.md#c27); to call what continues onward the original one is something no one can refute. [Death](concepts.md#c23) is only a mark: where it is placed is decided by the [self](concepts.md#c19) that places it; but wherever it is placed, that stretch of [history](concepts.md#c13) will not happen again, and no [wo](concepts.md#c16) can guarantee that the choices it made then, when not [locked in](concepts.md#c12), will be made over.
 
@@ -694,6 +696,6 @@ The [universe](concepts.md#c02) has only one [history](concepts.md#c13). The [ob
 
 Time is not a given. One [collapse](concepts.md#c08) is one [moment](concepts.md#c09).
 
-A [wo](concepts.md#c16) is always changing. You cannot uniquely derive me. I cannot finish distinguishing myself. When I die, that segment will not happen again, and it never left.
+A [wo](concepts.md#c16) is always changing. A [self](concepts.md#c19) cannot be uniquely derived. A [self](concepts.md#c19) cannot finish a [distinction](concepts.md#c18) of itself. When I die, that segment will not happen again, and it never left.
 
 A [universe](concepts.md#c02) without [wos](concepts.md#c16) has no [moments](concepts.md#c09); a [universe](concepts.md#c02) with [wos](concepts.md#c16) can only go forward.

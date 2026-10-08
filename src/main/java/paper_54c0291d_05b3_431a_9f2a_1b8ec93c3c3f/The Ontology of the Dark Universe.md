@@ -1,6 +1,8 @@
 ---
 uuid: 54c0291d-05b3-431a-9f2a-1b8ec93c3c3f
 last-modified: 2026-09-27T01:51:21
+author: 黃正宇 / Cheng Yu Huang
+contact: mthree.tw@gmail.com
 ---
 
 # The Ontology of the Dark Universe
