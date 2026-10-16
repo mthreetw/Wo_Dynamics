@@ -73,7 +73,7 @@ a fixed isometry is given   Writing Map : Stimulus Space → Record Space ⊗ En
 Writing Map is the same for all successors
 ```
 
-The [Encoding](concepts.md#c19) assigns to every [Stimulus Bundle](concepts.md#c27) a value in the [Stimulus Space](concepts.md#c20), including [Stimulus Bundles](concepts.md#c27) that contain several [stimuli](concepts.md#c07); the specific values are not fixed.
+For every [Stimulus Bundle](concepts.md#c27), a value in the [Stimulus Space](concepts.md#c20) is [given](concepts.md#c03) by the [Encoding](concepts.md#c19), including for [Stimulus Bundles](concepts.md#c27) that contain several [stimuli](concepts.md#c07); the specific values are not fixed.
 
 This axiom specifies how a [stimulus](concepts.md#c07) is [written](concepts.md#c21) as a [record](concepts.md#c17). The [Writing Map](concepts.md#c22) touches only newly [occurring](concepts.md#c08) [stimuli](concepts.md#c07) and never touches what already exists.
 
@@ -182,13 +182,13 @@ The [Partition](concepts.md#c10) draws the boundary between [Xin](concepts.md#c2
 
 ## VI. Conclusion
 
-This universe only grows and never alters. Nothing moves, nothing is changed; only [records](concepts.md#c17) [accumulate](concepts.md#c30), one by one. [Moments](concepts.md#c04) and the number of [records](concepts.md#c17) correspond one to one.
+This universe only grows and never alters. What already exists does not move, and no past [record](concepts.md#c17) is changed; only [records](concepts.md#c17) [accumulate](concepts.md#c30), one by one. [Moments](concepts.md#c04) and the number of [records](concepts.md#c17) correspond one to one.
 
 ---
 
 ## Appendix: Non-Degenerate Model (First Three Moments)
 
-The following is a [Non-Degenerate Model](concepts.md#c34): two [stimuli](concepts.md#c07), [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36), with complete data for the [Initial Moment](concepts.md#c05), the [Second Moment](concepts.md#c37), and the [Third Moment](concepts.md#c38).
+The following is a [Non-Degenerate Model](concepts.md#c34): two [stimuli](concepts.md#c07), [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36), with complete data for the [Initial Moment](concepts.md#c05), the [Second Moment](concepts.md#c37), and the [Third Moment](concepts.md#c38). The bases listed below for the three spaces are all orthonormal bases.
 
 ```text
 first three moments = Initial Moment, Second Moment, Third Moment      // later moments extend by the same writing

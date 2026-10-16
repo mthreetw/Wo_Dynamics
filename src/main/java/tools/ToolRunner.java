@@ -24,6 +24,7 @@ import java.util.stream.*;
  *   3. tree       產出 PaperTree.html（引用關係圖）
  *   4. starmap    產出 starmap.html（概念關係星圖）
  *   5. concepts   產出 exports/concepts.jsonl（依工具規格第四節抽取並分類關係）
+ *      formalizations  產出 exports/formalizations.jsonl（完整陳述與來源圖）
  *   6. papers     產出 exports/papers.jsonl
  *   7. checkPapers  檢查 papers.jsonl 結構
  *   8. checkHf    遠端檢查 HF dataset 狀態（需要網路；未設定 HF_DATASET 時略過）
@@ -295,6 +296,9 @@ public class ToolRunner {
 
         section("4. starmap");
         starmap(root, papers);
+
+        section("5a. formalizations.jsonl（完整性檢查）");
+        exportFormalizations(root, papers, byFolder);
 
         section("5. concepts.jsonl");
         exportConcepts(root, papers);
@@ -2251,7 +2255,7 @@ public class ToolRunner {
                 || sec.equals("記號約定") || sec.equals("待決項")) continue;
             String line = raw.startsWith("- ") ? raw.substring(2).trim() : raw;
             if (line.startsWith("來源：") || line.startsWith("[作者裁決]") || line.startsWith("附註：")
-                || line.startsWith("效準：")) continue;   // 效準是經驗給定，不是框架的關係（稽核總表 8.6）
+                || line.startsWith("效準：") || line.startsWith("例：本例效準：")) continue;   // 效準是經驗給定，不是框架的關係（稽核總表 8.6）
 
             var dm = DERIVE_RE.matcher(line);
             List<String> derived = new ArrayList<>();
@@ -2783,7 +2787,7 @@ public class ToolRunner {
     static void exportConcepts(Path root, List<Paper> papers) throws IOException {
         Path out = root.resolve(EXPORTS).resolve("concepts.jsonl");
         Files.createDirectories(out.getParent());
-        int n = 0, nr = 0;
+        int n = 0;
         Map<String, Integer> byType = new TreeMap<>();
         for (Paper p : papers) for (Rel r : p.rels) byType.merge(r.type, 1, Integer::sum);
 
@@ -2821,12 +2825,224 @@ public class ToolRunner {
                     }
                     sb.append("]}");
                     w.write(sb.toString()); w.newLine(); n++;
-                    nr += mine.size();
                 }
             }
         }
         System.out.println("寫入 " + n + " 個概念到 " + EXPORTS + "/concepts.jsonl（關係 "
             + papers.stream().mapToInt(p -> p.rels.size()).sum() + " 筆，依類型：" + byType + "）");
+    }
+
+
+    // 完整形式化匯出：陳述獨立存在，不以是否含本篇概念決定保留與否。
+    // 此圖檢查的是資料完整性，並不替代 AI 的語意／證明稽核。
+    static class FormalNode {
+        String id, role, label, section, text, raw;
+        int line, endLine;
+        List<String> citations = new ArrayList<>(), concepts = new ArrayList<>();
+        List<Map<String, Object>> sources = new ArrayList<>();
+    }
+
+    static String formalHash(String text) {
+        try {
+            byte[] digest = java.security.MessageDigest.getInstance("SHA-256")
+                .digest(text.replace("\r\n", "\n").getBytes(StandardCharsets.UTF_8));
+            return HexFormat.of().formatHex(digest);
+        } catch (java.security.NoSuchAlgorithmException e) { throw new IllegalStateException(e); }
+    }
+
+    static Map<String, Object> fields(Object... values) {
+        Map<String, Object> out = new LinkedHashMap<>();
+        for (int i = 0; i < values.length; i += 2) out.put((String) values[i], values[i + 1]);
+        return out;
+    }
+
+    static String structuredJson(Object value) {
+        if (value == null) return "null";
+        if (value instanceof String s) return json(s);
+        if (value instanceof Boolean || value instanceof Number) return value.toString();
+        if (value instanceof Map<?, ?> m)
+            return m.entrySet().stream().map(e -> json(e.getKey().toString()) + ":" + structuredJson(e.getValue()))
+                .collect(Collectors.joining(",", "{", "}"));
+        if (value instanceof Collection<?> c)
+            return c.stream().map(ToolRunner::structuredJson).collect(Collectors.joining(",", "[", "]"));
+        throw new IllegalArgumentException("不支援的 JSON 型別：" + value.getClass());
+    }
+
+    static List<String> citationCodes(String text) {
+        List<String> out = new ArrayList<>();
+        var cite = CITE_ANY.matcher(text);
+        while (cite.find()) {
+            var code = CITE_CODE.matcher(cite.group());
+            while (code.find()) if (!out.contains(code.group(1))) out.add(code.group(1));
+        }
+        return out;
+    }
+
+    static List<FormalNode> formalNodes(Paper p) {
+        List<FormalNode> out = new ArrayList<>();
+        String[] lines = p.formText.split("\\r?\\n", -1);
+        String section = "", revision = formalHash(p.formText);
+        Pattern premise = Pattern.compile("^(前提[" + LABEL_NUM + "]+(?:之[" + LABEL_NUM + "]+)*)(?:\\s*\\[限定條件\\])?：");
+        for (int i = F_HEADER_LINES; i < lines.length; i++) {
+            String line = lines[i].trim();
+            if (line.startsWith("## ")) { section = line.substring(3).trim(); continue; }
+            if (line.isBlank()) continue;
+            FormalNode n = new FormalNode();
+            n.line = i + 1; n.endLine = i + 1; n.section = section;
+            if (line.startsWith("```")) {
+                int start = i;
+                while (++i < lines.length && !lines[i].trim().startsWith("```")) {}
+                if (i == lines.length) throw new IllegalStateException(p.folder + "：形式段沒有結尾");
+                n.text = String.join("\n", Arrays.copyOfRange(lines, start + 1, i));
+                if (i + 1 < lines.length && CITE_RE.matcher(lines[i + 1].trim()).matches()) i++;
+                n.raw = String.join("\n", Arrays.copyOfRange(lines, start, i + 1));
+                n.endLine = i + 1; n.role = "formal_block";
+                // 形式段符號依數學慣例，不用自然語言切詞規則替它猜概念型別。
+            } else {
+                n.raw = lines[i];
+                n.text = CITE_ANY.matcher(bodyOf(line)).replaceAll("").trim();
+                var pm = premise.matcher(n.text); var lm = LABEL_RE.matcher(n.text);
+                if (section.equals("記號約定")) n.role = "notation";
+                else if (section.equals("待決項")) n.role = "pending";
+                else if (n.text.startsWith("來源：")) n.role = "section_source";
+                else if (pm.find()) { n.role = n.text.contains("[限定條件]") ? "scope" : "premise"; n.label = pm.group(1); }
+                else if (lm.find()) { n.role = "derivation"; n.label = lm.group(1); }
+                else if (n.text.startsWith("附註：")) n.role = "note";
+                else if (n.text.startsWith("[作者裁決]")) n.role = "author_ruling";
+                else if (n.text.startsWith("例：本例效準：") || n.text.startsWith("效準：")) n.role = "example_given";
+                else if (n.text.startsWith("例")) n.role = "example";
+                else n.role = "other"; // 不認得也保留，不靜默丟棄。
+            }
+            n.id = p.uuid + ":formal:" + revision + ":L" + n.line;
+            n.citations = citationCodes(n.raw);
+            out.add(n);
+        }
+        return out;
+    }
+
+    static Map<String, Object> exampleContext(List<FormalNode> nodes, FormalNode n, String folder) {
+        if (!n.role.equals("example"))
+            throw new IllegalStateException(folder + "：「本例效準」只能用於例，行 " + n.line);
+        List<String> givens = nodes.stream()
+            .filter(g -> g.role.equals("example_given") && g.section.equals(n.section) && g.line < n.line)
+            .map(g -> g.id).toList();
+        String resolution = "preceding_givens_in_same_section";
+        if (givens.isEmpty()) {
+            // 舊文件可用一般「例：」及形式段交代情境；只保留候選上下文，不判定直接前件。
+            givens = nodes.stream().filter(g -> g.section.equals(n.section) && g.line < n.line
+                && (g.role.equals("formal_block") || (g.role.equals("example")
+                    && !DERIVE_RE.matcher(g.text).find())))
+                .map(g -> g.id).toList();
+            resolution = "preceding_example_context_in_same_section";
+        }
+        if (givens.isEmpty()) throw new IllegalStateException(folder
+            + "：本例效準沒有可保留的前文例子上下文，行 " + n.line + "：" + n.text);
+        return fields("text", "本例效準", "kind", "example_context", "target_ids", givens,
+            "resolution", resolution, "dependency_precision", "context_only");
+    }
+
+    static Map<String, Object> formalizationData(Paper p, Map<String, Paper> byFolder) {
+        List<FormalNode> nodes = formalNodes(p);
+        Map<String, FormalNode> labeled = new LinkedHashMap<>();
+        Map<String, Paper> owners = new HashMap<>();
+        Map<String, Concept> catalog = new LinkedHashMap<>();
+        for (Paper owner : byFolder.values())
+            for (Concept c : owner.concepts) owners.put(owner.uuid + "." + c.id, owner);
+        for (FormalNode n : nodes) if (n.label != null && labeled.putIfAbsent(n.label, n) != null)
+            throw new IllegalStateException(p.folder + "：重複標籤 " + n.label);
+        // 以概念表本身為根，保留所有本篇條目，再遞移收錄定義引用的上游條目。
+        for (Concept c : p.concepts) catalog.put(p.uuid + "." + c.id, c);
+        for (FormalNode n : nodes) {
+            if (!n.role.equals("formal_block")) n.concepts = conceptsIn(n.text, p, byFolder);
+            for (String id : n.concepts) {
+                Paper owner = owners.get(id);
+                if (owner == null) throw new IllegalStateException(p.folder + "：概念未對應 " + id);
+                catalog.put(id, owner.byId(id.substring(id.lastIndexOf('.') + 1)));
+            }
+            // 附註不成為推導來源；正文引用與附註本身仍作為上下文保存。
+            if (!n.role.equals("derivation") && !n.role.equals("example")) continue;
+            var dm = DERIVE_RE.matcher(n.text);
+            if (!dm.find()) continue;
+            for (String token : dm.group(1).split("\\s*\\+\\s*")) {
+                String t = token.trim();
+                FormalNode target = labeled.get(t);
+                if (target != null) {
+                    if (target.line >= n.line) throw new IllegalStateException(p.folder + "：非前文來源 " + t);
+                    n.sources.add(fields("text", t, "kind", "statement", "target_ids", List.of(target.id)));
+                } else if (t.equals("本例效準")) {
+                    n.sources.add(exampleContext(nodes, n, p.folder));
+                } else {
+                    boolean definition = t.endsWith(" 的定義");
+                    String name = definition ? t.substring(0, t.length() - " 的定義".length()).trim() : t;
+                    Concept c = conceptByName(name, p, byFolder);
+                    if (c == null) throw new IllegalStateException(p.folder + "：找不到來源 " + t);
+                    var m = PREFIXED_REF.matcher(name);
+                    String uuid = m.find() ? m.group(2) : p.uuid;
+                    String id = uuid + "." + c.id;
+                    catalog.put(id, c);
+                    n.sources.add(fields("text", t, "kind", definition ? "definition" : "concept_claim", "target_ids", List.of(id)));
+                }
+            }
+        }
+        List<String> queue = new ArrayList<>(catalog.keySet());
+        for (int i = 0; i < queue.size(); i++) {
+            String id = queue.get(i); Concept c = catalog.get(id); Paper owner = owners.get(id);
+            for (Link link : scanLinks(c.def == null ? "" : c.def, "concepts.md")) {
+                Concept target = conceptOf(link, owner, byFolder);
+                Paper targetOwner = link.targetDir == null ? owner : byFolder.get(link.targetDir);
+                if (target == null || targetOwner == null)
+                    throw new IllegalStateException(p.folder + "：定義依賴缺失 " + id + " → " + link.id);
+                String targetId = targetOwner.uuid + "." + target.id;
+                if (!catalog.containsKey(targetId)) { catalog.put(targetId, target); queue.add(targetId); }
+            }
+        }
+        List<Map<String, Object>> conceptRows = new ArrayList<>();
+        for (var entry : catalog.entrySet()) {
+            String id = entry.getKey(); Concept c = entry.getValue(); Paper owner = owners.get(id);
+            List<String> depends = new ArrayList<>();
+            for (Link l : scanLinks(c.def == null ? "" : c.def, "concepts.md")) {
+                Paper up = l.targetDir == null ? owner : byFolder.get(l.targetDir);
+                depends.add(up.uuid + "." + l.id);
+            }
+            conceptRows.add(fields("id", id, "concept", c.zh, "concept_en", c.en, "modifier", c.mod,
+                "deprecated", c.deprecated, "definition", c.def, "definition_dependencies", depends,
+                "paper_uuid", owner.uuid, "paper_title", owner.title));
+        }
+        List<Map<String, Object>> nodeRows = new ArrayList<>();
+        for (FormalNode n : nodes) {
+            List<String> context = nodes.stream().filter(x -> x.section.equals(n.section)
+                && Set.of("note", "section_source", "author_ruling", "formal_block").contains(x.role))
+                .map(x -> x.id).toList();
+            nodeRows.add(fields("id", n.id, "role", n.role, "label", n.label, "section", n.section,
+                "line", n.line, "end_line", n.endLine, "text", n.text, "raw_text", n.raw,
+                "concepts", n.concepts, "sources", n.sources, "body_citations", n.citations,
+                "section_context_ids", context));
+        }
+        List<Map<String, Object>> body = p.units.stream().map(u -> fields("code", u.code, "kind", u.kind,
+            "text", u.text, "line", u.line, "heading", u.heading)).toList();
+        Set<String> codes = p.units.stream().map(Unit::code).collect(Collectors.toSet());
+        for (FormalNode n : nodes) for (String code : n.citations)
+            if (!codes.contains(code)) throw new IllegalStateException(p.folder + "：正文句碼缺失 " + code);
+        return fields("schema_version", "1.0", "paper_uuid", p.uuid, "paper_title", p.title,
+            "formalization_sha256", formalHash(p.formText), "formalization_md", p.formText,
+            "nodes", nodeRows, "concept_catalog", conceptRows, "body_units", body,
+            "checks", fields("source_resolution", "passed", "body_citations", "passed",
+                "example_dependencies", "context_only", "semantic_proof", "not_checked"));
+    }
+
+    static void exportFormalizations(Path root, List<Paper> papers, Map<String, Paper> byFolder) throws IOException {
+        // 全部論文先建圖與檢查，再寫出；任何缺失都不發布本輪的新檔。
+        List<String> lines = new ArrayList<>();
+        for (Paper p : papers) if (!p.external) lines.add(structuredJson(formalizationData(p, byFolder)));
+        Path out = root.resolve(EXPORTS).resolve("formalizations.jsonl");
+        Files.createDirectories(out.getParent());
+        Path tmp = Files.createTempFile(out.getParent(), "formalizations-", ".tmp");
+        try {
+            Files.write(tmp, lines, StandardCharsets.UTF_8);
+            try { Files.move(tmp, out, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING); }
+            catch (AtomicMoveNotSupportedException e) { Files.move(tmp, out, StandardCopyOption.REPLACE_EXISTING); }
+        } finally { Files.deleteIfExists(tmp); }
+        System.out.println("寫入 " + lines.size() + " 篇完整形式化資料（來源與正文句碼已檢查；語意證明未由工具判定）");
     }
 
     // ════════════════════════════════════════════════════════════

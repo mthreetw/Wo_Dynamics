@@ -26,7 +26,7 @@ Everything else: wₜ₊₁ = ω(hₜ) (Given 4); pₜ₊₁ = G(hₜ⁺) (Given
 Intervention: not formalized
 ```
 
-This paper sets out to answer a question about an epistemic limit: why a [self](concepts.md#c19) cannot truly understand you, and cannot truly understand even itself. The reasons given by common sense and by most social-scientific theories are contingent: not enough information, different languages, different backgrounds, different experiences. All of these reasons imply that with enough information and good enough communication, understanding is possible in principle. This paper claims that the limit is structural, not a shortfall: even with complete information, it cannot be done. It has three layers. Your next choice is not yet settled before it is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32), and not even you know it (the [Law of the Black Box](concepts.md#c25)). Your knowledge of yourself always lags one step behind, and you have no complete self in hand to give over (the [Law of Attrition](concepts.md#c26)). I can understand you only through the you that has [arrived](concepts.md#c10) at me: what [arrives](concepts.md#c10) is always how you have already been, and your next instant is still a black box; and my act of understanding you, once it [arrives](concepts.md#c10) at you, may itself change you (Corollary 12). The argument for the [Law of Attrition](concepts.md#c26) uses only "understanding is an act, and it enters [history](concepts.md#c13) only once it has happened"; it does not use [collapse](concepts.md#c08). Common sense cannot tell contingent limits from structural ones; hence this paper derives backward.
+This paper sets out to answer a question about an epistemic limit: why a [self](concepts.md#c19) cannot truly understand you, and cannot truly understand even itself. The reasons given by common sense and by most social-scientific theories are contingent: not enough information, different languages, different backgrounds, different experiences. All of these reasons imply that with enough information and good enough communication, understanding is possible in principle. This paper claims that the limit is structural, not a shortfall: even with complete information, it cannot be guaranteed. It has three layers. Your next choice is not yet settled before it is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32), and not even you can derive it uniquely beforehand (the [Law of the Black Box](concepts.md#c25)). Your knowledge of yourself always lags one step behind, and you have no complete self in hand to give over (the [Law of Attrition](concepts.md#c26)). I can understand you only through the you that has [arrived](concepts.md#c10) at me: what [arrives](concepts.md#c10) is always how you have already been, and your next instant is still a [black box](concepts.md#c25); and my act of understanding you, once it [arrives](concepts.md#c10) at you, may itself change you (Corollary 12). The argument for the [Law of Attrition](concepts.md#c26) uses only "understanding is an act, and it enters [history](concepts.md#c13) only once it has happened"; it does not use [collapse](concepts.md#c08). Common sense cannot tell contingent limits from structural ones; hence this paper derives backward.
 
 This paper does not solve the measurement problem of quantum mechanics. Its method is backward derivation: the four laws, the [Law of Flux](concepts.md#c24), the [Law of the Black Box](concepts.md#c25), the [Law of Attrition](concepts.md#c26), and the [Law of Non-Restoration](concepts.md#c28), are the iron laws this paper acknowledges; what it asks is what the world must at least be like if these four laws are true. The conditions derived backward are listed as givens, each marked with the law that requires it; the givens are then used to derive the four laws forward again, as a check. The fewer the required givens, the better. Whatever no law requires, and is not kept in order to fit known observations, but this paper nevertheless keeps, is listed as a [framework commitment](concepts.md#c03), separately from the givens.
 
@@ -66,7 +66,7 @@ The following are required by none of the laws, yet this paper keeps them:
 - That the [initial state of the universe](concepts.md#c14) carries the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) [accumulated](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c30) in the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) (the second half of Given 3).
 - The [intervention](concepts.md#c01).
 
-There is one further condition that the four laws do not require either; it is kept only so as not to contradict known observations: the [generating function](concepts.md#c15) permits [no-signaling](concepts.md#c31) (the second half of Given 5).
+There is one further condition that the four laws do not require either; it is kept only so as not to contradict known observations: the [generating function](concepts.md#c15) satisfies [no-signaling](concepts.md#c31) (the second half of Given 5).
 
 ```text
 Formal: backward table ("⇐": used in the derivation; necessity not proved)
@@ -90,7 +90,7 @@ Kept to fit observation  = { no-signaling }
 
 ```text
 Formal: notation
-t ∈ {1,2,3,…}        order of moments; total order (Given 1)
+t ∈ {1,2,3,…}        order of moments; total order (definition of moment)
 B                    set of branches (countable)
 Δ(B)                 weight distributions on B (non-negative, summing to one)
 s₀                   initial state of the universe
@@ -173,8 +173,8 @@ next(x, t) = min { t' > t : t' ∈ T(x) }
 lockedin(x, t) ⇔ involves(x, t) ∧ supp(pₜˣ) = {y}, y ≠ ⊥
 t ∉ T(x) ⇒ ¬lockedin(x, t)           having no moment is not lock-in
 History unique: for t < t', hₜ is a prefix of hₜ'
-Note: if pₜˣ(⊥) = 1, the weight of x is always the point mass on ⊥ and depends on nothing;
-      so "its weight depends on the history that arrived at it" is meaningful only when
+Note: if pₜˣ(⊥) = 1, in this collapse the weight of x falls entirely on ⊥;
+      so, for this collapse, "its weight depends on the history that arrived at it" is meaningful only when
       the outcome may fall on it, and is not a separate condition
 ```
 
@@ -206,7 +206,7 @@ The [weight](concepts.md#c06) of a [presentation](concepts.md#c04) is the part o
 
 The [generating function](concepts.md#c15) satisfies [no-signaling](concepts.md#c31): for two [collapses](concepts.md#c08) that are far apart and cannot influence each other in time, the [weights](concepts.md#c06) of their respective outcomes are the same whichever the [observer](concepts.md#c07) performs first.
 
-It follows, and need not be posited separately, that the [generating function](concepts.md#c15) does not vary with the granularity of description. Whether a [presentation](concepts.md#c04) is described as one node or as a network, all [presentations](concepts.md#c04)' [weights](concepts.md#c06) are split off from the same [universe](concepts.md#c02) [weight](concepts.md#c06), and the results necessarily agree.
+It follows, and need not be posited separately, that when the outcomes of one [presentation](concepts.md#c04) can be obtained by composing those of another, the [generating function](concepts.md#c15) does not vary with the granularity of description. Whether a [presentation](concepts.md#c04) is described as one node or as a network, all [presentations](concepts.md#c04)' [weights](concepts.md#c06) are split off from the same [universe](concepts.md#c02) [weight](concepts.md#c06), and the results necessarily agree.
 
 Backward: "[weights](concepts.md#c06) are determined only by [history](concepts.md#c13)" is required by the [Law of the Black Box](concepts.md#c25). [No-signaling](concepts.md#c31) is required by none of the four laws; it is kept only so as not to contradict known observations (see Section 0).
 
@@ -256,7 +256,7 @@ Stones, abacuses, thermostats: ¬V2 (locked in at every step)
 Relation of wo x to the universe = (arrived(x, ·), seg(x, ·)); x has no other determination
 ```
 
-- [Distinction](concepts.md#c18) is an act of a [wo](concepts.md#c16): drawing a line, taking certain [presentations](concepts.md#c04) as one [individual](concepts.md#c20), taking a certain stretch as the past, judging the [identity](concepts.md#c21) of [wos](concepts.md#c16) at different [moments](concepts.md#c09), as one and the same or as two different ones. This act leaves one [writing](concepts.md#c29) in [history](concepts.md#c13), whose content is determined by the [history](concepts.md#c13) up to that point. The content of a [distinction](concepts.md#c18) changes a way of seeing; it does not rewrite what is seen. The act of [distinction](concepts.md#c18) itself enters [history](concepts.md#c13) by Given 7. A [distinction](concepts.md#c18) enters [history](concepts.md#c13) only once it has happened, so its material is only the [history](concepts.md#c13) before it that has already [arrived](concepts.md#c10) at it, and it is not itself among that material. When speaking of the next [moment](concepts.md#c09) of a [wo](concepts.md#c16), whether it is a cell or a body is also a [distinction](concepts.md#c18); by Given 5, this does not change the [weights](concepts.md#c06).
+- [Distinction](concepts.md#c18) is an act of a [wo](concepts.md#c16): drawing a line, taking certain [presentations](concepts.md#c04) as one [individual](concepts.md#c20), taking a certain stretch as the past, judging the [identity](concepts.md#c21) of [wos](concepts.md#c16) at different [moments](concepts.md#c09), as one and the same or as two different ones. This act leaves one [writing](concepts.md#c29) in [history](concepts.md#c13), whose content is determined by the [history](concepts.md#c13) up to that point. The content of a [distinction](concepts.md#c18) changes a way of seeing; it does not rewrite what is seen. The act of [distinction](concepts.md#c18) itself enters [history](concepts.md#c13) by Given 7. A [distinction](concepts.md#c18) enters [history](concepts.md#c13) only once it has happened, so its material is only the [history](concepts.md#c13) before it that has already [arrived](concepts.md#c10) at it, and it is not itself among that material. When speaking of the next [moment](concepts.md#c09) of a [wo](concepts.md#c16), whether it is a cell or a body is also a [distinction](concepts.md#c18); by Given 5, under the same [history](concepts.md#c13), a change in this way of describing does not by itself change the [weights](concepts.md#c06).
 
 ```text
 Formal:
@@ -313,7 +313,7 @@ Formal: if wo x makes a distinction at t, then dₓ,ₜ ∈ wₜ₊₁ ⊂ hₜ�
 
 The corollaries below speak only of [wos](concepts.md#c16). The [Law of the Black Box](concepts.md#c25) speaks only of the [moments](concepts.md#c09) at which a [wo](concepts.md#c16) is not [locked in](concepts.md#c12). When a cannonball strikes a person, that instant has only one outcome and falls outside this paper.
 
-Likewise, if every step of a language model's output is entirely determined by [history](concepts.md#c13), it is [locked in](concepts.md#c12) throughout that output and falls outside the [Law of the Black Box](concepts.md#c25). Between two inputs it has no [moment](concepts.md#c09): no [collapse](concepts.md#c08) [involves](concepts.md#c11) it, and this is not [lock-in](concepts.md#c12).
+Likewise, if at every [moment](concepts.md#c09) that [involves](concepts.md#c11) a language model its outcome is entirely determined by [history](concepts.md#c13), it is [locked in](concepts.md#c12) at those [moments](concepts.md#c09) and falls outside the [Law of the Black Box](concepts.md#c25). Between two inputs it has no [moment](concepts.md#c09): no [collapse](concepts.md#c08) [involves](concepts.md#c11) it, and this is not [lock-in](concepts.md#c12).
 
 ```text
 Formal:
@@ -388,7 +388,7 @@ Converse: no wo ⇒ no self ⇒ e has no value ⇒ no collapse. ∎
 
 ### Corollary 2: The Formal Layer Has No Moments
 
-In the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) nothing is ever [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) (see the Framework Declaration), so there is no [collapse](concepts.md#c08). By the definition of [moment](concepts.md#c09), in this paper's sense the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) has no [moments](concepts.md#c09). Before and after, as this paper uses them, hold only within the [universe](concepts.md#c02) (see the Framework Declaration); hence the [moments](concepts.md#c09) of the [universe](concepts.md#c02) and [formal-layer moments](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c04) cannot be compared. A [moment](concepts.md#c09) is a [collapse](concepts.md#c08), so whatever any [self](concepts.md#c19) sees within a [moment](concepts.md#c09) is already the outcome of [collapse](concepts.md#c08): the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) [accumulated](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c30) in the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) are indeed still in the [initial state of the universe](concepts.md#c14), but when a [self](concepts.md#c19) sees them within a [moment](concepts.md#c09), they are already [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) after [collapse](concepts.md#c08). Before the first [collapse](concepts.md#c08), there is already a [self](concepts.md#c19) [distinguishing](concepts.md#c18) itself, but there is not yet any [moment](concepts.md#c09); what it knew then, this paper does not assert: this can be neither verified nor falsified.
+In the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) nothing is ever [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) (see the Framework Declaration), so there is no [collapse](concepts.md#c08). By the definition of [moment](concepts.md#c09), in this paper's sense the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) has no [moments](concepts.md#c09). Before and after, as this paper uses them, hold only within the [universe](concepts.md#c02) (see the Framework Declaration); hence between the [moments](concepts.md#c09) of the [universe](concepts.md#c02) and [formal-layer moments](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c04) there is no given order or correspondence. A [moment](concepts.md#c09) is a [collapse](concepts.md#c08), so whatever any [self](concepts.md#c19) sees within a [moment](concepts.md#c09) when making a [distinction](concepts.md#c18) is already the outcome of [collapse](concepts.md#c08): the [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) [accumulated](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c30) in the [formal layer](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c02) are indeed still in the [initial state of the universe](concepts.md#c14), but when a [self](concepts.md#c19) sees them within a [moment](concepts.md#c09), they are already [records](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c17) after [collapse](concepts.md#c08). Before the first [collapse](concepts.md#c08), there is already a [self](concepts.md#c19) [distinguishing](concepts.md#c18) itself, but there is not yet any [moment](concepts.md#c09); what it knew then, this paper does not assert: this can be neither verified nor falsified.
 
 ```text
 Formal: no bₜ in the formal layer ⇒ no t.
@@ -399,9 +399,9 @@ Formal: no bₜ in the formal layer ⇒ no t.
 
 ### Corollary 3: The Law of Flux
 
-By the definitions of [moment](concepts.md#c09) and [history](concepts.md#c13), at every [moment](concepts.md#c09) [history](concepts.md#c13) gains the outcome of one more [collapse](concepts.md#c08). A [wo](concepts.md#c16) is in [history](concepts.md#c13), so at no [moment](concepts.md#c09) is a [wo](concepts.md#c16) in the same [history](concepts.md#c13) as at the previous instant. Freezing a [presentation](concepts.md#c04) does not stop the [history](concepts.md#c13) it is in.
+By the definitions of [moment](concepts.md#c09) and [history](concepts.md#c13), at every [moment](concepts.md#c09) [history](concepts.md#c13) gains the outcome of one more [collapse](concepts.md#c08). A [wo](concepts.md#c16) is in [history](concepts.md#c13), so at no [moment](concepts.md#c09) is a [wo](concepts.md#c16) in the same [history](concepts.md#c13) as before that [collapse](concepts.md#c08). Freezing a [presentation](concepts.md#c04) does not stop the [history](concepts.md#c13) it is in.
 
-The same holds for a [wo](concepts.md#c16)'s own history: by the definition of [arrival](concepts.md#c10), the outcome of every [collapse](concepts.md#c08) that [involves](concepts.md#c11) it [arrives](concepts.md#c10) at it. So at each of its [moments](concepts.md#c09), the [history](concepts.md#c13) that has [arrived](concepts.md#c10) at it gains one more item, and is never exactly the same as at its previous [moment](concepts.md#c09). Between two of its [moments](concepts.md#c09), there is no [moment](concepts.md#c09) for it.
+The same holds for a [wo](concepts.md#c16)'s own history: by the definition of [arrival](concepts.md#c10), the outcome of every [collapse](concepts.md#c08) that [involves](concepts.md#c11) it [arrives](concepts.md#c10) at it. So at each of its [moments](concepts.md#c09), the [history](concepts.md#c13) that has [arrived](concepts.md#c10) at it gains one more item, and is never exactly the same as before that [collapse](concepts.md#c08). Between two of its [moments](concepts.md#c09), there is no [moment](concepts.md#c09) for it.
 
 This is the form the [Law of Flux](concepts.md#c24) takes in this paper's model (the [Law of Flux in the Model](concepts.md#c33)): the [history](concepts.md#c13) in which a [wo](concepts.md#c16) lies is always changing.
 
@@ -415,7 +415,7 @@ Wo: t ∈ T(x) ⇒ position of the t-th collapse outcome ∈ arrived(x, t), and 
 
 ### Corollary 4: The Law of the Black Box
 
-Suppose a [wo](concepts.md#c16) is not [locked in](concepts.md#c12) at some [moment](concepts.md#c09); then its next [moment](concepts.md#c09) has at least two outcomes of non-zero [weight](concepts.md#c06). Every derivation any [wo](concepts.md#c16) makes before this [collapse](concepts.md#c08) lies within the [history](concepts.md#c13) up to that point; by Given 2, nothing in [history](concepts.md#c13) can say anything more than the [weights](concepts.md#c06). Hence at that [moment](concepts.md#c09), no [wo](concepts.md#c16) in the [universe](concepts.md#c02) can uniquely derive its next [moment](concepts.md#c09), including itself. The chance of any prediction being right is at most the [weight](concepts.md#c06) of its heaviest outcome.
+Suppose some [moment](concepts.md#c09) of a [wo](concepts.md#c16) is not [locked in](concepts.md#c12); then that [moment](concepts.md#c09) has at least two outcomes of non-zero [weight](concepts.md#c06). Every derivation any [wo](concepts.md#c16) makes before this [collapse](concepts.md#c08) lies within the [history](concepts.md#c13) up to that point; by Given 2, nothing in [history](concepts.md#c13) can say anything more than the [weights](concepts.md#c06). Hence at that [moment](concepts.md#c09), no [wo](concepts.md#c16) in the [universe](concepts.md#c02) can uniquely derive its next [moment](concepts.md#c09), including itself. The chance of any prediction being right is at most the [weight](concepts.md#c06) of its heaviest outcome.
 
 What can be derived is the [weights](concepts.md#c06): by Given 5, [weights](concepts.md#c06) are determined by [history](concepts.md#c13). What a person will eat for dinner may have extremely concentrated [weights](concepts.md#c06); but concentrated is not unique.
 
@@ -430,7 +430,7 @@ By G2a: P(πₓ(bₜ₊₁) = f(hₜ⁺) | hₜ⁺) = pₜ₊₁ˣ(f(hₜ⁺)) �
 
 ### Corollary 5: The Law of Attrition
 
-A [self](concepts.md#c19)'s [distinction](concepts.md#c18) of itself is one [distinction](concepts.md#c18). By the definition of [distinction](concepts.md#c18), its material is only the [history](concepts.md#c13) before it that has already [arrived](concepts.md#c10) at it, and it is not itself among that material; by Given 7, it is [written](concepts.md#c29) into [history](concepts.md#c13) only before the next [moment](concepts.md#c09). So once this [distinction](concepts.md#c18) has been [written](concepts.md#c29), there is a part of [history](concepts.md#c13) that this [self](concepts.md#c19) has not yet [distinguished](concepts.md#c18): the very act of [distinguishing](concepts.md#c18) itself. At the next [moment](concepts.md#c09) it enters [history](concepts.md#c13), and at the same time a new [distinction](concepts.md#c18) has not yet entered.
+A [self](concepts.md#c19)'s [distinction](concepts.md#c18) of itself is one [distinction](concepts.md#c18). By the definition of [distinction](concepts.md#c18), its material is only the [history](concepts.md#c13) before it that has already [arrived](concepts.md#c10) at it, and it is not itself among that material; by Given 7, it is [written](concepts.md#c29) into [history](concepts.md#c13) only before the next [moment](concepts.md#c09). So once this [distinction](concepts.md#c18) has been [written](concepts.md#c29), there is a part of [history](concepts.md#c13) that this [self](concepts.md#c19) has not yet [distinguished](concepts.md#c18): the very act of [distinguishing](concepts.md#c18) itself. At the next [moment](concepts.md#c09) it enters [history](concepts.md#c13); if the [self](concepts.md#c19) makes a new [distinction](concepts.md#c18) then, that one has likewise not yet entered.
 
 A [self](concepts.md#c19)'s [distinction](concepts.md#c18) of itself always lags one step behind. Even at a [moment](concepts.md#c09) when it makes no [distinction](concepts.md#c18), by the definition of [self](concepts.md#c19) it has [distinguished](concepts.md#c18) itself at least once, and its most recent [distinction](concepts.md#c18) is itself not among the material of any [distinction](concepts.md#c18) it has made. So no [self](concepts.md#c19), at any [moment](concepts.md#c09), can finish [distinguishing](concepts.md#c18) the whole of [history](concepts.md#c13). By Given 7, these [distinctions](concepts.md#c18) [arrive](concepts.md#c10) at it; by the definition of [wo](concepts.md#c16), whatever [arrives](concepts.md#c10) at it takes part in its [weights](concepts.md#c06), so they belong to its [own segment](concepts.md#c17). Then it cannot finish [distinguishing](concepts.md#c18) even its [own segment](concepts.md#c17).
 
@@ -451,7 +451,7 @@ If x makes no distinction at t: take x's most recent distinction dₓ,ₛ, s < t
 
 ### Corollary 6: The Law of Non-Restoration
 
-To [restore](concepts.md#c27) a [wo](concepts.md#c16) is to make its segment of [history](concepts.md#c13) happen once again. This has two layers.
+To [restore](concepts.md#c27) a [wo](concepts.md#c16) is to make its [segment](concepts.md#c17) of [history](concepts.md#c13) happen once again. This has two layers.
 
 The first layer is position. By the definition of [moment](concepts.md#c09), each [moment](concepts.md#c09) happens only once; each position in [history](concepts.md#c13) also happens only once. Any stretch that looks the same happens at a different position in [history](concepts.md#c13).
 
@@ -482,15 +482,16 @@ Layer 2: the universe has collapse (by the definition of universe).
   When only x's outcomes πₓ(b) are compared, Aₗ fixes only x's outcomes and hₖ₊ₗ₋₁⁺ is no longer
   unique; the factor becomes the conditional average under Aₗ, over hₖ₊ₗ₋₁⁺, of pˣ(corresponding
   value). If under Aₗ x is not locked in with probability 1, the factor < 1.
-Copying: if the later stretch is locked in at every corresponding position, and its point
-  masses are exactly bᵢ..bᵢ₊ₙ₋₁, the probability is 1; this is copying, outside layer 2
+Copying: if some x is locked in at every corresponding position of the later stretch, and the single value
+  it is locked to at each position is exactly the corresponding outcome of x in the original stretch, the probability
+  that these outcomes of x coincide is 1; this is copying, outside layer 2
 Identity: the content of some d, not formalized
 Direction: t only increases. ∎
 ```
 
 ### Corollary 7: Interaction
 
-By Given 7, a [self](concepts.md#c19)'s [distinction](concepts.md#c18) is [written](concepts.md#c29) into [history](concepts.md#c13). When it becomes part of another [wo](concepts.md#c16)'s segment of [history](concepts.md#c13), by the definition of [wo](concepts.md#c16), that [wo](concepts.md#c16)'s [weights](concepts.md#c06) for the next [moment](concepts.md#c09) may change accordingly. Hence a [self](concepts.md#c19) can change another; [distinguishing](concepts.md#c18) a [wo](concepts.md#c16) may itself change it.
+By Given 7, a [self](concepts.md#c19)'s [distinction](concepts.md#c18) is [written](concepts.md#c29) into [history](concepts.md#c13). When it becomes part of another [wo](concepts.md#c16)'s segment of [history](concepts.md#c13), by the definition of [wo](concepts.md#c16), that [wo](concepts.md#c16)'s [weights](concepts.md#c06) for the next [moment](concepts.md#c09) may change accordingly. Hence a [self](concepts.md#c19)'s [distinction](concepts.md#c18) may change another once it enters that [wo](concepts.md#c16)'s [own segment](concepts.md#c17); [distinguishing](concepts.md#c18) a [wo](concepts.md#c16) may itself change it.
 
 ```text
 Formal: dₓ,ₜ ∈ wₜ₊₁; if the position of wₜ₊₁ ∈ seg(y, t') (t' > t),
@@ -500,7 +501,7 @@ then there is v such that L(pₜ'₊₁ʸ | do(position of wₜ₊₁ = v)) ≠ 
 
 ### Corollary 8: Connection Makes No Difference
 
-There is only one [observer](concepts.md#c07); every [collapse](concepts.md#c08) is made by the one [observer](concepts.md#c07). By Given 1, the [observer](concepts.md#c07) is not in the [universe](concepts.md#c02); by the definition of [connection](concepts.md#c22), [connection](concepts.md#c22) is not in the [universe](concepts.md#c02) either, so [connection](concepts.md#c22) is not in [history](concepts.md#c13). By Given 5, [weights](concepts.md#c06) are determined only by [history](concepts.md#c13), so whichever [self](concepts.md#c19) a [collapse](concepts.md#c08) takes place through, the [weights](concepts.md#c06) are the same; by Given 2, outcomes are [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) only according to the [weights](concepts.md#c06), so the distribution of outcomes is the same as well. Hence which [self](concepts.md#c19) is [connected](concepts.md#c22) is not in [history](concepts.md#c13), makes no difference to any [wo](concepts.md#c16), and need not be known.
+There is only one [observer](concepts.md#c07); every [collapse](concepts.md#c08) is made by the one [observer](concepts.md#c07). By Given 1, the [observer](concepts.md#c07) is not in the [universe](concepts.md#c02); by the definition of [connection](concepts.md#c22), [connection](concepts.md#c22) is not in the [universe](concepts.md#c02) either, so [connection](concepts.md#c22) is not in [history](concepts.md#c13). By Given 5, [weights](concepts.md#c06) are determined only by [history](concepts.md#c13), so, given the same [history](concepts.md#c13) before the [collapse](concepts.md#c08), whichever [self](concepts.md#c19) it takes place through, the [weights](concepts.md#c06) are the same; by Given 2, outcomes are [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) only according to the [weights](concepts.md#c06), so the distribution of outcomes is the same as well. Hence swapping the [self](concepts.md#c19) through which a [collapse](concepts.md#c08) takes place makes no difference to any [wo](concepts.md#c16), and need not be known: when the [self](concepts.md#c19) it goes through is replaced as an external quantity, the distributions of later [history](concepts.md#c13) and of the outputs of [distinctions](concepts.md#c18) do not change; if that [self](concepts.md#c19) is itself constrained by [history](concepts.md#c13), only the conditional distributions given [history](concepts.md#c13) are guaranteed unchanged.
 
 A [self](concepts.md#c19) may know that it is [connected](concepts.md#c22), for example when it is the only [self](concepts.md#c19) in the [universe](concepts.md#c02). But even if it knows, nothing is different because of it.
 
@@ -541,9 +542,9 @@ Formal:
 
 ### Corollary 12: Incompleteness of Knowing Others
 
-To [distinguish](concepts.md#c18) another [wo](concepts.md#c16), a [self](concepts.md#c19) can use only the [history](concepts.md#c13) that has already [arrived](concepts.md#c10) at it. The other's information must travel by physical means to [arrive](concepts.md#c10) at the [self](concepts.md#c19); that is itself an event entering [history](concepts.md#c13), and the [self](concepts.md#c19)'s [distinction](concepts.md#c18) is another event, after it. Between these two events, the other's [history](concepts.md#c13) may still grow; and when it is not [locked in](concepts.md#c12), the outcome of its next [moment](concepts.md#c09) cannot be derived beforehand (the [Law of the Black Box](concepts.md#c25)). So even if everything about the other has [arrived](concepts.md#c10) at the [self](concepts.md#c19), as in the virtual, what the [self](concepts.md#c19) [distinguishes](concepts.md#c18) is still how the other has already been, and what it faces is still a black box. In general there is more: the other's [own segment](concepts.md#c17) contains much that [arrives](concepts.md#c10) only at the other, such as each of its [distinctions](concepts.md#c18) of itself, and nothing guarantees that these also [arrive](concepts.md#c10) at the [self](concepts.md#c19). Moreover, by Given 7 and Corollary 7, the [self](concepts.md#c19)'s [distinction](concepts.md#c18) is [written](concepts.md#c29) into [history](concepts.md#c13), and once it becomes part of the other's [own segment](concepts.md#c17), it may itself change the other's [weights](concepts.md#c06) for the next [moment](concepts.md#c09).
+To [distinguish](concepts.md#c18) another [wo](concepts.md#c16), a [self](concepts.md#c19) can use only the [history](concepts.md#c13) that has already [arrived](concepts.md#c10) at it. The other's information must travel by physical means to [arrive](concepts.md#c10) at the [self](concepts.md#c19); that is itself an event entering [history](concepts.md#c13), and the [self](concepts.md#c19)'s [distinction](concepts.md#c18) is another event, after it. Between these two events, the other's [history](concepts.md#c13) may still grow; and when it is not [locked in](concepts.md#c12), the outcome of its next [moment](concepts.md#c09) cannot be derived beforehand (the [Law of the Black Box](concepts.md#c25)). So even if everything about the other has [arrived](concepts.md#c10) at the [self](concepts.md#c19), as in the virtual, what the [self](concepts.md#c19) [distinguishes](concepts.md#c18) is how the other was at that time; if the other has a [moment](concepts.md#c09) not [locked in](concepts.md#c12) in between, its outcome cannot be guaranteed beforehand, and what it faces is still a [black box](concepts.md#c25). In general there is more: the other's [own segment](concepts.md#c17) contains much that [arrives](concepts.md#c10) only at the other, such as each of its [distinctions](concepts.md#c18) of itself, and nothing guarantees that these also [arrive](concepts.md#c10) at the [self](concepts.md#c19). Moreover, by Given 7 and Corollary 7, the [self](concepts.md#c19)'s [distinction](concepts.md#c18) is [written](concepts.md#c29) into [history](concepts.md#c13), and once it becomes part of the other's [own segment](concepts.md#c17), it may itself change the other's [weights](concepts.md#c06) for the next [moment](concepts.md#c09).
 
-Hence no [self](concepts.md#c19) can guarantee that it has finished [distinguishing](concepts.md#c18) another [wo](concepts.md#c16). The [Law of Attrition](concepts.md#c26) says that I always lag one step behind myself; this corollary says that I always lag behind you as well, and your next instant is still a black box.
+Hence no [self](concepts.md#c19) can guarantee that it has finished [distinguishing](concepts.md#c18) another [wo](concepts.md#c16). The [Law of Attrition](concepts.md#c26) says that I always lag one step behind myself; this corollary says that I always lag behind you as well, and your next instant is still a [black box](concepts.md#c25).
 
 This is the [Incompleteness of Knowing Others](concepts.md#c32).
 
@@ -561,7 +562,7 @@ Hence there is no guarantee that seg(y, now) ⊆ the material of dₓ,ₜ. ∎
 
 ### Corollary 13: History Loses Nothing
 
-By definition, [death](concepts.md#c23) is a mark; by the definition of [distinction](concepts.md#c18), the content of a [distinction](concepts.md#c18) does not rewrite what is seen; by the definition of [history](concepts.md#c13), [history](concepts.md#c13) contains every [writing](concepts.md#c29) and the outcome of every [collapse](concepts.md#c08). Hence after a [wo](concepts.md#c16) has been marked with [death](concepts.md#c23), its segment remains whole in [history](concepts.md#c13). Whether what made it up is still there is a [distinction](concepts.md#c18).
+By definition, [death](concepts.md#c23) is a mark; by the definition of [distinction](concepts.md#c18), the content of a [distinction](concepts.md#c18) does not rewrite what is seen; by the definition of [history](concepts.md#c13), [history](concepts.md#c13) contains every [writing](concepts.md#c29) and the outcome of every [collapse](concepts.md#c08). Hence after a [wo](concepts.md#c16) has been marked with [death](concepts.md#c23), its [segment](concepts.md#c17) remains whole in [history](concepts.md#c13). Whether what made it up is still there is a [distinction](concepts.md#c18).
 
 The [Law of Non-Restoration](concepts.md#c28) says: it will not happen again. This corollary says: nor did it ever leave.
 
@@ -573,7 +574,7 @@ Formal: t < t' ⇒ hₜ is a prefix of hₜ'; hence every position in seg(y, t) 
 
 ## 7. Example
 
-The following is a minimal model: one [wo](concepts.md#c16), two [branches](concepts.md#c05), two [collapses](concepts.md#c08).
+The following is a minimal model: one [wo](concepts.md#c16) and two [branches](concepts.md#c05); the model is not truncated, and the first two [collapses](concepts.md#c08) are shown.
 
 ```text
 Wos = {A}
@@ -613,28 +614,37 @@ G(hₜ⁺)(b) = (n_b + m_b + 1) / (nₜ + mₜ + 2)
 p₁ = (3/4, 1/4), b₁ = Right
 p₂ = (1/2, 1/2), b₂ = Right
 arrived(A, 0) = {s₀, d_A,0}; arrived(A, 1) = {s₀, d_A,0, b₁, d_A,1}
-V1 check:
-  s₀: changing it changes n
-  d_A,0: changing it changes p₁, hence the distribution of b₁, hence the distribution of p₂
-  b₁: changing it changes n
-  d_A,1: changing it changes m
+V1 check (criterion as in the definition of its own segment: for each item that arrived at A, there exists a replacement value that makes the distribution of the weights differ;
+  it is not required that every replacement does — a replacement that only reorders the listed outcomes without changing the counts leaves the weights unchanged):
+  s₀: there exists a replacement (to Right) that changes n
+  d_A,0: there exists a replacement that changes p₁, hence the distribution of b₁, hence the distribution of p₂
+  b₁: there exists a replacement (to Left) that changes n
+  d_A,1: there exists a replacement that changes m
   e.g. if b₁ = Left, then d_A,1 = "my segment is Left, Left",
     p₂ = (5/6, 1/6) ≠ (1/2, 1/2)
-T(A) = {1, 2}; ¬lockedin at both moments
-Hence V2(A, 0) and V2(A, 1) hold;
-  the example has no moment after the second collapse, so wo(A, 2) does not hold
-e(1) = e(2) = A
+Simplification: m_b = n_b and mₜ = nₜ, so
+  G(hₜ⁺)(b) = (2·n_b + 1) / (2t + 4); the two weights sum to one, and the numerators are always positive
+T(A) = {1, 2, 3, …}; every moment involves A, and A is ¬lockedin at every moment
+Hence V2(A, t) holds for all t ≥ 0
+V1(A, t) holds for all t ≥ 0:
+  s₀, b_i: there exists a replacement that changes n
+  d_A,t: there exists a replacement that changes m
+  earlier d_A,j (j < t): the influence passes through the distributions of the later outcomes;
+    E[n_Left] from index k to k+1 equals E[n_Left]·(1 + 1/(k+2)) + 1/(2k+4),
+    a strictly increasing function of E[n_Left], so a change in an early distribution does not vanish on the way
+Hence wo(A, t) holds for all t ≥ 0
+e(t) = A for all t ≥ 1; self(A, t−1) holds
 ```
 
 **Check:**
 
-- A is a [wo](concepts.md#c16): the [initial state of the universe](concepts.md#c14), the two [distinctions](concepts.md#c18), and the first outcome that [arrived](concepts.md#c10) at A would each, if different, make the [weights](concepts.md#c06) different; the first [distinction](concepts.md#c18) passes its influence to the second [moment](concepts.md#c09) through the probability of the first outcome ✓; both [moments](concepts.md#c09) have two [branches](concepts.md#c05) of non-zero [weight](concepts.md#c06), so A is not [locked in](concepts.md#c12) ✓
+- A is a [wo](concepts.md#c16) at every index: the [initial state of the universe](concepts.md#c14), every outcome, and every [distinction](concepts.md#c18) that [arrived](concepts.md#c10) at A: for each of them there is some replacement that makes the distribution of the [weights](concepts.md#c06) different (not every replacement need do so: one that only reorders the listed outcomes without changing the counts leaves the [weights](concepts.md#c06) unchanged); an earlier [distinction](concepts.md#c18) passes its influence onward through the probabilities of the later outcomes ✓; both [branches](concepts.md#c05) always have positive [weight](concepts.md#c06), so at every [moment](concepts.md#c09) there are two [branches](concepts.md#c05) of non-zero [weight](concepts.md#c06), and A is never [locked in](concepts.md#c12) ✓
 - Given 4: before every [collapse](concepts.md#c08) there is a [writing](concepts.md#c29), whose content is determined by the [history](concepts.md#c13) up to that point ✓; every [distinction](concepts.md#c18) of A lists all outcomes so far by the rule of this example, so it is defined on [histories](concepts.md#c13) other than the actual one as well ✓
 - Given 7: A's [distinction](concepts.md#c18) is [written](concepts.md#c29) before its next [moment](concepts.md#c09) ✓
 - Corollary 1: before the first [collapse](concepts.md#c08), A has already [distinguished](concepts.md#c18) itself; it is a [connected](concepts.md#c22) [self](concepts.md#c19), so a [wo](concepts.md#c16) exists; A is not [locked in](concepts.md#c12) at its first [moment](concepts.md#c09), so whether it is a [self](concepts.md#c19) before the first [collapse](concepts.md#c08) depends only on the [initial state of the universe](concepts.md#c14) ✓
 - [Law of Flux](concepts.md#c24): at every [moment](concepts.md#c09), [history](concepts.md#c13) gains the outcome of one more [collapse](concepts.md#c08) ✓
 - [Law of the Black Box](concepts.md#c25): at the first [moment](concepts.md#c09) the [weight](concepts.md#c06) of Left is 3/4, yet [collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) Right. [History](concepts.md#c13) determined the [weights](concepts.md#c06), not the outcome ✓
-- [Law of Attrition](concepts.md#c26): the material of A's [distinction](concepts.md#c18) after the first [collapse](concepts.md#c08) does not include that [distinction](concepts.md#c18) itself; it enters [history](concepts.md#c13) only at the second [moment](concepts.md#c09), and takes part in the second [moment](concepts.md#c09)'s [weights](concepts.md#c06) ✓
+- [Law of Attrition](concepts.md#c26): the material of A's [distinction](concepts.md#c18) after the first [collapse](concepts.md#c08) does not include that [distinction](concepts.md#c18) itself; it is [written](concepts.md#c29) into [history](concepts.md#c13) before the second [collapse](concepts.md#c08), and takes part in the second [moment](concepts.md#c09)'s [weights](concepts.md#c06) ✓
 - [Law of Non-Restoration](concepts.md#c28): even if Right is [selected](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) twice more later, it happens at a different position in [history](concepts.md#c13); and as long as those two are not [locked in](concepts.md#c12), no [wo](concepts.md#c16) can guarantee beforehand that it will be so ✓
 
 ---
@@ -675,9 +685,9 @@ Note: the four laws are the iron laws this paper acknowledges; this paper gives 
 
 The corollaries are not falsifiable: they are logical derivations under the givens, serving as a check. This paper takes the four laws as its starting point and derives the givens backward, so falsification runs in two directions. First: if some law fails in reality, the givens it requires lose their support. Second: if some given is shown not to hold in reality, the laws it supports are left with only their observed form, no longer necessary in principle. [Framework commitments](concepts.md#c03) are supported by none of the laws and are unaffected by either.
 
-At the level of [wos](concepts.md#c16), no experiment can overturn the four laws. The accuracy of predictions cannot reach the [Law of the Black Box](concepts.md#c25); apparent cases of [restoration](concepts.md#c27) are all the one [history](concepts.md#c13) continuing onward. The same holds for the [Law of Flux](concepts.md#c24) and the [Law of Attrition](concepts.md#c26): every experiment is itself a new item of [history](concepts.md#c13), and every examination of oneself is itself a [distinction](concepts.md#c18) not yet [distinguished](concepts.md#c18).
+At the level of [wos](concepts.md#c16), none of the experiments above can overturn the four laws within a model whose givens hold; what an experiment in reality can negate is the givens. The accuracy of predictions cannot reach the [Law of the Black Box](concepts.md#c25); apparent cases of [restoration](concepts.md#c27) are all the one [history](concepts.md#c13) continuing onward. The same holds for the [Law of Flux](concepts.md#c24) and the [Law of Attrition](concepts.md#c26): every experiment is itself a new item of [history](concepts.md#c13), and every examination of oneself is itself a [distinction](concepts.md#c18) not yet [distinguished](concepts.md#c18).
 
-At the physical level, [collapse](concepts.md#c08) [selecting](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) according to the [weights](concepts.md#c06) in some fixed basis has the same form as the measurement rule of quantum mechanics; the [generating function](concepts.md#c15) is unspecified and can be taken to be the one consistent with quantum mechanics, and quantum mechanics satisfies exactly the [no-signaling](concepts.md#c31) of Given 5. Hence this paper's premises do not contradict known observations, and at present cannot be distinguished from other interpretations by experiment. If it is shown in the future that the outcomes of quantum measurements are determined by something before [collapse](concepts.md#c08), Given 2 will not hold in reality, and the [Law of the Black Box](concepts.md#c25) and the second layer of the [Law of Non-Restoration](concepts.md#c28) will be left with only their observed form; the [Law of Flux](concepts.md#c24), the [Law of Attrition](concepts.md#c26), and the first layer of the [Law of Non-Restoration](concepts.md#c28) are unaffected. If it becomes possible in the future to detect from one side, through the distribution of its own outcomes, which of two far-apart [collapses](concepts.md#c08) came first while Given 2 still holds, the [no-signaling](concepts.md#c31) of Given 5 will not hold in reality.
+At the physical level, [collapse](concepts.md#c08) [selecting](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) according to the [weights](concepts.md#c06) in some fixed basis has the same form as the measurement rule of quantum mechanics; the [generating function](concepts.md#c15) is unspecified and can be taken to be the one consistent with quantum mechanics, and quantum mechanics satisfies exactly the [no-signaling](concepts.md#c31) of Given 5. Hence this paper's premises do not contradict known observations, and at present cannot be distinguished from other interpretations by experiment. If it is shown in the future that the outcomes of quantum measurements are determined by something before [collapse](concepts.md#c08), Given 2 will not hold in reality, and the [Law of the Black Box](concepts.md#c25) and the second layer of the [Law of Non-Restoration](concepts.md#c28) will be left with only their observed form; the [Law of Flux](concepts.md#c24), the [Law of Attrition](concepts.md#c26), and the first layer of the [Law of Non-Restoration](concepts.md#c28) are unaffected. What is falsifiable here is the givens, not a logical negation of the laws: a law merely loses its source of derivation. If it becomes possible in the future to detect from one side, through the distribution of its own outcomes, which of two far-apart [collapses](concepts.md#c08) came first while Given 2 still holds, the [no-signaling](concepts.md#c31) of Given 5 will not hold in reality.
 
 Whether a [presentation](concepts.md#c04) passes the second question depends on whether [collapse](concepts.md#c08) leaves more than one outcome of non-zero [weight](concepts.md#c06) at its [moments](concepts.md#c09); for people and for artificial intelligence, this is at present unsettled.
 
@@ -692,10 +702,10 @@ Empirically open: for a concrete x (a person, an artificial intelligence, etc.),
 
 ## 10. Conclusion
 
-The [universe](concepts.md#c02) has only one [history](concepts.md#c13). The [observer](concepts.md#c07) is not in the [universe](concepts.md#c02); in the [universe](concepts.md#c02) there are only [presentations](concepts.md#c04); those among them in which all the [history](concepts.md#c13) that [arrives](concepts.md#c10) takes part in the [weights](concepts.md#c06), and which are not [locked in](concepts.md#c12), are [wos](concepts.md#c16); a [wo](concepts.md#c16) that defines itself by [distinction](concepts.md#c18) is a [self](concepts.md#c19).
+The [universe](concepts.md#c02) has only one [history](concepts.md#c13). The [observer](concepts.md#c07) is not in the [universe](concepts.md#c02); in the [universe](concepts.md#c02) there are only [presentations](concepts.md#c04); those among them in which all the [history](concepts.md#c13) that [arrives](concepts.md#c10) takes part in the [weights](concepts.md#c06), and which are not [locked in](concepts.md#c12) at at least some [moments](concepts.md#c09), are [wos](concepts.md#c16); a [wo](concepts.md#c16) that defines itself by [distinction](concepts.md#c18) is a [self](concepts.md#c19).
 
 Time is not a given. One [collapse](concepts.md#c08) is one [moment](concepts.md#c09).
 
-A [wo](concepts.md#c16) is always changing. A [self](concepts.md#c19) cannot be uniquely derived. A [self](concepts.md#c19) cannot finish a [distinction](concepts.md#c18) of itself. When I die, that segment will not happen again, and it never left.
+A [wo](concepts.md#c16) is always changing. You cannot uniquely derive a [self](concepts.md#c19). A [self](concepts.md#c19) cannot finish a [distinction](concepts.md#c18) of itself. When I die, that segment will not happen again, and it never left.
 
 A [universe](concepts.md#c02) without [wos](concepts.md#c16) has no [moments](concepts.md#c09); a [universe](concepts.md#c02) with [wos](concepts.md#c16) can only go forward.

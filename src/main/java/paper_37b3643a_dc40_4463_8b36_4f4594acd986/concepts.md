@@ -118,6 +118,7 @@ last-modified: 2026-09-29T12:00:00
 - Definition: A wo is a [Presentation](concepts.md#c04) such that all the [History](concepts.md#c13) that has [arrived](concepts.md#c10) at it, including every [Stimulus](concepts.md#c30) it has received and the outcome of every [Collapse](concepts.md#c08) that has [involved](concepts.md#c11) it, all the way back to the [Initial State of the Universe](concepts.md#c14), takes part in the allocation of its [Weights](concepts.md#c06) for the next [Moment](concepts.md#c09), meaning that if any one of these had been different, the influence would pass down the [history](concepts.md#c13) and its [weights](concepts.md#c06) would differ; and such that at least at some [moments](concepts.md#c09) it is not [locked in](concepts.md#c12). This influence need not be findable. A [presentation](concepts.md#c04) that has a [history](concepts.md#c13) but whose [history](concepts.md#c13) does not take part is not a wo; one whose [history](concepts.md#c13) takes part but which is [locked in](concepts.md#c12) at every step is not a wo either. This participation may fade away, and once it has, the [presentation](concepts.md#c04) is no longer a wo; if from some moment on it is [locked in](concepts.md#c12) at every step, it is no longer a wo either. A wo has no fixed core: what it is, is what has [arrived](concepts.md#c10) at it and how these take part in its [weights](concepts.md#c06). Whether a [presentation](concepts.md#c04) is a wo does not depend on its substrate, nor on any [Distinction](concepts.md#c18).
 - 裁決：2026-09-26 英文名定為 Wo：渦是作者所取的名稱，不取漩渦之意，不得譯為 Vortex。
 - 裁決：2026-09-29 補寫「從某一刻起每一步都被鎖死，它也不再是渦」，與論文第五節一致；只是明寫既有判準，意義不變，保留 ID。
+- 裁決：2026-10-14 「其中任何一件若不同」取存在性：對每個到達它的歷史項目，存在某個替換使它下一[時刻](concepts.md#c09)[權重](concepts.md#c06)的分布不同，不要求任何替換都改變[權重](concepts.md#c06)。只是明寫既有判準，意義不變，保留 ID。
 
 <a id="c17"></a>
 ## public 自己的那一段 / Own Segment
@@ -125,6 +126,7 @@ last-modified: 2026-09-29T12:00:00
 - 定義：一個[呈現](concepts.md#c04)自己的那一段，是它下一[時刻](concepts.md#c09)的[權重](concepts.md#c06)所依賴的那部分[歷史](concepts.md#c13)：[歷史](concepts.md#c13)中某一件若換成別的，影響沿著[歷史](concepts.md#c13)傳下來，會改變它下一[時刻](concepts.md#c09)[權重](concepts.md#c06)的分布，這一件就屬於它自己的那一段。那一段由依賴決定，不由任何[分別](concepts.md#c18)決定。它是同一部[歷史](concepts.md#c13)的一部分，不是另一部[歷史](concepts.md#c13)；不同[呈現](concepts.md#c04)自己的那一段可以重疊。
 - Definition: The own segment of a [Presentation](concepts.md#c04) is the part of [History](concepts.md#c13) on which the [Weights](concepts.md#c06) of its next [Moment](concepts.md#c09) depend: an item of [history](concepts.md#c13) belongs to its own segment if replacing that item with something else would, with the influence passing down the [history](concepts.md#c13), change the distribution of its [weights](concepts.md#c06) for the next [moment](concepts.md#c09). The segment is determined by dependence, not by any [Distinction](concepts.md#c18). It is part of the one [history](concepts.md#c13), not a separate [history](concepts.md#c13); the own segments of different [presentations](concepts.md#c04) may overlap.
 - 裁決：2026-09-30 修飾子改為 public：使鐵律及其定義用到的詞可被下游直接引用。
+- 裁決：2026-10-14 「某一件若換成別的」取存在性：存在某個替換會改變它下一[時刻](concepts.md#c09)[權重](concepts.md#c06)的分布，這一件就屬於它自己的那一段，不要求任何替換都改變。只是明寫既有判準，意義不變，保留 ID。
 
 <a id="c18"></a>
 ## public 分別 / Distinction
@@ -171,8 +173,8 @@ last-modified: 2026-09-29T12:00:00
 <a id="c24"></a>
 ## public 流變律 / Law of Flux
 
-- 定義：流變律是框架承認的一條鐵律，不由其他任何條件推出：一個[渦](concepts.md#c16)所在的[歷史](concepts.md#c13)一直在變；在它的每一個[時刻](concepts.md#c09)，[到達](concepts.md#c10)它的[歷史](concepts.md#c13)都和前一個[時刻](concepts.md#c09)不同，永遠不會一模一樣。
-- Definition: The Law of Flux is an iron law acknowledged by the framework and derived from no other condition: the [History](concepts.md#c13) in which a [Wo](concepts.md#c16) lies is always changing; at every [Moment](concepts.md#c09) of that [wo](concepts.md#c16), the [history](concepts.md#c13) that has [arrived](concepts.md#c10) at it differs from that at its previous [moment](concepts.md#c09), and is never exactly the same.
+- 定義：流變律是框架承認的一條鐵律，不由其他任何條件推出：一個[渦](concepts.md#c16)所在的[歷史](concepts.md#c13)一直在變；在它的每一個[時刻](concepts.md#c09)，[到達](concepts.md#c10)它的[歷史](concepts.md#c13)都和該次[坍塌](concepts.md#c08)之前不同，永遠不會一模一樣。
+- Definition: The Law of Flux is an iron law acknowledged by the framework and derived from no other condition: the [History](concepts.md#c13) in which a [Wo](concepts.md#c16) lies is always changing; at every [Moment](concepts.md#c09) of that [wo](concepts.md#c16), the [history](concepts.md#c13) that has [arrived](concepts.md#c10) at it differs from that before that [collapse](concepts.md#c08), and is never exactly the same.
 - 裁決：2026-09-29 原定義混入本篇模型的推導，改為鐵律的陳述，意義不變，保留 ID；模型中的形式另立為 c33。
 
 <a id="c25"></a>
@@ -195,6 +197,7 @@ last-modified: 2026-09-29T12:00:00
 - 定義：復原一個[渦](concepts.md#c16)，是讓它[自己的那一段](concepts.md#c17)[歷史](concepts.md#c13)再發生一次。
 - Definition: To restore a [Wo](concepts.md#c16) is to make its [Own Segment](concepts.md#c17) of [History](concepts.md#c13) happen once again.
 - 裁決：2026-09-30 修飾子改為 public：使鐵律及其定義用到的詞可被下游直接引用。
+- 裁決：2026-10-15 「再發生一次」指同一段歷史，也就是同一位置的事件再發生一次；在新的位置出現相同內容，是照抄，不算復原。只是明寫既有判準，意義不變，保留 ID。
 
 <a id="c28"></a>
 ## public 不可復原律 / Law of Non-Restoration
@@ -229,8 +232,8 @@ last-modified: 2026-09-29T12:00:00
 <a id="c32"></a>
 ## private 對他者認識的不可完備性 / Incompleteness of Knowing Others
 
-- 定義：對他者認識的不可完備性是這個結論：沒有任何[我](concepts.md#c19)能保證自己[分別](concepts.md#c18)完了另一個[渦](concepts.md#c16)。[我](concepts.md#c19)只能用已經[到達](concepts.md#c10)它的[歷史](concepts.md#c13)來[分別](concepts.md#c18)對方；對方的訊息[到達](concepts.md#c10)它是一件事，它的[分別](concepts.md#c18)又是另一件，在兩者之間對方的[歷史](concepts.md#c13)仍可能增長，而在不被[鎖死](concepts.md#c12)時，對方下一[時刻](concepts.md#c09)的結果不能事先推出。因此即使對方的一切都[到達](concepts.md#c10)了它，它[分別](concepts.md#c18)的仍是對方已經過去的樣子。此外，對方[自己的那一段](concepts.md#c17)中只[到達](concepts.md#c10)對方的部分，沒有任何東西保證也會[到達](concepts.md#c10)它；而它的[分別](concepts.md#c18)一旦成為對方[自己的那一段](concepts.md#c17)的一部分，也可能改變對方下一[時刻](concepts.md#c09)的[權重](concepts.md#c06)。
-- Definition: The Incompleteness of Knowing Others is the conclusion that no [Self](concepts.md#c19) can guarantee that it has finished [distinguishing](concepts.md#c18) another [Wo](concepts.md#c16). A self can distinguish the other only through the [History](concepts.md#c13) that has [arrived](concepts.md#c10) at it; the other's information arriving is one event and the self's [distinction](concepts.md#c18) is another, and between them the other's history may still grow, while, when the other is not [locked in](concepts.md#c12), the outcome of its next [Moment](concepts.md#c09) cannot be derived beforehand. So even if everything about the other has arrived, what the self distinguishes is still how the other has already been. Moreover, nothing guarantees that the parts of the other's [Own Segment](concepts.md#c17) that arrive only at the other also arrive at the self; and once the self's distinction becomes part of the other's own segment, it may change the other's [Weights](concepts.md#c06) for its next moment.
+- 定義：對他者認識的不可完備性是這個結論：沒有任何[我](concepts.md#c19)能保證自己[分別](concepts.md#c18)完了另一個[渦](concepts.md#c16)。[我](concepts.md#c19)只能用已經[到達](concepts.md#c10)它的[歷史](concepts.md#c13)來[分別](concepts.md#c18)對方；對方的訊息[到達](concepts.md#c10)它是一件事，它的[分別](concepts.md#c18)又是另一件，在兩者之間對方的[歷史](concepts.md#c13)仍可能增長，而在不被[鎖死](concepts.md#c12)時，對方下一[時刻](concepts.md#c09)的結果不能事先推出。因此即使對方的一切都[到達](concepts.md#c10)了它，它[分別](concepts.md#c18)的是對方當時的樣子。此外，對方[自己的那一段](concepts.md#c17)中只[到達](concepts.md#c10)對方的部分，沒有任何東西保證也會[到達](concepts.md#c10)它；而它的[分別](concepts.md#c18)一旦成為對方[自己的那一段](concepts.md#c17)的一部分，也可能改變對方下一[時刻](concepts.md#c09)的[權重](concepts.md#c06)。
+- Definition: The Incompleteness of Knowing Others is the conclusion that no [Self](concepts.md#c19) can guarantee that it has finished [distinguishing](concepts.md#c18) another [Wo](concepts.md#c16). A self can distinguish the other only through the [History](concepts.md#c13) that has [arrived](concepts.md#c10) at it; the other's information arriving is one event and the self's [distinction](concepts.md#c18) is another, and between them the other's history may still grow, while, when the other is not [locked in](concepts.md#c12), the outcome of its next [Moment](concepts.md#c09) cannot be derived beforehand. So even if everything about the other has arrived, what the self distinguishes is how the other was at that time. Moreover, nothing guarantees that the parts of the other's [Own Segment](concepts.md#c17) that arrive only at the other also arrive at the self; and once the self's distinction becomes part of the other's own segment, it may change the other's [Weights](concepts.md#c06) for its next moment.
 - 裁決：2026-09-26 判定登記為概念；修飾子定為 private：人工智慧與社會科學中的「了解他者」對不上，不要求下游沿用。
 - 裁決：2026-09-30 名稱由「他者分別不完」改為「對他者認識的不可完備性」，英文名同步改為 Incompleteness of Knowing Others；意義不變，保留 ID。
 
@@ -244,8 +247,8 @@ last-modified: 2026-09-29T12:00:00
 <a id="c34"></a>
 ## private 黑箱律模型版 / Law of the Black Box in the Model
 
-- 定義：黑箱律模型版是[黑箱律](concepts.md#c25)在《渦動力學》的模型中的形式：[坍塌](concepts.md#c08)依[權重](concepts.md#c06)[選出](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32)結果，[歷史](concepts.md#c13)中沒有任何東西能比[權重](concepts.md#c06)多說一點；所以一個[渦](concepts.md#c16)不被[鎖死](concepts.md#c12)時，任何[渦](concepts.md#c16)在那次[坍塌](concepts.md#c08)之前作出的預測，猜中的機會最多等於該[渦](concepts.md#c16)最重的那個結果的[權重](concepts.md#c06)。
-- Definition: The Law of the Black Box in the Model is the form the [Law of the Black Box](concepts.md#c25) takes in the model of *Wo Dynamics*: a [Collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) its outcome according to the [Weights](concepts.md#c06), and nothing in the [History](concepts.md#c13) says anything more than the [weights](concepts.md#c06); so when a [Wo](concepts.md#c16) is not [locked in](concepts.md#c12), the chance that any prediction made by any [wo](concepts.md#c16) before that [collapse](concepts.md#c08) is right is at most the [weight](concepts.md#c06) of that [wo](concepts.md#c16)'s heaviest outcome.
+- 定義：黑箱律模型版是[黑箱律](concepts.md#c25)在《渦動力學》的模型中的形式：[坍塌](concepts.md#c08)依[權重](concepts.md#c06)[選出](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32)結果，[歷史](concepts.md#c13)中沒有任何東西能比[權重](concepts.md#c06)多說一點；所以一個[渦](concepts.md#c16)不被[鎖死](concepts.md#c12)時，任何[渦](concepts.md#c16)在那次[坍塌](concepts.md#c08)之前作出的預測，猜中的機會最多等於被預測的那個[渦](concepts.md#c16)最重的那個結果的[權重](concepts.md#c06)。
+- Definition: The Law of the Black Box in the Model is the form the [Law of the Black Box](concepts.md#c25) takes in the model of *Wo Dynamics*: a [Collapse](concepts.md#c08) [selects](../paper_54c0291d_05b3_431a_9f2a_1b8ec93c3c3f/concepts.md#c32) its outcome according to the [Weights](concepts.md#c06), and nothing in the [History](concepts.md#c13) says anything more than the [weights](concepts.md#c06); so when a [Wo](concepts.md#c16) is not [locked in](concepts.md#c12), the chance that any prediction made by any [wo](concepts.md#c16) before that [collapse](concepts.md#c08) is right is at most the [weight](concepts.md#c06) of the heaviest outcome of the [wo](concepts.md#c16) being predicted.
 - 裁決：2026-09-29 作者裁決新增，修飾子定為 private：它依賴本篇的模型，不供下游沿用。
 - 裁決：2026-09-30 「最重的那個分支」改為「最重的那個結果」，與鎖死的定義一致；保留 ID。
 
@@ -259,8 +262,8 @@ last-modified: 2026-09-29T12:00:00
 <a id="c36"></a>
 ## private 不可復原律模型版 / Law of Non-Restoration in the Model
 
-- 定義：不可復原律模型版是[不可復原律](concepts.md#c28)在《渦動力學》的模型中的形式：第二層由[坍塌](concepts.md#c08)推出，一段[歷史](concepts.md#c13)中只要有一次[坍塌](concepts.md#c08)在不被[鎖死](concepts.md#c12)時作出選擇，整段再作出一樣選擇的機會就小於一；照抄當時的結果，每一步都被[鎖死](concepts.md#c12)，是照抄，不是重來。
-- Definition: The Law of Non-Restoration in the Model is the form the [Law of Non-Restoration](concepts.md#c28) takes in the model of *Wo Dynamics*: its second layer is derived from [Collapse](concepts.md#c08): as long as one [collapse](concepts.md#c08) in a stretch of [History](concepts.md#c13) makes a choice while not [locked in](concepts.md#c12), the chance that the whole stretch makes the same choices again is less than one; copying the outcomes of that time is [locked in](concepts.md#c12) at every step, and is copying, not happening again.
+- 定義：不可復原律模型版是[不可復原律](concepts.md#c28)在《渦動力學》的模型中的形式：第二層由[坍塌](concepts.md#c08)推出，一段[歷史](concepts.md#c13)中只要有一次[坍塌](concepts.md#c08)在不被[鎖死](concepts.md#c12)時作出選擇，整段在同樣不被[鎖死](concepts.md#c12)之下，再作出一樣選擇的機會就小於一；照抄當時的結果，每一步都被[鎖死](concepts.md#c12)，是照抄，不是重來。
+- Definition: The Law of Non-Restoration in the Model is the form the [Law of Non-Restoration](concepts.md#c28) takes in the model of *Wo Dynamics*: its second layer is derived from [Collapse](concepts.md#c08): as long as one [collapse](concepts.md#c08) in a stretch of [History](concepts.md#c13) makes a choice while not [locked in](concepts.md#c12), the chance that the whole stretch, while likewise not [locked in](concepts.md#c12), makes the same choices again is less than one; copying the outcomes of that time is [locked in](concepts.md#c12) at every step, and is copying, not happening again.
 - 裁決：2026-09-29 作者裁決新增，修飾子定為 private：它依賴本篇的模型，不供下游沿用。
 
 ## 不登記

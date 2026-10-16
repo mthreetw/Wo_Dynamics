@@ -7,7 +7,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 奇點 / Singularity
 
 - 定義：奇點是[時刻](concepts.md#c04)開始之前的來源。奇點本身沒有[時刻](concepts.md#c04)，也沒有之前，不可被形式化。[初始時刻](concepts.md#c05)的狀態由奇點而來，其來由不被追問。
-- Definition: The singularity is the source that precedes the beginning of [Moments](concepts.md#c04). The singularity itself has no moment and no before, and cannot be formalized. The state of the [Initial Moment](concepts.md#c05) comes from the singularity, and its origin is not questioned.
+- Definition: The singularity is the source that precedes the beginning of [Moments](concepts.md#c04). The singularity itself has no [moment](concepts.md#c04) and no before, and cannot be formalized. The state of the [Initial Moment](concepts.md#c05) comes from the singularity, and its origin is not questioned.
 - 裁決：2026-09-23 判定登記為概念。
 - 裁決：2026-09-26 定義不綁定本篇的初始信，改指初始時刻的狀態，使下游可在自己的前提下使用。
 
@@ -36,7 +36,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 初始時刻 / Initial Moment
 
 - 定義：初始時刻是編號為一的[時刻](concepts.md#c04)，也就是第一個[時刻](concepts.md#c04)。
-- Definition: The initial moment is the [Moment](concepts.md#c04) numbered one, that is, the first moment.
+- Definition: The initial moment is the [Moment](concepts.md#c04) numbered one, that is, the first [moment](concepts.md#c04).
 - 裁決：2026-09-23 判定與時刻、後繼分別登記。
 - 裁決：2026-09-26 刪除「不是任何時刻的後繼」：論文未陳述。
 
@@ -44,7 +44,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 後繼 / Successor
 
 - 定義：某個[時刻](concepts.md#c04)的後繼，是編號比它大一的[時刻](concepts.md#c04)，也就是它的下一個[時刻](concepts.md#c04)。
-- Definition: The successor of a [Moment](concepts.md#c04) is the moment whose number is one greater, that is, its next moment.
+- Definition: The successor of a [Moment](concepts.md#c04) is the [moment](concepts.md#c04) whose number is one greater, that is, its next [moment](concepts.md#c04).
 - 裁決：2026-09-23 判定與時刻、初始時刻分別登記。
 - 裁決：2026-09-26 刪除「除初始時刻外，每個時刻都是某個時刻的後繼」：論文未陳述。
 
@@ -52,13 +52,13 @@ last-modified: 2026-09-27T01:51:21
 ## public 刺激 / Stimulus
 
 - 定義：刺激是每個[時刻](concepts.md#c04)隨之[出現](concepts.md#c08)的物理內容，例如光、聲音、重力波、熱輻射。刺激不是宇宙的持存部分，而是每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)新[出現](concepts.md#c08)的自由度。
-- Definition: A stimulus is the physical content that [occurs](concepts.md#c08) with each [Moment](concepts.md#c04), such as light, sound, gravitational waves, or thermal radiation. A stimulus is not a persistent part of the universe; it is a degree of freedom newly appearing at each [Successor](concepts.md#c06) [moment](concepts.md#c04).
+- Definition: A stimulus is the physical content that [occurs](concepts.md#c08) with each [Moment](concepts.md#c04), such as light, sound, gravitational waves, or thermal radiation. A stimulus is not a persistent part of the universe; it is a degree of freedom newly [appearing](concepts.md#c08) at each [Successor](concepts.md#c06) [moment](concepts.md#c04).
 
 <a id="c08"></a>
 ## public 出現 / Occurrence
 
 - 定義：出現是[刺激](concepts.md#c07)與[時刻](concepts.md#c04)之間的關係：某[刺激](concepts.md#c07)與某[時刻](concepts.md#c04)滿足出現，表示該[刺激](concepts.md#c07)在該[時刻](concepts.md#c04)出現。出現是[刺激](concepts.md#c07)與[時刻](concepts.md#c04)之笛卡兒積的一個子集，隨[刺激](concepts.md#c07)一起[給定](concepts.md#c03)。
-- Definition: Occurrence is the relation between [Stimuli](concepts.md#c07) and [Moments](concepts.md#c04): a stimulus and a moment stand in the occurrence relation when that stimulus appears at that moment. Occurrence is a subset of the Cartesian product of stimuli and moments, and is [given](concepts.md#c03) together with the stimuli.
+- Definition: Occurrence is the relation between [Stimuli](concepts.md#c07) and [Moments](concepts.md#c04): a [stimulus](concepts.md#c07) and a [moment](concepts.md#c04) stand in the occurrence relation when that [stimulus](concepts.md#c07) appears at that [moment](concepts.md#c04). Occurrence is a subset of the Cartesian product of [stimuli](concepts.md#c07) and [moments](concepts.md#c04), and is [given](concepts.md#c03) together with the [stimuli](concepts.md#c07).
 
 <a id="c09"></a>
 ## private 初始信 / Initial Xin
@@ -86,14 +86,14 @@ last-modified: 2026-09-27T01:51:21
 ## private 宇宙空間 / Universe Space
 
 - 定義：宇宙空間是宇宙在某個[時刻](concepts.md#c04)所處的空間，等於該[時刻](concepts.md#c04)的[信空間](concepts.md#c13)與[環境總空間](concepts.md#c14)的張量積。
-- Definition: The universe space is the space in which the universe lies at a given [Moment](concepts.md#c04); it equals the tensor product of the [Xin Space](concepts.md#c13) and the [Total Environment Space](concepts.md#c14) at that moment.
+- Definition: The universe space is the space in which the universe lies at a given [Moment](concepts.md#c04); it equals the tensor product of the [Xin Space](concepts.md#c13) and the [Total Environment Space](concepts.md#c14) at that [moment](concepts.md#c04).
 - 裁決：2026-09-23 判定登記，名稱由作者確認。
 
 <a id="c13"></a>
 ## private 信空間 / Xin Space
 
 - 定義：信空間是[信](concepts.md#c26)所在的空間。在[初始時刻](concepts.md#c05)，信空間是一份[記錄空間](concepts.md#c15)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，信空間再接上一份[記錄空間](concepts.md#c15)。
-- Definition: The Xin space is the space in which [Xin](concepts.md#c26) lives. At the [Initial Moment](concepts.md#c05) the Xin space is one copy of the [Record Space](concepts.md#c15); at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the record space is appended to it.
+- Definition: The Xin space is the space in which [Xin](concepts.md#c26) lives. At the [Initial Moment](concepts.md#c05) the Xin space is one copy of the [Record Space](concepts.md#c15); at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the [record space](concepts.md#c15) is appended to it.
 - 裁決：2026-09-23 判定登記，名稱由作者確認。
 - 裁決：2026-10-03 英文名由 Belief Space 改為 Xin Space：隨信的英文名改為 Xin。
 
@@ -101,7 +101,7 @@ last-modified: 2026-09-27T01:51:21
 ## private 環境總空間 / Total Environment Space
 
 - 定義：環境總空間是某個[時刻](concepts.md#c04)全部[環境](concepts.md#c11)所在的空間。在[初始時刻](concepts.md#c05)，它是空乘積，表示沒有[環境](concepts.md#c11)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，它再接上一份[環境空間](concepts.md#c16)。
-- Definition: The total environment space is the space in which the whole [Environment](concepts.md#c11) lives at a given [Moment](concepts.md#c04). At the [Initial Moment](concepts.md#c05) it is the empty product, meaning there is no environment; at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the [Environment Space](concepts.md#c16) is appended to it.
+- Definition: The total environment space is the space in which the whole [Environment](concepts.md#c11) lives at a given [Moment](concepts.md#c04). At the [Initial Moment](concepts.md#c05) it is the empty product, meaning there is no [environment](concepts.md#c11); at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more copy of the [Environment Space](concepts.md#c16) is appended to it.
 - 裁決：2026-09-23 判定與環境空間分別登記：環境空間是一份環境的空間，環境總空間是全部環境的空間。名稱由作者確認。
 
 <a id="c15"></a>
@@ -116,14 +116,14 @@ last-modified: 2026-09-27T01:51:21
 ## private 環境空間 / Environment Space
 
 - 定義：環境空間是一份[環境](concepts.md#c11)所在的空間，是[給定](concepts.md#c03)的，大小固定。每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)新增的一份[環境](concepts.md#c11)，住在一份環境空間中。
-- Definition: The environment space is the space in which one part of the [Environment](concepts.md#c11) lives; it is [given](concepts.md#c03) and of fixed size. The part of the environment added at each [Successor](concepts.md#c06) [moment](concepts.md#c04) lives in one copy of the environment space.
+- Definition: The environment space is the space in which one part of the [Environment](concepts.md#c11) lives; it is [given](concepts.md#c03) and of fixed size. The part of the [environment](concepts.md#c11) added at each [Successor](concepts.md#c06) [moment](concepts.md#c04) lives in one copy of the environment space.
 - 裁決：2026-09-23 判定與環境總空間分別登記。
 
 <a id="c17"></a>
 ## public 記錄 / Record
 
 - 定義：記錄是[信](concepts.md#c26)的組成單位。每個[時刻](concepts.md#c04)對應一筆記錄：[初始時刻](concepts.md#c05)的記錄是[給定](concepts.md#c03)的，每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)則經[寫入](concepts.md#c21)新增一筆。[信](concepts.md#c26)由這些記錄依[時刻](concepts.md#c04)順序排成。
-- Definition: A record is the constituent unit of [Xin](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). Xin consists of these records arranged in the order of moments.
+- Definition: A record is the constituent unit of [Xin](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). [Xin](concepts.md#c26) consists of these [records](concepts.md#c17) arranged in the order of [moments](concepts.md#c04).
 - 裁決：2026-09-23 判定記錄、記錄空間、記錄基底分別登記。
 - 裁決：2026-09-26 定義不綁定本篇的初始信與記錄空間，使下游可在自己的前提下使用。
 
@@ -139,7 +139,7 @@ last-modified: 2026-09-27T01:51:21
 ## private 編碼 / Encoding
 
 - 定義：編碼是把每個[刺激束](concepts.md#c27)對應到[刺激空間](concepts.md#c20)中一個單位向量的[給定](concepts.md#c03)規則。任何[刺激束](concepts.md#c27)，包括含多個[刺激](concepts.md#c07)的[刺激束](concepts.md#c27)，都有編碼值，具體的值不指定；[空刺激束](concepts.md#c23)的編碼是[真空態](concepts.md#c24)。
-- Definition: Encoding is the [given](concepts.md#c03) rule that assigns to each [Stimulus Bundle](concepts.md#c27) a unit vector in the [Stimulus Space](concepts.md#c20). Every stimulus bundle, including those containing several [Stimuli](concepts.md#c07), has an encoded value, whose specific value is not fixed; the encoding of the [Empty Stimulus Bundle](concepts.md#c23) is the [Vacuum State](concepts.md#c24).
+- Definition: Encoding is the [given](concepts.md#c03) rule that assigns to each [Stimulus Bundle](concepts.md#c27) a unit vector in the [Stimulus Space](concepts.md#c20). Every [stimulus bundle](concepts.md#c27), including those containing several [Stimuli](concepts.md#c07), has an encoded value, whose specific value is not fixed; the encoding of the [Empty Stimulus Bundle](concepts.md#c23) is the [Vacuum State](concepts.md#c24).
 
 <a id="c20"></a>
 ## private 刺激空間 / Stimulus Space
@@ -151,7 +151,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 寫入 / Writing
 
 - 定義：寫入是每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)發生的過程：該[時刻](concepts.md#c04)的[刺激束](concepts.md#c27)被轉成一筆新的[記錄](concepts.md#c17)與一份新的[環境](concepts.md#c11)，接在宇宙既有的態之後。寫入只碰新[出現](concepts.md#c08)的[刺激](concepts.md#c07)，從不改動已經存在的東西。[初始時刻](concepts.md#c05)不發生寫入。
-- Definition: Writing is the process that takes place at each [Successor](concepts.md#c06) [moment](concepts.md#c04): the [Stimulus Bundle](concepts.md#c27) of that moment is turned into one new [Record](concepts.md#c17) and one new part of the [Environment](concepts.md#c11), appended after the existing state of the universe. Writing touches only newly [occurring](concepts.md#c08) [Stimuli](concepts.md#c07) and never alters what already exists. No writing takes place at the [Initial Moment](concepts.md#c05).
+- Definition: Writing is the process that takes place at each [Successor](concepts.md#c06) [moment](concepts.md#c04): the [Stimulus Bundle](concepts.md#c27) of that [moment](concepts.md#c04) is turned into one new [Record](concepts.md#c17) and one new part of the [Environment](concepts.md#c11), appended after the existing state of the universe. Writing touches only newly [occurring](concepts.md#c08) [Stimuli](concepts.md#c07) and never alters what already exists. No writing takes place at the [Initial Moment](concepts.md#c05).
 - 裁決：2026-09-23 判定寫入與寫入映射為兩個概念：寫入是過程，寫入映射是映射。
 - 裁決：2026-09-23 定義不綁定本篇的全域態，改指宇宙既有的態，使下游可在自己的前提下使用。
 - 裁決：2026-09-26 定義不綁定本篇的編碼與寫入映射，使下游可在自己的前提下使用。
@@ -159,8 +159,8 @@ last-modified: 2026-09-27T01:51:21
 <a id="c22"></a>
 ## private 寫入映射 / Writing Map
 
-- 定義：寫入映射是一個固定的等距映射，把[刺激空間](concepts.md#c20)送到一份[記錄空間](concepts.md#c15)與一份[環境空間](concepts.md#c16)的張量積。它是[給定](concepts.md#c03)的，每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)使用同一個寫入映射；它從何而來，在[形式層](concepts.md#c02)中不可知。
-- Definition: The writing map is a fixed isometry from the [Stimulus Space](concepts.md#c20) into the tensor product of one copy of the [Record Space](concepts.md#c15) and one copy of the [Environment Space](concepts.md#c16). It is [given](concepts.md#c03), and the same writing map is used at every [Successor](concepts.md#c06) [moment](concepts.md#c04); where it comes from is unknowable within the [Formal Layer](concepts.md#c02).
+- 定義：寫入映射是一個固定的等距映射，把[刺激空間](concepts.md#c20)送到一份[記錄空間](concepts.md#c15)與一份[環境空間](concepts.md#c16)的張量積。它是[給定](concepts.md#c03)的，每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)使用同一個寫入映射；它從何而來，[形式層](concepts.md#c02)不知道。
+- Definition: The writing map is a fixed isometry from the [Stimulus Space](concepts.md#c20) into the tensor product of one copy of the [Record Space](concepts.md#c15) and one copy of the [Environment Space](concepts.md#c16). It is [given](concepts.md#c03), and the same writing map is used at every [Successor](concepts.md#c06) [moment](concepts.md#c04); where it comes from is not known to the [Formal Layer](concepts.md#c02).
 - 裁決：2026-09-23 判定寫入與寫入映射為兩個概念：寫入是過程，寫入映射是映射。
 
 <a id="c23"></a>
@@ -180,8 +180,8 @@ last-modified: 2026-09-27T01:51:21
 <a id="c25"></a>
 ## private 全域態 / Global State
 
-- 定義：全域態是宇宙在某個[時刻](concepts.md#c04)的態，住在該[時刻](concepts.md#c04)的[宇宙空間](concepts.md#c12)中。[初始時刻](concepts.md#c05)的全域態是[初始信](concepts.md#c09)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的全域態，是前一[時刻](concepts.md#c04)的全域態接上[寫入映射](concepts.md#c22)作用於該[時刻](concepts.md#c04)[刺激束](concepts.md#c27)之[編碼](concepts.md#c19)所得的向量。全域態只經歷[寫入](concepts.md#c21)：舊的部分不動，新的接在後面。
-- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that moment. The global state at the [Initial Moment](concepts.md#c05) is the [Initial Xin](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous global state with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that moment's [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
+- 定義：全域態是宇宙在某個[時刻](concepts.md#c04)的態，住在該[時刻](concepts.md#c04)的[宇宙空間](concepts.md#c12)中。[初始時刻](concepts.md#c05)的全域態是[初始信](concepts.md#c09)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的全域態，是前一[時刻](concepts.md#c04)的全域態接上[寫入映射](concepts.md#c22)作用於該[後繼](concepts.md#c06)[時刻](concepts.md#c04)的[刺激束](concepts.md#c27)之[編碼](concepts.md#c19)所得的向量。全域態只經歷[寫入](concepts.md#c21)：舊的部分不動，新的接在後面。
+- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that [moment](concepts.md#c04). The global state at the [Initial Moment](concepts.md#c05) is the [Initial Xin](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous [global state](concepts.md#c25) with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that [successor](concepts.md#c06) [moment](concepts.md#c04)'s [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
 
 <a id="c26"></a>
 ## public 信 / Xin
@@ -204,7 +204,7 @@ last-modified: 2026-09-27T01:51:21
 ## private 空記錄 / Empty Record
 
 - 定義：空記錄是某個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的[刺激束](concepts.md#c27)為空集時，由[真空態](concepts.md#c24)經[寫入](concepts.md#c21)產生的那一筆[記錄](concepts.md#c17)。空記錄是一筆真實的[記錄](concepts.md#c17)，不是零筆[記錄](concepts.md#c17)。
-- Definition: An empty record is the [Record](concepts.md#c17) produced through [Writing](concepts.md#c21) from the [Vacuum State](concepts.md#c24) at a [Successor](concepts.md#c06) [moment](concepts.md#c04) whose [Stimulus Bundle](concepts.md#c27) is the empty set. An empty record is a genuine record, not zero records.
+- Definition: An empty record is the [Record](concepts.md#c17) produced through [Writing](concepts.md#c21) from the [Vacuum State](concepts.md#c24) at a [Successor](concepts.md#c06) [moment](concepts.md#c04) whose [Stimulus Bundle](concepts.md#c27) is the empty set. An empty record is a genuine [record](concepts.md#c17), not zero [records](concepts.md#c17).
 - 裁決：2026-09-23 判定與真空態分別登記；用字統一為「記錄」。
 - 裁決：2026-09-26 改為 private：定義綁定本篇的真空態。
 
@@ -212,7 +212,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 最新記錄 / Latest Record
 
 - 定義：最新記錄是某個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的[信](concepts.md#c26)中最後[寫入](concepts.md#c21)的那一筆[記錄](concepts.md#c17)，也就是該[時刻](concepts.md#c04)本身對應的[記錄](concepts.md#c17)。
-- Definition: The latest record is the [Record](concepts.md#c17) last [written](concepts.md#c21) in the [Xin](concepts.md#c26) of a given [Successor](concepts.md#c06) [moment](concepts.md#c04), that is, the record that corresponds to that moment itself.
+- Definition: The latest record is the [Record](concepts.md#c17) last [written](concepts.md#c21) in the [Xin](concepts.md#c26) of a given [Successor](concepts.md#c06) [moment](concepts.md#c04), that is, the [record](concepts.md#c17) that corresponds to that [moment](concepts.md#c04) itself.
 - 裁決：2026-09-23 判定與記錄分別登記。
 - 裁決：2026-09-26 限定為後繼時刻：初始時刻的記錄不經寫入。
 
@@ -220,14 +220,14 @@ last-modified: 2026-09-27T01:51:21
 ## public 累積 / Accumulation
 
 - 定義：累積是[信](concepts.md#c26)隨[時刻](concepts.md#c04)增長的方式：每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，[信](concepts.md#c26)多一筆[記錄](concepts.md#c17)，而對[最新記錄](concepts.md#c29)取跡後所得的正是前一[時刻](concepts.md#c04)的[信](concepts.md#c26)；過去的[記錄](concepts.md#c17)不被改寫。[信](concepts.md#c26)的改變不是覆蓋，而是增長。
-- Definition: Accumulation is the way [Xin](concepts.md#c26) grows with [Moments](concepts.md#c04): at each [Successor](concepts.md#c06) [moment](concepts.md#c04) Xin gains one more [Record](concepts.md#c17), and taking the trace over the [Latest Record](concepts.md#c29) yields exactly the Xin of the previous moment; past records are never rewritten. The change of Xin is not overwriting but growth.
+- Definition: Accumulation is the way [Xin](concepts.md#c26) grows with [Moments](concepts.md#c04): at each [Successor](concepts.md#c06) [moment](concepts.md#c04) [Xin](concepts.md#c26) gains one more [Record](concepts.md#c17), and taking the trace over the [Latest Record](concepts.md#c29) yields exactly the [Xin](concepts.md#c26) of the previous [moment](concepts.md#c04); past [records](concepts.md#c17) are never rewritten. The change of [Xin](concepts.md#c26) is not overwriting but growth.
 - 裁決：2026-09-23 判定論文中作為一般詞使用的「累積」與具名結論的累積為同一概念。
 
 <a id="c31"></a>
 ## private 演化規則 / Evolution Rule
 
-- 定義：演化規則是把某[時刻](concepts.md#c04)的[全域態](concepts.md#c25)送到下一[時刻](concepts.md#c04)[全域態](concepts.md#c25)的映射，由[寫入](concepts.md#c21)決定：先接上該[時刻](concepts.md#c04)[刺激束](concepts.md#c27)的[編碼](concepts.md#c19)，再以[寫入映射](concepts.md#c22)作用於新接上的部分。
-- Definition: The evolution rule is the map that sends the [Global State](concepts.md#c25) at one [Moment](concepts.md#c04) to the global state at the next moment, determined by [Writing](concepts.md#c21): first the [Encoding](concepts.md#c19) of that moment's [Stimulus Bundle](concepts.md#c27) is appended, then the [Writing Map](concepts.md#c22) acts on the newly appended part.
+- 定義：演化規則是把某[時刻](concepts.md#c04)的[全域態](concepts.md#c25)送到下一[時刻](concepts.md#c04)[全域態](concepts.md#c25)的映射，由[寫入](concepts.md#c21)決定：先接上下一[時刻](concepts.md#c04)的[刺激束](concepts.md#c27)的[編碼](concepts.md#c19)，再以[寫入映射](concepts.md#c22)作用於新接上的部分。
+- Definition: The evolution rule is the map that sends the [Global State](concepts.md#c25) at one [Moment](concepts.md#c04) to the [global state](concepts.md#c25) at the next [moment](concepts.md#c04), determined by [Writing](concepts.md#c21): first the [Encoding](concepts.md#c19) of the next [moment](concepts.md#c04)'s [Stimulus Bundle](concepts.md#c27) is appended, then the [Writing Map](concepts.md#c22) acts on the newly appended part.
 
 <a id="c32"></a>
 ## public 選出 / Selection
@@ -241,26 +241,26 @@ last-modified: 2026-09-27T01:51:21
 ## private 非坍縮 / Non-Collapse
 
 - 定義：非坍縮是指在每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)，[形式層](concepts.md#c02)中的[全域態](concepts.md#c25)都未經歷[選出](concepts.md#c32)。非坍縮不否認[信](concepts.md#c26)可以在[記錄基底](concepts.md#c18)下呈對角、看起來像經典的機率分布；它否認的是[選出](concepts.md#c32)。
-- Definition: Non-collapse is the condition that at every [Successor](concepts.md#c06) [moment](concepts.md#c04) the [Global State](concepts.md#c25) in the [Formal Layer](concepts.md#c02) undergoes no [Selection](concepts.md#c32). Non-collapse does not deny that [Xin](concepts.md#c26) may be diagonal in the [Record Basis](concepts.md#c18) and look like a classical probability distribution; what it denies is selection.
+- Definition: Non-collapse is the condition that at every [Successor](concepts.md#c06) [moment](concepts.md#c04) the [Global State](concepts.md#c25) in the [Formal Layer](concepts.md#c02) undergoes no [Selection](concepts.md#c32). Non-collapse does not deny that [Xin](concepts.md#c26) may be diagonal in the [Record Basis](concepts.md#c18) and look like a classical probability distribution; what it denies is [selection](concepts.md#c32).
 - 裁決：2026-09-26 改為 private：定義綁定本篇的全域態。
 
 <a id="c34"></a>
 ## private 非退化模型 / Non-Degenerate Model
 
-- 定義：非退化模型是一個具體的例子，含兩個[刺激](concepts.md#c07)，即[刺激甲](concepts.md#c35)與[刺激乙](concepts.md#c36)；[記錄空間](concepts.md#c15)與[環境空間](concepts.md#c16)皆為二維，基底標為零與一；[刺激空間](concepts.md#c20)為三維，基底為[真空態](concepts.md#c24)、甲、乙。[初始信](concepts.md#c09)為[記錄](concepts.md#c17)零。[刺激乙](concepts.md#c36)在[第二時刻](concepts.md#c37)[出現](concepts.md#c08)，[刺激甲](concepts.md#c35)在[第三時刻](concepts.md#c38)[出現](concepts.md#c08)，前三個[時刻](concepts.md#c04)內其餘的[出現](concepts.md#c08)皆為假。[寫入映射](concepts.md#c22)把[真空態](concepts.md#c24)送到[記錄](concepts.md#c17)零與[環境](concepts.md#c11)一，把甲送到「[記錄](concepts.md#c17)零、[環境](concepts.md#c11)零」與「[記錄](concepts.md#c17)一、[環境](concepts.md#c11)一」的等權疊加，把乙送到[記錄](concepts.md#c17)一與[環境](concepts.md#c11)零。
-- Definition: The non-degenerate model is a concrete example with two [Stimuli](concepts.md#c07), namely [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36). The [Record Space](concepts.md#c15) and the [Environment Space](concepts.md#c16) are both two-dimensional, with basis vectors labelled zero and one; the [Stimulus Space](concepts.md#c20) is three-dimensional, with basis the [Vacuum State](concepts.md#c24), A, and B. The [Initial Xin](concepts.md#c09) is record zero. Stimulus B [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37) and Stimulus A at the [Third Moment](concepts.md#c38); all other occurrences within the first three [moments](concepts.md#c04) are false. The [Writing Map](concepts.md#c22) sends the vacuum state to [record](concepts.md#c17) zero with [environment](concepts.md#c11) one, sends A to the equal-weight superposition of "record zero, environment zero" and "record one, environment one", and sends B to record one with environment zero.
+- 定義：非退化模型是一個具體的例子，含兩個[刺激](concepts.md#c07)，即[刺激甲](concepts.md#c35)與[刺激乙](concepts.md#c36)；[記錄空間](concepts.md#c15)與[環境空間](concepts.md#c16)皆為二維，基底標為零與一；[刺激空間](concepts.md#c20)為三維，基底為[真空態](concepts.md#c24)、甲、乙；三個空間所列的基底皆為正交歸一基底。[初始信](concepts.md#c09)為[記錄](concepts.md#c17)零。[刺激乙](concepts.md#c36)在[第二時刻](concepts.md#c37)[出現](concepts.md#c08)，[刺激甲](concepts.md#c35)在[第三時刻](concepts.md#c38)[出現](concepts.md#c08)，前三個[時刻](concepts.md#c04)內其餘的[出現](concepts.md#c08)皆為假。[寫入映射](concepts.md#c22)把[真空態](concepts.md#c24)送到[記錄](concepts.md#c17)零與[環境](concepts.md#c11)一，把甲送到「[記錄](concepts.md#c17)零、[環境](concepts.md#c11)零」與「[記錄](concepts.md#c17)一、[環境](concepts.md#c11)一」的等權疊加，把乙送到[記錄](concepts.md#c17)一與[環境](concepts.md#c11)零。
+- Definition: The non-degenerate model is a concrete example with two [Stimuli](concepts.md#c07), namely [Stimulus A](concepts.md#c35) and [Stimulus B](concepts.md#c36). The [Record Space](concepts.md#c15) and the [Environment Space](concepts.md#c16) are both two-dimensional, with basis vectors labelled zero and one; the [Stimulus Space](concepts.md#c20) is three-dimensional, with basis the [Vacuum State](concepts.md#c24), A, and B; the bases listed for the three spaces are all orthonormal bases. The [Initial Xin](concepts.md#c09) is [record](concepts.md#c17) zero. [Stimulus B](concepts.md#c36) [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37) and [Stimulus A](concepts.md#c35) at the [Third Moment](concepts.md#c38); all other [occurrences](concepts.md#c08) within the first three [moments](concepts.md#c04) are false. The [Writing Map](concepts.md#c22) sends the [vacuum state](concepts.md#c24) to [record](concepts.md#c17) zero with [environment](concepts.md#c11) one, sends A to the equal-weight superposition of "[record](concepts.md#c17) zero, [environment](concepts.md#c11) zero" and "[record](concepts.md#c17) one, [environment](concepts.md#c11) one", and sends B to [record](concepts.md#c17) one with [environment](concepts.md#c11) zero.
 
 <a id="c35"></a>
 ## private 刺激甲 / Stimulus A
 
-- 定義：刺激甲是[非退化模型](concepts.md#c34)中的兩個[刺激](concepts.md#c07)之一，在[第三時刻](concepts.md#c38)[出現](concepts.md#c08)；其[編碼](concepts.md#c19)是[刺激空間](concepts.md#c20)中標為甲的基底向量。
-- Definition: Stimulus A is one of the two [Stimuli](concepts.md#c07) of the [Non-Degenerate Model](concepts.md#c34); it [occurs](concepts.md#c08) at the [Third Moment](concepts.md#c38), and its [Encoding](concepts.md#c19) is the basis vector of the [stimulus space](concepts.md#c20) labelled A.
+- 定義：刺激甲是[非退化模型](concepts.md#c34)中的兩個[刺激](concepts.md#c07)之一，在[第三時刻](concepts.md#c38)[出現](concepts.md#c08)；僅含刺激甲的[刺激束](concepts.md#c27)，其[編碼](concepts.md#c19)是[刺激空間](concepts.md#c20)中標為甲的基底向量。
+- Definition: Stimulus A is one of the two [Stimuli](concepts.md#c07) of the [Non-Degenerate Model](concepts.md#c34); it [occurs](concepts.md#c08) at the [Third Moment](concepts.md#c38), and the [Encoding](concepts.md#c19) of the [stimulus bundle](concepts.md#c27) containing only Stimulus A is the basis vector of the [stimulus space](concepts.md#c20) labelled A.
 
 <a id="c36"></a>
 ## private 刺激乙 / Stimulus B
 
-- 定義：刺激乙是[非退化模型](concepts.md#c34)中的兩個[刺激](concepts.md#c07)之一，在[第二時刻](concepts.md#c37)[出現](concepts.md#c08)；其[編碼](concepts.md#c19)是[刺激空間](concepts.md#c20)中標為乙的基底向量。
-- Definition: Stimulus B is one of the two [Stimuli](concepts.md#c07) of the [Non-Degenerate Model](concepts.md#c34); it [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37), and its [Encoding](concepts.md#c19) is the basis vector of the [stimulus space](concepts.md#c20) labelled B.
+- 定義：刺激乙是[非退化模型](concepts.md#c34)中的兩個[刺激](concepts.md#c07)之一，在[第二時刻](concepts.md#c37)[出現](concepts.md#c08)；僅含刺激乙的[刺激束](concepts.md#c27)，其[編碼](concepts.md#c19)是[刺激空間](concepts.md#c20)中標為乙的基底向量。
+- Definition: Stimulus B is one of the two [Stimuli](concepts.md#c07) of the [Non-Degenerate Model](concepts.md#c34); it [occurs](concepts.md#c08) at the [Second Moment](concepts.md#c37), and the [Encoding](concepts.md#c19) of the [stimulus bundle](concepts.md#c27) containing only Stimulus B is the basis vector of the [stimulus space](concepts.md#c20) labelled B.
 
 <a id="c37"></a>
 ## private 第二時刻 / Second Moment
