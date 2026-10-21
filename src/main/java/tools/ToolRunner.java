@@ -2172,10 +2172,12 @@ public class ToolRunner {
             System.out.println("✗ " + issues.size() + " 項不通過\n");
             print(issues);
         }
-        if (!warnings.isEmpty()) {
-            System.out.println("\n△ " + warnings.size() + " 項警告（不阻擋後續步驟，請人工確認）\n");
-            print(warnings);
-        }
+        // 以下「工具警告」僅供語意複核，不再大量列印於控制台。
+        // 保留警告蒐集與寫入稽核輸入包的邏輯；需要恢復顯示時取消註解即可。
+        // if (!warnings.isEmpty()) {
+        //     System.out.println("\n△ " + warnings.size() + " 項警告（不阻擋後續步驟，請人工確認）\n");
+        //     print(warnings);
+        // }
 
         List<String> enPending = papers.stream()
             .filter(p -> !p.external && p.zhPaper != null && !p.enStarted()).map(p -> p.folder).toList();
