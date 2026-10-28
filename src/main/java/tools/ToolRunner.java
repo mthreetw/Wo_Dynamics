@@ -647,9 +647,11 @@ public class ToolRunner {
     static final Pattern DOC_TS_RE = Pattern.compile("^(\\S{2,12})最後修改：(\\S+)$");
 
     /**
-     * 只處理 Git 暫存區中的檔案：論文與概念表更新 YAML 頭部的 last-modified，
-     * 手冊與說明文件更新開頭的「最後修改」。只改時間戳那一行，改完重新暫存。
-     * 同時有已暫存與未暫存修改的檔案一律跳過，以免把刻意不提交的修改一併暫存。
+     * 處理 Git 中有修改的 .md 檔（已暫存，或工作區已修改）：論文與概念表更新 YAML 頭部的 last-modified，
+     * 手冊與說明文件更新開頭的「最後修改」。只改時間戳那一行。
+     * 重新暫存的規則：只有「已暫存、且工作區沒有其他修改」者才重新暫存；
+     * 只在工作區修改（未暫存）或同時有已暫存與未暫存修改者，只改檔案、不動暫存區，
+     * 以免把刻意不提交的修改一併暫存。
      */
     static void stamp(Path root) throws IOException, InterruptedException {
         String top = git(root, "rev-parse", "--show-toplevel");
@@ -659,7 +661,7 @@ public class ToolRunner {
         if (out == null) return;
 
         String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
-        List<String> done = new ArrayList<>(), partial = new ArrayList<>();
+        List<String> done = new ArrayList<>();
         String[] ent = out.split("\0");
         for (int i = 0; i < ent.length; i++) {
             String e = ent[i];
@@ -667,22 +669,22 @@ public class ToolRunner {
             char x = e.charAt(0), y = e.charAt(1);
             String path = e.substring(3);
             if (x == 'R' || x == 'C') i++;                    // 下一段是更名前的路徑
-            if ("MARC".indexOf(x) < 0 || !path.endsWith(".md")) continue;
+            if (!path.endsWith(".md")) continue;
+            boolean staged = "MARC".indexOf(x) >= 0;
+            boolean modified = y == 'M';
+            if (!staged && !modified) continue;          // 排除未追蹤（??）、已刪除等
             if (isGeneratedBundlePath(path)) continue;   // 生成物不蓋時間戳
-            if (y != ' ') { partial.add(path); continue; }
             Path f = repo.resolve(path);
             if (!Files.exists(f)) continue;
             String text = Files.readString(f, StandardCharsets.UTF_8);
             String updated = restamp(text, now);
             if (updated == null || updated.equals(text)) continue;
             Files.writeString(f, updated, StandardCharsets.UTF_8);
-            git(root, "add", "--", path);
+            if (staged && y == ' ') git(root, "add", "--", path);   // 原本已暫存且無其他修改者才重新暫存
             done.add(path);
         }
-        if (done.isEmpty() && partial.isEmpty()) System.out.println("暫存區中沒有需要更新時間戳的檔案");
+        if (done.isEmpty()) System.out.println("沒有需要更新時間戳的檔案");
         for (String d : done) System.out.println("  [時間戳] " + d + " → " + now);
-        for (String d : partial)
-            System.out.println("  [跳過] " + d + "：同時有已暫存與未暫存的修改，請整理暫存後再執行");
     }
 
     /** 只改開頭的時間戳那一行；沒有可改的時間戳時回傳 null */
