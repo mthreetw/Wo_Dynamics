@@ -1,6 +1,6 @@
 ---
 uuid: 96f10d75-23d0-441f-94c7-ab87ca28d284
-last-modified: 2026-10-22T12:08:04
+last-modified: 2026-11-04T14:15:11
 author: 黃正宇 / Cheng Yu Huang
 contact: mthree.tw@gmail.com
 ---
@@ -59,6 +59,8 @@ Premise 1 (scope setting): Under a stated cut, the researcher specifies the
      variables, and one exit criterion expressed in the state variables, and
      reports who made this division. This paper presupposes no relation among
      resources, states, and criterion exit.
+     The records of this paper cover only physical changes; distinctions also
+     enter history but fall outside what this paper records.
 Remark: Premise 1 is a scope setting, not a claim that can be refuted.
      Its scope is not limited to humans; from a human viewpoint, the exit
      criterion is often written on physiological state, and some self marks
@@ -99,7 +101,7 @@ Conclusion 1-5: The classification of resource and state is a classification
 
 <note>
 
-*Premise 1 sets the scope: the researcher first states how to cut, which numbers to record, and what to use as the standard for criterion exit. It is not a claim that can be proved right or wrong. The following lines are drawn directly from it.*
+*Premise 1 sets the scope: the researcher first states how to cut, which numbers to record, and what to use as the standard for criterion exit; this paper records only physical changes. It is not a claim that can be proved right or wrong. The following lines are drawn directly from it.*
 
 </note>
 
@@ -269,13 +271,11 @@ Conclusion 2-10: Whether the weights of a coarse record and a fine record agree 
      (from definition of recutting + definition of weight)
 Conclusion 2-11: If purposes show up as a node's distinction about itself, it enters history and affects later output only through weight; this paper neither confirms nor presupposes the content of purposes
      (from definition of distinction + definition of history + definition of weight + definition of generating function + Premise 2 + unconfirmability of drives)
-Conclusion 2-12: The records of this paper cover only physical changes; distinctions enter history and are not within what this paper records
-     (from definition of state variable + definition of resource variable + definition of solution + definition of distinction)
 ```
 
 <note>
 
-*Twelve properties follow directly from the model above. The most important: the same output does not guarantee the same solution, history only grows, and the record is chosen by the researcher.*
+*Eleven properties follow directly from the model above. The most important: the same output does not guarantee the same solution, history only grows, and the record is chosen by the researcher.*
 
 </note>
 

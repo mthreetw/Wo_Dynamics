@@ -1,6 +1,6 @@
 ---
 uuid: 54c0291d-05b3-431a-9f2a-1b8ec93c3c3f
-last-modified: 2026-09-27T01:51:21
+last-modified: 2026-11-04T14:15:11
 ---
 
 <a id="c01"></a>
@@ -123,7 +123,7 @@ last-modified: 2026-09-27T01:51:21
 ## public 記錄 / Record
 
 - 定義：記錄是[信](concepts.md#c26)的組成單位。每個[時刻](concepts.md#c04)對應一筆記錄：[初始時刻](concepts.md#c05)的記錄是[給定](concepts.md#c03)的，每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)則經[寫入](concepts.md#c21)新增一筆。[信](concepts.md#c26)由這些記錄依[時刻](concepts.md#c04)順序排成。
-- Definition: A record is the constituent unit of [Xin](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). [Xin](concepts.md#c26) consists of these [records](concepts.md#c17) arranged in the order of [moments](concepts.md#c04).
+- Definition: A record is the constituent unit of [Xin](concepts.md#c26). Each [Moment](concepts.md#c04) corresponds to one record: the record of the [Initial Moment](concepts.md#c05) is [given](concepts.md#c03), and at each [Successor](concepts.md#c06) [moment](concepts.md#c04) one more record is added through [Writing](concepts.md#c21). [Xin](concepts.md#c26) consists of these records arranged in the order of [moments](concepts.md#c04).
 - 裁決：2026-09-23 判定記錄、記錄空間、記錄基底分別登記。
 - 裁決：2026-09-26 定義不綁定本篇的初始信與記錄空間，使下游可在自己的前提下使用。
 
@@ -181,7 +181,7 @@ last-modified: 2026-09-27T01:51:21
 ## private 全域態 / Global State
 
 - 定義：全域態是宇宙在某個[時刻](concepts.md#c04)的態，住在該[時刻](concepts.md#c04)的[宇宙空間](concepts.md#c12)中。[初始時刻](concepts.md#c05)的全域態是[初始信](concepts.md#c09)；每個[後繼](concepts.md#c06)[時刻](concepts.md#c04)的全域態，是前一[時刻](concepts.md#c04)的全域態接上[寫入映射](concepts.md#c22)作用於該[後繼](concepts.md#c06)[時刻](concepts.md#c04)的[刺激束](concepts.md#c27)之[編碼](concepts.md#c19)所得的向量。全域態只經歷[寫入](concepts.md#c21)：舊的部分不動，新的接在後面。
-- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that [moment](concepts.md#c04). The global state at the [Initial Moment](concepts.md#c05) is the [Initial Xin](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous [global state](concepts.md#c25) with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that [successor](concepts.md#c06) [moment](concepts.md#c04)'s [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
+- Definition: The global state is the state of the universe at a given [Moment](concepts.md#c04), living in the [Universe Space](concepts.md#c12) of that [moment](concepts.md#c04). The global state at the [Initial Moment](concepts.md#c05) is the [Initial Xin](concepts.md#c09); the global state at each [Successor](concepts.md#c06) [moment](concepts.md#c04) is the previous global state with, appended to it, the vector obtained by applying the [Writing Map](concepts.md#c22) to the [Encoding](concepts.md#c19) of that [successor](concepts.md#c06) [moment](concepts.md#c04)'s [Stimulus Bundle](concepts.md#c27). The global state undergoes only [Writing](concepts.md#c21): the old part does not move, and the new part is appended after it.
 
 <a id="c26"></a>
 ## public 信 / Xin

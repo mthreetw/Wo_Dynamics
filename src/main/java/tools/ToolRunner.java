@@ -23,8 +23,9 @@ import java.util.stream.*;
  *   2. bundle     在論文資料夾中產出「形式化輸入包.md」與依稽核總表 0.3 分工表生成的各稽核輸入包
  *   3. tree       產出 PaperTree.html（引用關係圖）
  *   4. starmap    產出 starmap.html（概念關係星圖）
- *   5. concepts   產出 exports/concepts.jsonl（依工具規格第四節抽取並分類關係）
- *      formalizations  產出 exports/formalizations.jsonl（完整陳述與來源圖）
+ *   5. formalizations  產出 exports/formalizations.jsonl（完整陳述、述詞關係與來源圖）
+ *      concepts   產出 exports/concepts.jsonl（概念、定義依賴，以及提到它的陳述 ID）
+ *                 與 exports/寫作用概念.md（寫新論文時給 AI 讀的精簡清單）
  *   6. papers     產出 exports/papers.jsonl
  *   7. checkPapers  檢查 papers.jsonl 結構
  *   8. checkHf    遠端檢查 HF dataset 狀態（需要網路；未設定 HF_DATASET 時略過）
@@ -89,7 +90,7 @@ public class ToolRunner {
 
     /** 一筆抽取出的關係（工具規格 4.1 節） */
     record Rel(String type, List<Arg> args, List<String> derivedFrom,
-               String context, String confidence, String section, Set<String> localIds) {}
+               String context, String section, int line, Set<String> localIds) {}
 
     /** 一篇論文或一個外部存根 */
     static class Paper {
@@ -123,6 +124,11 @@ public class ToolRunner {
         Concept byZh(String zh) {
             for (Concept c : concepts) if (zh.equals(c.zh)) return c;
             return null;
+        }
+        /** 以中文名找未廢棄的條目。形式化中的概念名一律以此解析，已廢棄的名稱不得被接上（形-40） */
+        Concept liveByZh(String zh) {
+            Concept c = byZh(zh);
+            return c == null || c.deprecated ? null : c;
         }
         /** 英文翻譯已開始：檔案存在，且不是原封未動的模板（檔名與內容都還是佔位符） */
         boolean enStarted() {
@@ -301,7 +307,8 @@ public class ToolRunner {
         exportFormalizations(root, papers, byFolder);
 
         section("5. concepts.jsonl");
-        exportConcepts(root, papers);
+        exportConcepts(root, papers, byFolder);
+        exportWritingConcepts(root, papers);
 
         section("6. papers.jsonl");
         exportPapers(root, papers);
@@ -1143,6 +1150,22 @@ public class ToolRunner {
                     t = t.replace(n, "■");
                 }
             }
+            // 概-16（工具部分，警告）：未廢棄條目的中英文定義，連結目標的集合須相同
+            for (Concept c : p.concepts) {
+                if (c.zh == null || c.deprecated) continue;
+                Set<String> zhL = new TreeSet<>(), enL = new TreeSet<>();
+                for (Link l : scanLinks(c.def == null ? "" : c.def, "concepts.md"))
+                    zhL.add((l.targetDir() == null ? "" : l.targetDir() + "/") + "#" + l.id());
+                String en = definitionEn(c);
+                for (Link l : scanLinks(en == null ? "" : en, "concepts.md"))
+                    enL.add((l.targetDir() == null ? "" : l.targetDir() + "/") + "#" + l.id());
+                if (zhL.equals(enL)) continue;
+                Set<String> onlyZh = new TreeSet<>(zhL), onlyEn = new TreeSet<>(enL);
+                onlyZh.removeAll(enL); onlyEn.removeAll(zhL);
+                warn.add(new Issue("概-16", w + " #" + c.id, "中英文定義的連結不一致："
+                    + (onlyZh.isEmpty() ? "" : "只在中文 " + onlyZh + " ")
+                    + (onlyEn.isEmpty() ? "" : "只在英文 " + onlyEn)));
+            }
             // 概-12（工具部分）、概-34：定義中的連結
             checkDefinitionLinks(is, p, byFolder);
             // 概-08：條目之間不得有其他二級標題
@@ -1583,7 +1606,7 @@ public class ToolRunner {
     }
 
     /** 概念表定義中不得出現的固定字眼（概-14 的工具部分） */
-    static final List<String> CONTEXT_WORDS = List.of("如上", "前述", "上述", "本文第");
+    static final List<String> CONTEXT_WORDS = List.of("如上", "前述", "上述", "本文第", "本篇", "本論文", "這篇論文");
 
     /** 連結檢查的代碼：中文論文與英文翻譯分屬不同條目 */
     record LinkCodes(String which, String format, String uuid, String anchor, String display,
@@ -1787,6 +1810,8 @@ public class ToolRunner {
                 is.add(new Issue("跨-23", w, "上游概念不存在：" + u + "." + name));
                 continue;
             }
+            if (uc.deprecated)
+                is.add(new Issue("形-40", w, "形式化用到已廢棄的上游概念：" + u + "." + name));
             if (!"public".equals(uc.mod))
                 is.add(new Issue("跨-24", w, "上游概念不是 public：" + u + "." + name));
             boolean cited = p.links.stream().anyMatch(l -> folder.equals(l.targetDir) && uc.id.equals(l.id));
@@ -1806,6 +1831,25 @@ public class ToolRunner {
                 if (tok.contains(n)) { badTok.add("「" + tok + "」含「" + n + "」"); break; }
         }
         for (String b : badTok) is.add(new Issue("形-08", w, "概念名未以空格等分隔，或非概念用語未宣告：" + b));
+
+        // 形-40：不得用到已廢棄的本篇概念名。上游概念多半是漏了 UUID 前綴，被接到本篇同名的廢棄條目
+        Set<String> deadNames = p.concepts.stream().filter(Concept::deprecated).map(Concept::zh)
+            .filter(Objects::nonNull).collect(Collectors.toSet());
+        Set<String> deadHits = new TreeSet<>();
+        for (String tok : PREFIXED_REF.matcher(CITE_ANY.matcher(proseText).replaceAll(" ")).replaceAll(" ").split(SPLITTER))
+            if (deadNames.contains(tok) && !declared.contains(tok)) deadHits.add(tok);
+        for (String d : deadHits)
+            is.add(new Issue("形-40", w, "形式化用到已廢棄的本篇概念名：" + d + "（若指上游概念，須加 UUID 前綴）"));
+
+        // 形-05（工具部分，警告）：不屬於五種角色的行（資料集中 role 為 other 者）
+        try {
+            for (FormalNode n : formalNodes(p))
+                if (n.role.equals("other"))
+                    warn.add(new Issue("形-05", w + " L" + n.line,
+                        "不屬於前提、限定條件、推導、附註、例任一角色：" + abbrev(n.text)));
+        } catch (IllegalStateException e) {
+            warn.add(new Issue("形-05", w, "無法辨認陳述角色：" + e.getMessage()));
+        }
 
         // 形-09：程式碼區塊外不得有關係符號
         for (int i = F_HEADER_LINES; i < prose.length; i++)
@@ -1986,7 +2030,7 @@ public class ToolRunner {
         var sm = PREFIXED_REF.matcher(stmt);
         while (sm.find()) if (!present.contains(sm.group()) && !missing.contains(sm.group())) missing.add(sm.group());
         for (String tok : sm.replaceAll(" ").split(SPLITTER))
-            if (!tok.isEmpty() && p.byZh(tok) != null && !present.contains(tok) && !missing.contains(tok)) missing.add(tok);
+            if (!tok.isEmpty() && p.liveByZh(tok) != null && !present.contains(tok) && !missing.contains(tok)) missing.add(tok);
         return missing;
     }
 
@@ -2040,17 +2084,25 @@ public class ToolRunner {
         boolean def = t.endsWith(" 的定義");
         String name = def ? t.substring(0, t.length() - " 的定義".length()).trim() : t;
         if (conceptByName(name, p, byFolder) != null) return null;
+        if (p.byZh(name) != null) return "概念已廢棄";
         return def ? "概念不存在" : "不屬於五種來源之一";
     }
 
-    /** 以本篇概念名或上游概念識別找概念 */
+    /** 概念條目的英文定義（「- Definition: 」那一行），沒有時為 null */
+    static String definitionEn(Concept c) {
+        if (c.raw() == null) return null;
+        var m = Pattern.compile("(?m)^- Definition: (.*)$").matcher(c.raw());
+        return m.find() ? m.group(1).strip() : null;
+    }
+
+    /** 以本篇概念名或上游概念識別找未廢棄的概念；已廢棄者視為找不到 */
     static Concept conceptByName(String name, Paper p, Map<String, Paper> byFolder) {
-        Concept c = p.byZh(name);
+        Concept c = p.liveByZh(name);
         if (c != null) return c;
         var m = PREFIXED_REF.matcher(name);
         if (!m.matches()) return null;
         Paper up = byFolder.get((m.group(1) != null ? "ext_" : "paper_") + m.group(2).replace('-', '_'));
-        return up == null ? null : up.byZh(m.group(3));
+        return up == null ? null : up.liveByZh(m.group(3));
     }
 
     // ════════════════════════════════════════════════════════════
@@ -2279,7 +2331,7 @@ public class ToolRunner {
                 List<Arg> args = new ArrayList<>();
                 for (String a : splitTop(line.substring(open + 1, close)))
                     args.add(new Arg(a, conceptsIn(a, p, byFolder)));
-                out.add(rel(PREDICATES.get(pm.group(1)), args, derived, raw, sec, p));
+                out.add(rel(PREDICATES.get(pm.group(1)), args, derived, raw, sec, i + 1, p));
                 any = true;
                 from = close + 1;
             }
@@ -2289,24 +2341,24 @@ public class ToolRunner {
             if (derivedAt >= 0) {
                 String stmt = line.substring(0, derivedAt).trim();
                 out.add(rel("derives_from", List.of(new Arg(stmt, conceptsIn(stmt, p, byFolder))),
-                    derived, raw, sec, p));
+                    derived, raw, sec, i + 1, p));
                 continue;
             }
 
             // 規則 3：純引用
             if (PREFIXED_REF.matcher(line).find())
                 out.add(rel("references", List.of(new Arg(line, conceptsIn(line, p, byFolder))),
-                    derived, raw, sec, p));
+                    derived, raw, sec, i + 1, p));
         }
         return out;
     }
 
-    static Rel rel(String type, List<Arg> args, List<String> derived, String context, String sec, Paper p) {
+    static Rel rel(String type, List<Arg> args, List<String> derived, String context, String sec, int line, Paper p) {
         Set<String> local = new LinkedHashSet<>();
         String prefix = p.uuid + ".";
         for (Arg a : args)
             for (String c : a.concepts) if (c.startsWith(prefix)) local.add(c.substring(prefix.length()));
-        return new Rel(type, args, List.copyOf(derived), context, "high", sec, local);
+        return new Rel(type, args, List.copyOf(derived), context, sec, line, local);
     }
 
     static int matchParen(String s, int open) {
@@ -2338,12 +2390,12 @@ public class ToolRunner {
         while (m.find()) {
             String folder = (m.group(1) != null ? "ext_" : "paper_") + m.group(2).replace('-', '_');
             Paper up = byFolder.get(folder);
-            Concept c = up == null ? null : up.byZh(m.group(3));
+            Concept c = up == null ? null : up.liveByZh(m.group(3));
             String k = m.group(2) + "." + (c != null ? c.id : m.group(3) + "(未對應)");
             if (!out.contains(k)) out.add(k);
         }
         for (String tok : m.replaceAll(" ").split(SPLITTER)) {
-            Concept c = tok.isEmpty() ? null : p.byZh(tok);
+            Concept c = tok.isEmpty() ? null : p.liveByZh(tok);
             if (c != null && !out.contains(p.uuid + "." + c.id)) out.add(p.uuid + "." + c.id);
         }
         return out;
@@ -3120,54 +3172,127 @@ public class ToolRunner {
     // 5. concepts.jsonl
     // ════════════════════════════════════════════════════════════
 
-    static void exportConcepts(Path root, List<Paper> papers) throws IOException {
+    /**
+     * 每行一個本篇概念。不再內嵌關係：每條形式化陳述只在 formalizations.jsonl 中出現一次，
+     * 概念條目以 statements 記錄提到它的陳述 ID、角色、標籤、段落，以及它出現在陳述本身還是推導來源中
+     */
+    static void exportConcepts(Path root, List<Paper> papers, Map<String, Paper> byFolder) throws IOException {
         Path out = root.resolve(EXPORTS).resolve("concepts.jsonl");
         Files.createDirectories(out.getParent());
-        int n = 0;
-        Map<String, Integer> byType = new TreeMap<>();
-        for (Paper p : papers) for (Rel r : p.rels) byType.merge(r.type, 1, Integer::sum);
-
+        int n = 0, refs = 0;
         try (var w = Files.newBufferedWriter(out, StandardCharsets.UTF_8)) {
             for (Paper p : papers) {
                 if (p.external) continue;
+                // 概念 ID → 提到它的陳述（依文件順序）
+                Map<String, List<Map<String, Object>>> mentions = new HashMap<>();
+                for (FormalNode node : formalNodes(p)) {
+                    if (node.role.equals("formal_block")) continue;
+                    var dm = DERIVE_RE.matcher(node.text);
+                    boolean hasSrc = dm.find();
+                    String stmt = hasSrc ? node.text.substring(0, dm.start()) : node.text;
+                    List<String> inStmt = conceptsIn(stmt, p, byFolder);
+                    List<String> inSrc = hasSrc ? conceptsIn(dm.group(1), p, byFolder) : List.of();
+                    Set<String> all = new LinkedHashSet<>(inStmt); all.addAll(inSrc);
+                    for (String id : all) {
+                        List<String> where = new ArrayList<>();
+                        if (inStmt.contains(id)) where.add("statement");
+                        if (inSrc.contains(id)) where.add("source");
+                        mentions.computeIfAbsent(id, k -> new ArrayList<>()).add(fields(
+                            "node_id", node.id, "role", node.role, "label", node.label,
+                            "section", node.section, "in", where));
+                    }
+                }
                 for (Concept c : p.concepts) {
                     if (c.zh == null) continue;
-                    List<Rel> mine = p.rels.stream().filter(r -> r.localIds.contains(c.id)).toList();
-                    String source = mine.isEmpty() ? null : mine.get(0).section;
-
-                    StringBuilder sb = new StringBuilder("{");
-                    sb.append("\"id\":").append(json(p.uuid + "." + c.id)).append(",");
-                    sb.append("\"concept\":").append(json(c.zh)).append(",");
-                    sb.append("\"concept_en\":").append(json(c.en)).append(",");
-                    sb.append("\"modifier\":").append(json(c.mod)).append(",");
-                    sb.append("\"paper_uuid\":").append(json(p.uuid)).append(",");
-                    sb.append("\"paper_title\":").append(json(p.title)).append(",");
-                    sb.append("\"definition\":").append(json(c.def)).append(",");
-                    sb.append("\"definition_source\":").append(json(source)).append(",");
-                    sb.append("\"deprecated\":").append(c.deprecated).append(",");
-                    sb.append("\"relations\":[");
-                    for (int k = 0; k < mine.size(); k++) {
-                        Rel r = mine.get(k);
-                        if (k > 0) sb.append(",");
-                        sb.append("{\"relation_type\":").append(json(r.type)).append(",\"arguments\":[");
-                        for (int a = 0; a < r.args.size(); a++) {
-                            if (a > 0) sb.append(",");
-                            sb.append("{\"text\":").append(json(r.args.get(a).text)).append(",\"concepts\":")
-                              .append(jsonList(r.args.get(a).concepts)).append("}");
-                        }
-                        sb.append("],\"derived_from\":").append(jsonList(r.derivedFrom))
-                          .append(",\"context\":").append(json(r.context))
-                          .append(",\"confidence\":").append(json(r.confidence)).append("}");
+                    String id = p.uuid + "." + c.id;
+                    List<String> depends = new ArrayList<>();
+                    for (Link l : scanLinks(c.def == null ? "" : c.def, "concepts.md")) {
+                        Paper up = l.targetDir == null ? p : byFolder.get(l.targetDir);
+                        String d = (up == null ? l.targetDir : up.uuid) + "." + l.id;
+                        if (!depends.contains(d)) depends.add(d);
                     }
-                    sb.append("]}");
-                    w.write(sb.toString()); w.newLine(); n++;
+                    List<Map<String, Object>> st = mentions.getOrDefault(id, List.of());
+                    refs += st.size();
+                    w.write(structuredJson(fields("id", id, "concept", c.zh, "concept_en", c.en,
+                        "modifier", c.mod, "paper_uuid", p.uuid, "paper_title", p.title,
+                        "definition", c.def, "definition_en", definitionEn(c),
+                        "definition_dependencies", depends,
+                        "deprecated", c.deprecated, "statements", st)));
+                    w.newLine(); n++;
                 }
             }
         }
-        System.out.println("寫入 " + n + " 個概念到 " + EXPORTS + "/concepts.jsonl（關係 "
-            + papers.stream().mapToInt(p -> p.rels.size()).sum() + " 筆，依類型：" + byType + "）");
+        System.out.println("寫入 " + n + " 個概念到 " + EXPORTS + "/concepts.jsonl（陳述參照 " + refs
+            + " 筆，陳述全文見 formalizations.jsonl）");
     }
 
+    /**
+     * 寫作用概念清單（工具規格 6.5）：給寫新論文的 AI 直接閱讀。
+     * 只收未廢棄的 public 條目（下游只能引用這些），含外部存根；定義去掉連結語法，只留純文字
+     */
+    static void exportWritingConcepts(Path root, List<Paper> papers) throws IOException {
+        Path out = root.resolve(EXPORTS).resolve("寫作用概念.md");
+        Files.createDirectories(out.getParent());
+        StringBuilder sb = new StringBuilder();
+        sb.append("# 寫作用概念清單\n\n");
+        sb.append("下游論文可以引用的概念：各論文與外部存根中未廢棄的 public 條目。")
+          .append("論文依引用關係排列，上游在前；外部存根列在最後，附來源。")
+          .append("定義已去掉連結語法，只留純文字；原文以各篇 concepts.md 為準。\n");
+        int n = 0;
+        for (Paper p : writingOrder(papers)) {
+            List<Concept> cs = p.concepts.stream()
+                .filter(c -> c.zh != null && !c.deprecated && "public".equals(c.mod)).toList();
+            if (cs.isEmpty()) continue;
+            if (p.external) {
+                String src = stubField(p, "來源：");
+                sb.append("\n## 外部存根：").append(src != null ? src : p.folder).append("\n\n");
+                sb.append("UUID：").append(p.uuid).append("\n");
+                for (String f : List.of("詮釋者：", "詮釋日期：")) {   // 來源已在標題
+                    String v = stubField(p, f);
+                    if (v != null) sb.append(f).append(v).append("\n");
+                }
+                sb.append("\n");
+            } else {
+                sb.append("\n## 《").append(p.title != null ? p.title : p.folder).append("》\n\n");
+                sb.append("UUID：").append(p.uuid).append("\n\n");
+            }
+            for (Concept c : cs) {
+                sb.append("- **").append(c.zh).append("** / ").append(c.en)
+                  .append("（").append(p.uuid).append(".").append(c.id).append("）：")
+                  .append(c.def == null ? "" : display(c.def).strip()).append("\n");
+                n++;
+            }
+        }
+        Files.writeString(out, sb.toString(), StandardCharsets.UTF_8);
+        System.out.println("寫入 " + n + " 個概念到 " + EXPORTS + "/寫作用概念.md");
+    }
+
+    /** 寫作用清單的順序：論文依引用關係，上游在前（同層依掃描順序）；外部存根在最後 */
+    static List<Paper> writingOrder(List<Paper> papers) {
+        Map<String, Paper> byF = new HashMap<>();
+        for (Paper p : papers) byF.put(p.folder, p);
+        List<Paper> out = new ArrayList<>();
+        Set<String> seen = new HashSet<>();
+        for (Paper p : papers) if (!p.external) visitUpstream(p, byF, seen, out);
+        for (Paper p : papers) if (p.external) out.add(p);
+        return out;
+    }
+
+    static void visitUpstream(Paper p, Map<String, Paper> byF, Set<String> seen, List<Paper> out) {
+        if (!seen.add(p.folder)) return;   // 跨-20 已保證沒有循環
+        for (String r : p.refs) {
+            Paper up = byF.get(r);
+            if (up != null && !up.external) visitUpstream(up, byF, seen, out);
+        }
+        out.add(p);
+    }
+
+    /** 外部存根概念表中「來源：」「詮釋者：」「詮釋日期：」等欄位的值（存-02），沒有時為 null */
+    static String stubField(Paper p, String field) {
+        var m = Pattern.compile("(?m)^\\s*(?:-\\s*)?(?:\\*\\*)?" + Pattern.quote(field) + "(?:\\*\\*)?\\s*(.*)$")
+            .matcher(p.conceptsText);
+        return m.find() ? m.group(1).strip() : null;
+    }
 
     // 完整形式化匯出：陳述獨立存在，不以是否含本篇概念決定保留與否。
     // 此圖檢查的是資料完整性，並不替代 AI 的語意／證明稽核。
@@ -3341,7 +3466,8 @@ public class ToolRunner {
                 depends.add(up.uuid + "." + l.id);
             }
             conceptRows.add(fields("id", id, "concept", c.zh, "concept_en", c.en, "modifier", c.mod,
-                "deprecated", c.deprecated, "definition", c.def, "definition_dependencies", depends,
+                "deprecated", c.deprecated, "definition", c.def, "definition_en", definitionEn(c),
+                "definition_dependencies", depends,
                 "paper_uuid", owner.uuid, "paper_title", owner.title));
         }
         List<Map<String, Object>> nodeRows = new ArrayList<>();
@@ -3349,9 +3475,17 @@ public class ToolRunner {
             List<String> context = nodes.stream().filter(x -> x.section.equals(n.section)
                 && Set.of("note", "section_source", "author_ruling", "formal_block").contains(x.role))
                 .map(x -> x.id).toList();
+            // 本行的述詞關係（工具規格 4.4 規則 1）。推導來源已在 sources，不重複記錄
+            List<Map<String, Object>> preds = new ArrayList<>();
+            for (Rel r : p.rels) {
+                if (r.line != n.line || !PREDICATES.containsValue(r.type)) continue;
+                List<Map<String, Object>> args = r.args.stream()
+                    .map(a -> fields("text", a.text, "concepts", a.concepts)).toList();
+                preds.add(fields("relation_type", r.type, "arguments", args));
+            }
             nodeRows.add(fields("id", n.id, "role", n.role, "label", n.label, "section", n.section,
                 "line", n.line, "end_line", n.endLine, "text", n.text, "raw_text", n.raw,
-                "concepts", n.concepts, "sources", n.sources, "body_citations", n.citations,
+                "concepts", n.concepts, "predicates", preds, "sources", n.sources, "body_citations", n.citations,
                 "section_context_ids", context));
         }
         List<Map<String, Object>> body = p.units.stream().map(u -> fields("code", u.code, "kind", u.kind,
@@ -3359,7 +3493,7 @@ public class ToolRunner {
         Set<String> codes = p.units.stream().map(Unit::code).collect(Collectors.toSet());
         for (FormalNode n : nodes) for (String code : n.citations)
             if (!codes.contains(code)) throw new IllegalStateException(p.folder + "：正文句碼缺失 " + code);
-        return fields("schema_version", "1.0", "paper_uuid", p.uuid, "paper_title", p.title,
+        return fields("schema_version", "1.2", "paper_uuid", p.uuid, "paper_title", p.title,
             "formalization_sha256", formalHash(p.formText), "formalization_md", p.formText,
             "nodes", nodeRows, "concept_catalog", conceptRows, "body_units", body,
             "checks", fields("source_resolution", "passed", "body_citations", "passed",
@@ -3456,6 +3590,19 @@ public class ToolRunner {
                 if (!"public".equals(m) && !"private".equals(m))
                     problems.add(c.get("id") + " 的 modifier 不合：" + m);
             }
+            // concepts.jsonl 的陳述參照，必須都存在於 formalizations.jsonl
+            Path ff = root.resolve(EXPORTS).resolve("formalizations.jsonl");
+            if (Files.exists(ff)) {
+                Set<String> nodeIds = new HashSet<>();
+                for (Map<String, Object> f : readJsonl(ff))
+                    if (f.get("nodes") instanceof List<?> ns)
+                        for (Object o : ns) if (o instanceof Map<?, ?> nm) nodeIds.add(String.valueOf(nm.get("id")));
+                for (Map<String, Object> c : concepts)
+                    if (c.get("statements") instanceof List<?> st)
+                        for (Object o : st)
+                            if (o instanceof Map<?, ?> sm && !nodeIds.contains(String.valueOf(sm.get("node_id"))))
+                                problems.add(c.get("id") + " 參照的陳述不在 formalizations.jsonl：" + sm.get("node_id"));
+            } else problems.add("找不到 formalizations.jsonl，無法核對 concepts.jsonl 的陳述參照");
         }
         if (problems.isEmpty()) System.out.println("✓ papers.jsonl 檢查通過（" + papers.size() + " 筆）");
         else {
