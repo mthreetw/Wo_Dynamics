@@ -43,7 +43,7 @@ public class ToolRunner {
     static final String SRC_DIR    = "src/main/java";
     static final String EXPORTS    = "exports";
     /** HF 資料集名稱（例如「帳號/資料集」）。尚未發布時留空，第 8 步會略過。 */
-    static final String HF_DATASET = "";
+    static final String HF_DATASET = "mthreetw/Wo-Dynamics-WD";
     /** 規範文件所在目錄（相對於專案根目錄） */
     static final String DOCS_DIR   = "src/main/resources";
     /** 形式化手冊（附在形式化輸入包中）；找不到時不產生形式化輸入包 */

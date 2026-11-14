@@ -1,0 +1,44 @@
+name: Sync to Hugging Face Dataset
+
+# 推到 main 時，把 exports/ 的資料集同步到 HF。
+# exports/ 由作者在 commit 前執行 ToolRunner 產生（說明文件 4.9），這裡不重跑。
+# 資料集卡片（HF 上的 README.md）在 HF 網頁上維護，這裡不上傳、不覆蓋。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'exports/**'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install huggingface_hub
+        run: pip install huggingface_hub
+
+      - name: Upload to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import os
+          from huggingface_hub import HfApi, CommitOperationAdd as Add
+
+          repo = "mthreetw/Wo-Dynamics-WD"
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          api.create_repo(repo, repo_type="dataset", exist_ok=True)
+
+          files = ["concepts.jsonl", "papers.jsonl", "formalizations.jsonl", "寫作用概念.md"]
+          ops = [Add(path_in_repo=f"data/{f}", path_or_fileobj=f"exports/{f}") for f in files]
+
+          sha = os.environ["GITHUB_SHA"][:7]
+          api.create_commit(
+              repo_id=repo,
+              repo_type="dataset",
+              operations=ops,
+              commit_message=f"Sync from GitHub {sha}",
+          )
+          EOF
