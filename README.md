@@ -103,18 +103,6 @@ The specification documents are in `src/main/resources/`, currently in Chinese o
 | 群星規範-稽核總表 | 全部約束的正本，也是稽核的指令。The authoritative list of all constraints; also the audit instructions. |
 | 群星規範-工具規格 | ToolRunner 與 NewPaper 的規格。Specification of ToolRunner and NewPaper. |
 
-## 執行工具 / Running the tools
-
-在 IDE 中執行 `src/main/java/tools/ToolRunner.java` 的 `main`。需要 Java 21 以上；在 Linux 上要設定 UTF-8 語系（例如 `LC_ALL=C.UTF-8`）。每次 commit 前都要執行，`exports/` 才會是最新的。
-
-Run `main` in `src/main/java/tools/ToolRunner.java` from an IDE. Requires Java 21 or later; on Linux, set a UTF-8 locale (for example `LC_ALL=C.UTF-8`). Run it before every commit so that `exports/` stays current.
-
-## 同步到 Hugging Face / Syncing to Hugging Face
-
-推到 `main` 時，若 `exports/` 或 `hf/` 有變動，GitHub Action（`.github/workflows/sync-hf.yml`）會把三個資料集、寫作用概念清單與 `hf/README.md` 上傳到 [Wo-Dynamics-WD](https://huggingface.co/datasets/mthreetw/Wo-Dynamics-WD)，提交訊息附上 GitHub 的 commit 編號。需要在倉庫的 Secrets 設定 `HF_TOKEN`。
-
-On a push to `main` that changes `exports/` or `hf/`, a GitHub Action (`.github/workflows/sync-hf.yml`) uploads the three datasets, the writing concept list and `hf/README.md` to [Wo-Dynamics-WD](https://huggingface.co/datasets/mthreetw/Wo-Dynamics-WD), with the GitHub commit hash in the commit message. Requires an `HF_TOKEN` repository secret.
-
 ## 授權 / License
 
 MIT。作者：黃正宇 / Cheng Yu Huang（mthree.tw@gmail.com）。
